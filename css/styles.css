@@ -40,12 +40,15 @@ button:hover{
 }
 
 select{  /*Modificamos todos los selects*/
+    width: 4rem;
     background-color: var(--gris-3);
     padding: 0.3rem;
     color: var(--blanco-2);
     border: none;
     border-radius: 10px;
     cursor: pointer;
+
+    
 }
 
 /*CONTENEDORES GENERALES DEL BODY*/
@@ -79,7 +82,7 @@ select{  /*Modificamos todos los selects*/
 /*BACKGROUND*/
 
 body {
-    background-image: url(/images/background-movil.jpg);
+    background-image: url(images/background-movil.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -87,7 +90,7 @@ body {
 
 @media (min-width: 600px) {
     body {
-        background-image: url(/images/background.jpg); 
+        background-image: url(images/background.jpg); 
     }
 }
 
@@ -96,7 +99,7 @@ body {
 
 header{
     height: 9rem;
-    background-image: url(/images/fondoceleste.svg);
+    background-image: url(images/fondoceleste.svg);
     background-size: cover;
     position: fixed;
     top: 0;
@@ -109,7 +112,7 @@ header{
 
 @media (min-width: 100px) {
     header {
-        background-image: url(/images/fondo-celeste-computador.svg); 
+        background-image: url(images/fondo-celeste-computador.svg); 
     }
 }
 
