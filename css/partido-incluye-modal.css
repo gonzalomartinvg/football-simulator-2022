@@ -1,0 +1,523 @@
+/*MODAL GENERAL (se usa para penales y partido*/
+
+.contenedor-modal{ /*Es el fondo negro con opacidad*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    z-index: 2;
+    opacity: 0; /*Hacemos que solo se vea con la clase show*/
+    pointer-events: none; /*Le sacamos los atributos clickeables para que solo los tenga con la clase show*/
+    /*ABAJO VAMOS A MEJORAR LA TRANSICIÓN*/
+    transition: opacity .6s .9s; /*Indicamos transición de opacidad suave al abrir y cerrar el modal*/
+    --transform: translateY(-100vh); /*Creamos una propiedad customizada para que baje de arriba el Modal*/
+    --transition: transform .7s; /*Creamos una propiedad customizada para hacer suave la transición que hicimos con transform*/
+}
+
+.contenedor-modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    /*ABAJO VAMOS A MEJORAR LA TRANSICIÓN*/
+    transition: opacity .6s; /*Indicamos transición de opacidad suave al abrir y cerrar el modal*/
+    --transform: translateY(0); /*Creamos una propiedad customizada para que baje de arriba el Modal*/
+    --transition: transform .7s .7s; /*Creamos una propiedad customizada para hacer suave la transición que hicimos con transform*/
+}
+
+.modal{
+    width: 90%;
+    height: fit-content;
+    background-color: var(--blanco-1);
+    box-shadow: 0.2rem 0.2rem 0.2rem rgb(59, 58, 58);
+    margin: auto;
+    padding: 1rem;
+    margin-top: 10rem;
+    border-radius: 8px;
+    transform: var(--transform); /*Agregamos la transición que hicimos para el contenedor*/
+    transition:var(--transition); /*Agregamos la transición que hicimos para el contenedor*/
+}
+
+/*MODAL ERROR (se usa para avisar un error)*/
+
+.contenedor-modal-errores{ /*Es el fondo negro con opacidad*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    z-index: 2;
+    opacity: 0; /*Hacemos que solo se vea con la clase show*/
+    pointer-events: none; /*Le sacamos los atributos clickeables para que solo los tenga con la clase show*/
+    /*ABAJO VAMOS A MEJORAR LA TRANSICIÓN*/
+    transition: opacity .6s .9s; /*Indicamos transición de opacidad suave al abrir y cerrar el modal*/
+    --transform: translateY(-100vh); /*Creamos una propiedad customizada para que baje de arriba el Modal*/
+    --transition: transform .7s; /*Creamos una propiedad customizada para hacer suave la transición que hicimos con transform*/
+}
+
+.contenedor-modal-errores--show{
+    opacity: 1;
+    pointer-events: unset;
+    /*ABAJO VAMOS A MEJORAR LA TRANSICIÓN*/
+    transition: opacity .6s; /*Indicamos transición de opacidad suave al abrir y cerrar el modal*/
+    --transform: translateY(0); /*Creamos una propiedad customizada para que baje de arriba el Modal*/
+    --transition: transform .7s .7s; /*Creamos una propiedad customizada para hacer suave la transición que hicimos con transform*/
+}
+
+.modal-errores{
+    width: 90%;
+    height: fit-content;
+    background-color: var(--blanco-1);
+    box-shadow: 0.2rem 0.2rem 0.2rem rgb(59, 58, 58);
+    margin: auto;
+    margin-top: 10rem;
+    border-radius: 8px;
+    transform: var(--transform); /*Agregamos la transición que hicimos para el contenedor*/
+    transition:var(--transition); /*Agregamos la transición que hicimos para el contenedor*/
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+.modal-close-errores{
+    grid-column: 3/4;
+    width: fit-content;
+    padding: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem; 
+    margin-top: 1rem;
+    margin-right: 1rem;
+    justify-self: end;
+}
+
+.arbitro{
+    justify-self: center;
+    width: 5rem;
+    grid-column: 1 / 4;
+}
+
+.titulo-modal-errores{
+    justify-self: center;
+    font-size: 1.5rem;
+    grid-column: 1 / 4;
+    text-align: center;
+    color: var(--gris-3);
+}
+
+.texto-modal-errores{
+    justify-self: center;
+    grid-column: 1 / 4;
+    text-align: center;
+    color: var(--gris-3);
+    padding: 1rem;
+}
+
+/*PARTIDO*/
+
+.modal-partido{
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.modal-encabezado{
+    grid-column: 1/4;
+    width: 100%;
+    background-image: url(/images/fondo-partido.svg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 600px) {
+    .modal-encabezado{
+        background-image: url(/images/fondo-partido-computador.svg); 
+    }
+}
+
+.titulo-arg{
+    grid-column: 1/2;
+    justify-self: center;
+    align-self: start;
+    padding-bottom: 0.5rem;
+    color: var(--blanco-1);
+    display: grid;
+    grid-gap: 0.5rem;
+}
+
+.logo-argentina{
+    width: 4rem;
+}
+
+.arg{
+    font-size: 1rem;
+    justify-self: center;
+}
+
+.titulo-bra{
+    grid-column: 3/4;
+    justify-self: center;
+    align-self: start;
+    padding-bottom: 0.5rem;
+    color: var(--blanco-1);
+    display: grid;
+    grid-gap: 0.5rem;
+}
+
+.logo-brasil{
+    width: 4rem;
+}
+
+.bra{
+    font-size: 1rem;
+    justify-self: center;
+}
+
+
+.resultado-partido{
+    grid-column: 2/3;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: var(--blanco-1);
+}
+
+.reloj{
+    grid-column: 1/2;
+    display: flex;
+    color: var(--blanco-1);
+    font-size: 1.5rem;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.reloj button{
+    height: 2rem;
+    align-self: center;
+}
+
+.nombre-estadio{
+    color: var(--blanco-1);
+    justify-self: end;
+    margin-right: 0.3rem;
+    margin-top: 0.7rem;
+    grid-column: 2/4;
+}
+
+/*Contenedor eventos*/
+
+.contenedor-eventos-partido{
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    grid-column: 1/4;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.contenedor-eventos-partido p{
+    font-size: 0.7rem;
+}
+
+.eventos{
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+}
+
+.eventos-bra{
+    grid-column: 2/3;
+    text-align: start; 
+}
+
+.eventos-arg{
+    grid-column: 1/2;
+    text-align: end;
+    
+}
+
+/*Comentarios*/
+
+.contenedor-comentarios-general{
+    grid-column: 1 / 4;
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    background-color: rgb(241, 241, 241);
+    color: var(--gris-1);
+    display: grid;
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    transition: opacity .6s .9s;
+}
+
+.contenedor-comentarios-favor-brasil{ /*Se usa cuando es una jugada a favor de Brasil*/
+    grid-column: 1 / 4;
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    background-color: rgb(253, 228, 2);
+    color: rgb(4, 49, 172);
+    display: grid;
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.contenedor-comentarios-favor-brasil-gol{ /*Sirve para cuando hay un gol*/
+    grid-column: 1 / 4;
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    background-color: rgb(4, 49, 172);
+    color: rgb(253, 228, 2);
+    display: grid;
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    animation-name: gol-bra;
+    animation-duration: 0.25s;
+    animation-iteration-count: infinite;
+    
+}
+
+@keyframes gol-bra {
+    0% {background-color: rgb(253, 228, 2); color: rgb(4, 49, 172);}
+    50% {background-color: rgb(4, 49, 172); color: rgb(253, 228, 2);}
+    100% {background-color: rgb(253, 228, 2); color: rgb(4, 49, 172);}
+}
+
+.contenedor-comentarios-favor-argentina{ /*Se usa cuando es una jugada a favor de Argentina*/
+    grid-column: 1 / 4;
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    background-color: rgb(13, 138, 255);
+    color: rgb(255, 255, 255);
+    display: grid;
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.contenedor-comentarios-favor-argentina-gol{ /*Sirve para cuando hay un gol*/
+    grid-column: 1 / 4;
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    color: rgb(13, 138, 255);
+    display: grid;
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    animation-name: gol-arg;
+    animation-duration: 0.25s;
+    animation-iteration-count: infinite;
+    
+}
+
+@keyframes gol-arg {
+    0% {background-color: rgb(13, 138, 255); color: rgb(255, 255, 255);}
+    50% {background-color: rgb(255, 255, 255); color: rgb(13, 138, 255);}
+    100% {background-color: rgb(13, 138, 255); color: rgb(255, 255, 255);}
+}
+
+
+.contenedor-comentarios-expulsion{ /*Se usa cuando hay una explulsión*/
+    grid-column: 1 / 4;
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    background-color: rgb(199, 3, 3);
+    color: rgb(255, 255, 255);
+    display: grid;
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.contenedor-comentarios-lesion{ /*Se usa cuando hay una lesión*/
+    grid-column: 1 / 4;
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    background-color: rgb(241, 77, 77);
+    color: rgb(255, 255, 255);
+    display: grid;
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+/*Expulsión de jugador*/
+
+.expulsion{
+    display: none;
+}
+
+.texto-eventos-expulsion{ /*Modifica la información del partido y coloca la expulsión en rojo.*/
+    color: red;
+}
+
+/*Barras*/
+
+.barra-equipos{
+    grid-column: 1 / 4;
+    width: 90%;
+    margin: auto;
+    display: flex;
+}
+
+.barra-arg{
+    width: 50%;
+    height: 1.5rem;
+    background-color: rgb(13, 138, 255);
+}
+
+.barra-bra{
+    width: 50%;
+    height: 1.5rem;
+    background-color: rgb(253, 228, 2);
+}
+
+/*BOTONES*/
+
+.contenedor-botones-modal-partido{
+    width: 90%;
+    margin: auto;
+    grid-column: 1/4;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: end;
+}
+
+.volver-a-tacticas{
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    background-color: var(--gris-3);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    display: grid;
+    align-content: center;
+}
+
+
+.boton-jugar{ /*Se convierte en botón de stop al ser clickeado y dar inicio al partido*/
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    display: grid;
+    align-content: center;
+}
+
+.boton-jugar:hover{
+    background-color: rgb(187, 3, 3);
+}
+
+.boton{
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    display: grid;
+    align-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.boton:hover{
+    background-color: rgb(187, 3, 3);
+}
+
+
+.marcador-boton-que-se-ve{ /*Cuando un botón pasa de no verse a verse, le agregamos esta clase identificatoria para que podamos usar los condicionales "classlist.contains". Esta clase es un marcador de que el botón se ve.*/
+    font-family: 'Roboto', sans-serif; /*Le ponemos la tipografía solamente para que lo tome como una clase y no de error*/
+}
+
+.ocultar-botones{ /*Clase que oculta los botones. Está declarada también en el CSS de penales ya que si no, no afecta al botón penales*/
+    display: none;
+}
+
+.ocultar-horas-y-minutos{
+    display: none;
+}
+
+/*Avisos ojeador*/
+
+.avisos{
+    width: 100%;
+    grid-column: 1/4; /*Del contenedor-eventos-partido*/
+    background-color: var(--gris-2);
+    color: var(--blanco-1);
+    padding: 1rem;
+    display: none;
+    grid-gap: 0.5rem;
+}
+
+.avisos--show{
+    width: 100%;
+    grid-column: 1/4; /*Del contenedor-eventos-partido*/
+    background-color: var(--gris-2);
+    color: var(--blanco-1);
+    padding: 1rem;
+    display: grid;
+    grid-gap: 0.5rem;
+    
+    /*Animación*/
+    position: relative;
+    animation-name: movimiento-aviso;
+    animation-duration: 6s; /*La duración debe ser la misma que indicamos en javascript*/
+    z-index: 1;
+}
+
+@keyframes movimiento-aviso {
+    0% {bottom: 1rem; opacity: 0;}
+    20% {bottom: 0rem; opacity: 1;}
+    90% {bottom: 0rem; opacity: 1;}
+    100%{bottom: 1rem; opacity: 0;}
+}
+
+.texto-aviso{
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.titulo-aviso{
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.imagen-aviso{
+    width: 4rem;
+    justify-self: center;
+}

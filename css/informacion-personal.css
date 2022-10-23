@@ -1,0 +1,129 @@
+.contenedor-info-personal{
+    max-width: 50rem;
+    background-color: var(--blanco-1);
+    color: var(--gris-2);
+    display: grid;
+    grid-gap: 1rem;
+    line-height: 1.5rem;
+}
+
+.contenedor-info-personal a {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.contenedor-info-ayuda{
+    max-width: 50rem;
+    background-color: var(--blanco-1);
+    color: var(--gris-2);
+    display: grid;
+    grid-gap: 1rem;
+    line-height: 1.5rem;
+}
+
+.encuesta {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.info-ayuda-1{
+    justify-self: center;
+}
+
+.info-ayuda-2{
+    justify-self: center;
+}
+
+.info-ayuda-3{
+    justify-self: center;
+}
+
+
+.texto-ayuda-lista{
+    list-style: unset;
+    width: 90%;
+    margin: auto;
+}
+
+.info-ayuda-1::before{
+    content: "";
+}
+
+.info-ayuda-2::before{
+    content: "";  
+}
+
+.frase-final{
+    justify-self: center;
+    text-align: center;
+}
+
+.boton-volver-a-jugar{
+    width: fit-content;
+    font-size: 1rem;
+    color: var(--blanco-1);
+    background-color: var(--primary-color);
+    padding: 0.3rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    text-align: center;
+    justify-self: center;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+
+.boton-volver-a-jugar:hover{
+    background-color: #0889ce;
+    color: var(--blanco-1);
+}
+
+.ocultar-bloques{
+    display: none;
+}
+
+.bloque-3-no-se-ve{
+    display: none;
+}
+
+/*Iconos con animacions*/
+
+.animacion-icono-contenedor{
+    width: 90%;
+    margin: auto;
+    display: grid;
+}
+
+.icono-ayuda{
+    width: 5rem;
+    justify-self: center;
+
+    position: relative;
+    animation-name: salto;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    z-index: 1;
+}
+
+.icono-sobre-mi{
+    width: 5rem;
+    justify-self: center;
+
+    position: relative;
+    animation-name: salto;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    z-index: 1;
+}
+
+@keyframes salto {
+    0% {top: 0.8rem;}
+    50%{top: 0;}
+    100%{top: 0.8rem;}
+}
+
+.sombra{
+    width: 6rem;
+    justify-self: center;
+}
+

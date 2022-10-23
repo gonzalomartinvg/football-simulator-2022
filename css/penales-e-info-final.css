@@ -1,0 +1,152 @@
+/*PENALES HTML (No se ve hasta que se habiliten los penales*/
+
+.bloque-1-no-se-ve{ /*La clase que hace que cuando se clickee en el botón ir a elegir pateadores de penales se borren todos los contenedores y quede solo el de elegir pateadores*/
+    display: none;
+}
+
+.boton-elegir-pateadores-penales{ /*Clase que adquiere el botón que nos lleva a elegir a los jugadores para los penales.*/
+    justify-self: end;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    display: grid;
+    align-content: center;
+}
+
+.boton-elegir-pateadores-penales:hover{
+    background-color: rgb(187, 3, 3);
+}
+
+.contenedor-seleccion-penales{
+    color: var(--blanco-2);
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.seleccion-penales{
+    width: 90%;
+    margin: auto;
+    color: var(--blanco-2);
+    display: grid;
+    grid-auto-rows: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 1rem;
+    
+}
+
+.icono-penales{
+    width: 4rem;
+    justify-self: center;
+}
+
+.contenedor-seleccion-penales select{
+    justify-self: center;
+    width: 100%;
+    max-width: 20rem;
+}
+
+.display-none{ /*Ocultamos la option y el select si un jugador fue lesionado o expulsado*/
+    display: none;
+}
+
+.contenedor-boton-ir-a-penales{
+    width: 100%;
+    margin-top: 1rem;
+    display: grid;
+}
+
+.ir-a-penales{
+    font-size: 1rem;
+    padding: 0.8rem;
+    
+    background-color: var(--gris-3);
+    color: var(--blanco-1);
+    justify-self: end;
+}
+
+.ir-apenales:hover{
+    background-color: rgb(187, 3, 3);
+}
+
+/*El modal PENALES comparte la mayoría de funcionalidad con la del partido. Acá está lo que se diferencia*/
+
+.modal-penales{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.boton-jugar-penales{
+    grid-column: 1/4;
+    justify-self: end;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    display: grid;
+    align-content: center;
+}
+
+.nombre-penales{
+    grid-column: 1/4;
+    justify-self: center;
+    color: var(--blanco-1);
+    font-size: 1.5rem;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.texto-fallo-penal{ /*Modifica la información del partido y coloca la expulsión en rojo.*/
+    color: rgb(175, 175, 175);
+}
+
+.eventos-arg-penales{
+    justify-self: end;
+}
+
+.eventos-bra-penales{
+    justify-self: start;
+}
+
+.patear-penales{ /*Es el botón de iniciar penales*/
+    grid-column: 1/4;
+    justify-self: end;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    display: grid;
+    align-content: center;
+}
+
+.patear-penales:hover{ /*Es el botón de iniciar penales*/
+    background-color: rgb(187, 3, 3);
+}
+
+.ocultar-botones{ /*Este clase oculta los botones, esta también declarada en "styles" ya que la declarada ahí no afecta al Botón penales por el estilo cascada de CSS*/
+    display: none;
+}
+
+.ocultar-cartel-campeon{ /*También está en el CSS modal de partidos*/
+    display: none;
+}
+
+.ocultar-contenedor-comentarios{ /*También está en el CSS modal de partidos*/
+    display: none;
+}
+
+.bloque-2-no-se-ve{
+    display: none;
+}
+
+

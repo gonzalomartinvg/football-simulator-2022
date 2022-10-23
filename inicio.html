@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Simulator 2022</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/seleccion-de-jugadores.css">
+    <link rel="stylesheet" href="css/partido-incluye-modal.css">
+    <link rel="stylesheet" href="css/penales-e-info-final.css">
+    <link rel="stylesheet" href="css/informacion-personal.css">
+    <link rel="stylesheet" href="css/cartel-campeon.css">
+    <link rel="stylesheet" href="css/adaptacion-computador.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>Argentina</h1>
+        <img class="logo-argentina-header" src="images/logo-argentina.svg" alt="Logo argentina">
+    </header>
+
+    <div class="parrafo-introduccion"><p>Estás a minutos de disputar la Final del Mundo Qatar 2022 contra la selección de Brasil. Tenés disponible un informe que prepararon tus ojeadores para que puedas enfrentar a Brasil de la mejor manera.</p></div>
+
+    <!-- Bloque 1-->
+
+    <div class="bloques bloque-1">
+
+        <!-- Informe ojeador-->
+
+        <div class="informes-acordeon informe-ojeador">
+            <button class="accordion">Informe ojeador</button>
+            <div class="panel panel-ojeador">
+
+                <p class="texto-inicial-ojeador">Informe elaborado por los ojeadores Sebastián Pazzano y Daniel Osvaldo Volpe.</p>
+
+                <img class="icono-informes" src="images/informe.png" alt="icono informes">
+
+                <p class="titulo-informe-ojeador">Equipo Rival:</p>
+                
+                <ul class="listado-ojeador-brasil">
+
+                    <li>Brasil ha ganado <span class="bold-text">5 de los 6 partidos disputados</span> en la copa del mundo.</li>
+                    <li>Su estilo de juego es de <span class="bold-text">posesión de pelota</span>.</li>
+                    <li>Su formación suele ser <span class="bold-text">4-2-3-1 abierto</span>.</li>
+                    <li>Ejerce una <span class="bold-text">alta presión</span>.</li>
+                    <li>Habitualmente el arquero da pases en corto y el equipo <span class="bold-text">intenta salir jugando desde la defensa</span>.</li>
+                    <li>Brasil intenta jugar un <span class="bold-text">fútbol cerrado</span> con predominancia de pases cortos en el centro de la cancha.</li>
+                    <li>La <span class="bold-text">gran calidad de pases de Brasil</span> podría ser una amenaza.</li>
+                    <li>El <span class="bold-text">juego aéreo de Brasil</span> es uno de los mejores de la copa del mundo.</li>
+                    <li>Algunos de sus jugadores <span class="bold-text"> no se sienten cómodos en los roces cuerpo a cuerpo</span>.</li>
+                    <li>Su jugador destacado es <span class="bold-text">Neymar</span> con 30 regates, 5 asistencias y 4 goles.</li>
+                    <li>La velocidad de <span class="bold-text">Richarlison</span> y la forma de moverse a espaldas de la defensa podría ser una amenaza.</li>
+                    <li>La velocidad y el estilo de regate de <span class="bold-text">Vinicius Jr.</span> podría ser una amenaza.</li>
+                    <li>La calidad de pases de <span class="bold-text">Casemiro</span> podría perjudicarnos si le dejamos mucho espacio.</li>
+                    <li><span class="bold-text">A.Telles</span> no ha tenido una buena copa del mundo hasta el momento.</li>
+                    <li><span class="bold-text">Alisson</span> recibió 3 goles en lo que va de la copa del mundo. Dos de ellos de media distancia y uno de jugada dentro del área.</li>
+    
+                </ul>
+
+                <p class="titulo-informe-ojeador">Argentina:</p>
+                
+                <ul class="listado-ojeador-argentina">
+                    
+                    <li><span class="bold-text">L. Messi</span> debería ser el capitán del equipo hoy.</li>
+                    <li><span class="bold-text">L. Messi</span> debería ejecutar las faltas a corta distancia.</li>
+                    <li>De cara al partido los jugadores están confiados pero también nerviosos, las finales perdidas en las dos Copas América y el Mundial 2014 aún le pesan. <span class="bold-text">Intentá animar a tus jugadores.</span></li>
+    
+                </ul>
+
+                <p class="espacio-vacio-que-hace-un-padding-informe-inicial"></p>
+
+            </div>
+        </div>
+
+
+
+
+    <div class="div-adaptador-computador"> <!-- EMPIEZA DIV DE ADAPTACIÓN A COMPUTADOR-->
+
+        <!-- APARTADO 1: Elegí táctica-->
+
+        <div class="contenedores contenedor-tacticas">
+            <h2>Elegí la táctica</h2>
+
+            <img class="icono-tactica" src="images/tacticas.png" alt="">
+            
+            <!-- TÁCTICA 4-3-3--> <button id="tactica-1" class="tacticas-button tactica-1" data-puntuacion="70"  data-efectividadbrasil="0" data-efectividadargentina="0" data-rojabrasil="0" data-rojaargentina="0">4-3-3</button>
+
+            <!-- TÁCTICA 4-4-2--><button id="tactica-2" class="tacticas-button tactica-2" data-puntuacion="40"  data-efectividadbrasil="0" data-efectividadargentina="0" data-rojabrasil="0" data-rojaargentina="0">4-4-2</button>
+
+            <!-- TÁCTICA 3-5-2--><button id="tactica-3" class="tacticas-button tactica-3" data-puntuacion="80"  data-efectividadbrasil="5" data-efectividadargentina="0" data-rojabrasil="0" data-rojaargentina="0">3-5-2</button>
+
+            <!-- TÁCTICA 5-3-1-1--><button id="tactica-4" class="tacticas-button tactica-4" data-puntuacion="60"  data-efectividadbrasil="-5" data-efectividadargentina="-3" data-rojabrasil="0" data-rojaargentina="0">5-3-1-1</button>
+        </div>
+
+        <!-- APARTADO 2: Seleccioná jugadores-->
+
+        <div class="contenedores contenedor-jugadores">
+        
+            <!--<button class="prueba12">PRUEBA</button>-->
+
+        <!-- TÁCTICA 4-3-3-->
+            <div id="tacticas" class="tacticas tactica-433"> <!-- En javascript le vamos a indicar que cuando seleccionemos la táctica, esta clase cambie hacia la clase de otra táctica-->
+
+             <!-- Atacantes-->
+
+             <div id="jugador-11" class="jugadores jugador-11 jugador-11-433">
+
+                <img class="imagenes-jugadores imagen-jugador-11" src="images/jugadores/profile-01.png" alt="">
+                
+                 <select class="numero-de-jugador" id="juga-11" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-atacante" data-valor="1" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-atacante" data-valor="1" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-atacante" data-valor="30" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-atacante" data-valor="30" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-atacante" data-valor="10" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                    <option class="jugador medina medina-atacante" data-valor="1" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-atacante" data-valor="10" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-atacante" data-valor="15" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-atacante" data-valor="40" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-atacante" data-valor="20" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-atacante" data-valor="50" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-atacante" data-valor="70" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-atacante" data-valor="70" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-atacante" data-valor="100" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-atacante" data-valor="75" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-atacante" data-valor="90" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-atacante" data-valor="95" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-atacante" data-valor="65" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-atacante" data-valor="80" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-atacante" data-valor="70"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                <option disabled>Arqueros</option>
+        
+                    <!-- El valor del Dibu Martinez es un bug--> 
+                    <option class="jugador emiliano-martinez emiliano-martinez-atacante" data-valor="1" data-text="Emiliano Martinez" data-lesion="0" data-roja="0">Emiliano Martinez (POR)</option>
+                    <option class="jugador armani armani-atacante" data-valor="1" data-text="Franco Armani" data-lesion="0" data-roja="0">Franco Armani (POR)</option>
+                    <option class="jugador rulli rulli-atacante" data-valor="1" data-text="Gerónimo Rulli" data-lesion="0" data-roja="0">Gerónimo Rulli (POR)</option>
+                
+                </select>
+
+            </div>
+
+            <div id="jugador-10" class="jugadores jugador-10 jugador-10-433">
+
+                <img class="imagenes-jugadores imagen-jugador-10" src="images/jugadores/profile-01.png" alt="">
+
+                 <select class="numero-de-jugador" id="juga-10" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-atacante" data-valor="1" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-atacante" data-valor="1" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-atacante" data-valor="30" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-atacante" data-valor="30" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-atacante" data-valor="10" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD)</option>
+                    <option class="jugador medina medina-atacante" data-valor="1" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-atacante" data-valor="10" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-atacante" data-valor="15" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-atacante" data-valor="40" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-atacante" data-valor="20" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-atacante" data-valor="50" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-atacante" data-valor="70" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-atacante" data-valor="70" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-atacante" data-valor="100" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-atacante" data-valor="75" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-atacante" data-valor="90" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-atacante" data-valor="95" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-atacante" data-valor="65" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-atacante" data-valor="80" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-atacante" data-valor="70"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                <option disabled>Arqueros</option>
+        
+                    <!-- El valor del Dibu Martinez es un bug--> 
+                    <option class="jugador emiliano-martinez emiliano-martinez-atacante" data-valor="1" data-text="Emiliano Martinez" data-lesion="0" data-roja="0">Emiliano Martinez (POR)</option>
+                    <option class="jugador armani armani-atacante" data-valor="1" data-text="Franco Armani" data-lesion="0" data-roja="0">Franco Armani (POR)</option>
+                    <option class="jugador rulli rulli-atacante" data-valor="1" data-text="Gerónimo Rulli" data-lesion="0" data-roja="0">Gerónimo Rulli (POR)</option>
+                
+                </select>
+
+            </div>
+
+            <div id="jugador-9" class="jugadores jugador-9 jugador-9-433">
+
+                <img class="imagenes-jugadores imagen-jugador-9" src="images/jugadores/profile-01.png"  alt="">
+                
+                 <select class="numero-de-jugador" id="juga-9" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-atacante" data-valor="1" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-atacante" data-valor="1" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-atacante" data-valor="30" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-atacante" data-valor="30" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-atacante" data-valor="10" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                    <option class="jugador medina medina-atacante" data-valor="1" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-atacante" data-valor="10" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-atacante" data-valor="15" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-atacante" data-valor="40" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-atacante" data-valor="20" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-atacante" data-valor="50" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-atacante" data-valor="70" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-atacante" data-valor="70" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-atacante" data-valor="100" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-atacante" data-valor="75" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-atacante" data-valor="90" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-atacante" data-valor="95" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-atacante" data-valor="65" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-atacante" data-valor="80" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-atacante" data-valor="70"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                <option disabled>Arqueros</option>
+        
+                    <!-- El valor del Dibu Martinez es un bug--> 
+                    <option class="jugador emiliano-martinez emiliano-martinez-atacante" data-valor="1" data-text="Emiliano Martinez" data-lesion="0" data-roja="0">Emiliano Martinez (POR)</option>
+                    <option class="jugador armani armani-atacante" data-valor="1" data-text="Franco Armani" data-lesion="0" data-roja="0">Franco Armani (POR)</option>
+                    <option class="jugador rulli rulli-atacante" data-valor="1" data-text="Gerónimo Rulli" data-lesion="0" data-roja="0">Gerónimo Rulli (POR)</option>
+                
+                </select>
+
+            </div>
+
+            <!-- Mediocampistas-->
+            
+            <div id="jugador-8" class="jugadores jugador-8 jugador-8-433">
+
+                <img class="imagenes-jugadores imagen-jugador-8" src="images/jugadores/profile-01.png"  alt="">
+                 <select class="numero-de-jugador" id="juga-8" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-mediocampista" data-valor="45" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-mediocampista" data-valor="20" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-mediocampista" data-valor="15" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-mediocampista" data-valor="10" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-mediocampista" data-valor="65" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                    <option class="jugador medina medina-mediocampista" data-valor="10" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-mediocampista" data-valor="20" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-mediocampista" data-valor="30" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-mediocampista" data-valor="90" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-mediocampista" data-valor="70" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-mediocampista" data-valor="90" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-mediocampista" data-valor="75" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-mediocampista" data-valor="80" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-mediocampista" data-valor="95" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-mediocampista" data-valor="65" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-mediocampista" data-valor="2" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-mediocampista" data-valor="60" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-mediocampista" data-valor="30" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-mediocampista" data-valor="70" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-mediocampista" data-valor="30"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                </select>
+
+            </div>
+
+            <div id="jugador-7" class="jugadores jugador-7 jugador-7-433">
+
+                <img class="imagenes-jugadores imagen-jugador-7" src="images/jugadores/profile-01.png"  alt="">
+
+                 <select class="numero-de-jugador" id="juga-7" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-mediocampista" data-valor="45" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-mediocampista" data-valor="20" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-mediocampista" data-valor="15" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-mediocampista" data-valor="10" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-mediocampista" data-valor="65" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                    <option class="jugador medina medina-mediocampista" data-valor="10" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-mediocampista" data-valor="20" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-mediocampista" data-valor="30" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-mediocampista" data-valor="90" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-mediocampista" data-valor="70" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-mediocampista" data-valor="90" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-mediocampista" data-valor="75" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-mediocampista" data-valor="80" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-mediocampista" data-valor="95" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-mediocampista" data-valor="65" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-mediocampista" data-valor="2" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-mediocampista" data-valor="60" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-mediocampista" data-valor="30" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-mediocampista" data-valor="70" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-mediocampista" data-valor="30"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                </select>
+
+            </div>      
+
+            <div id="jugador-6" class="jugadores jugador-6 jugador-6-433">
+
+                <img class="imagenes-jugadores imagen-jugador-6" src="images/jugadores/profile-01.png"  alt="">
+
+                 <select class="numero-de-jugador" id="juga-6" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-mediocampista" data-valor="45" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-mediocampista" data-valor="20" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-mediocampista" data-valor="15" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-mediocampista" data-valor="10" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-mediocampista" data-valor="65" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                    <option class="jugador medina medina-mediocampista" data-valor="10" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-mediocampista" data-valor="20" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-mediocampista" data-valor="30" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-mediocampista" data-valor="90" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-mediocampista" data-valor="70" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-mediocampista" data-valor="90" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-mediocampista" data-valor="75" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-mediocampista" data-valor="80" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-mediocampista" data-valor="95" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-mediocampista" data-valor="65" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-mediocampista" data-valor="2" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-mediocampista" data-valor="60" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-mediocampista" data-valor="30" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-mediocampista" data-valor="70" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-mediocampista" data-valor="30"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                </select>
+
+            </div>
+
+            <!-- Defensores-->
+
+            <div id="jugador-5" class="jugadores jugador-5 jugador-5-433">
+
+                <img class="imagenes-jugadores imagen-jugador-5" src="images/jugadores/profile-01.png"  alt="">
+                 <select class="numero-de-jugador" id="juga-5" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-defensor" data-valor="50" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-defensor" data-valor="50" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-defensor" data-valor="95" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-defensor" data-valor="75" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-defensor" data-valor="60" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                    <option class="jugador medina medina-defensor" data-valor="50" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-defensor" data-valor="80" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-defensor" data-valor="30" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-defensor" data-valor="10" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-defensor" data-valor="20" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-defensor" data-valor="4" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-defensor" data-valor="1" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-defensor" data-valor="1" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-defensor" data-valor="1" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-defensor" data-valor="1" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-defensor" data-valor="50" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-defensor" data-valor="1" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-defensor" data-valor="1" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-defensor" data-valor="1" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-defensor" data-valor="1"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                </select>
+
+            </div>
+
+            <div id="jugador-4" class="jugadores jugador-4 jugador-4-433">
+
+                <img class="imagenes-jugadores imagen-jugador-4" src="images/jugadores/profile-01.png"  alt="">
+                 <select class="numero-de-jugador" id="juga-4" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-defensor" data-valor="50" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-defensor" data-valor="50" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-defensor" data-valor="95" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-defensor" data-valor="75" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-defensor" data-valor="60" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                    <option class="jugador medina medina-defensor" data-valor="50" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-defensor" data-valor="80" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-defensor" data-valor="30" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-defensor" data-valor="10" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-defensor" data-valor="20" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-defensor" data-valor="4" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-defensor" data-valor="1" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-defensor" data-valor="1" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-defensor" data-valor="1" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-defensor" data-valor="1" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-defensor" data-valor="50" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-defensor" data-valor="1" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-defensor" data-valor="1" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-defensor" data-valor="1" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-defensor" data-valor="1"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                </select>
+
+            </div>
+
+            <div id="jugador-3" class="jugadores jugador-3 jugador-3-433">
+
+                <img class="imagenes-jugadores imagen-jugador-3" src="images/jugadores/profile-01.png"  alt="">
+                 <select class="numero-de-jugador" id="juga-3" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-defensor" data-valor="50" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-defensor" data-valor="50" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-defensor" data-valor="95" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-defensor" data-valor="75" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-defensor" data-valor="60" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                    <option class="jugador medina medina-defensor" data-valor="50" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-defensor" data-valor="80" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-defensor" data-valor="30" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-defensor" data-valor="10" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-defensor" data-valor="20" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-defensor" data-valor="4" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-defensor" data-valor="1" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-defensor" data-valor="1" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-defensor" data-valor="1" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-defensor" data-valor="1" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-defensor" data-valor="50" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-defensor" data-valor="1" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-defensor" data-valor="1" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-defensor" data-valor="1" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-defensor" data-valor="1"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                </select>
+
+            </div>
+
+            <div id="jugador-2" class="jugadores jugador-2 jugador-2-433">
+
+                <img class="imagenes-jugadores imagen-jugador-2" src="images/jugadores/profile-01.png"  alt="">
+
+                 <select class="numero-de-jugador" id="juga-2" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Defensores</option>
+        
+                    <option class="jugador molina molina-defensor" data-valor="50" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                    <option class="jugador montiel montiel-defensor" data-valor="50" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                    <option class="jugador romero romero-defensor" data-valor="95" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                    <option class="jugador otamendi otamendi-defensor" data-valor="75" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                    <option class="jugador lisandro-martinez lisandro-martinez-defensor" data-valor="60" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                    <option class="jugador medina medina-defensor" data-valor="50" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                    <option class="jugador tagliafico tagliafico-defensor" data-valor="80" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                    <option class="jugador acuna acuna-defensor" data-valor="30" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+        
+                    <option disabled>Mediocampistas</option>
+        
+                    <option class="jugador paredes paredes-defensor" data-valor="10" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                    <option class="jugador rodriguez rodriguez-defensor" data-valor="20" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                    <option class="jugador depaul depaul-defensor" data-valor="4" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                    <option class="jugador gomez gomez-defensor" data-valor="1" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                    <option class="jugador locelso locelso-defensor" data-valor="1" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+        
+                    <option disabled>Atacantes</option>
+        
+                    <option class="jugador messi messi-defensor" data-valor="1" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                    <option class="jugador dybala dybala-defensor" data-valor="1" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                    <option class="jugador lautaro-martinez lautaro-martinez-defensor" data-valor="50" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                    <option class="jugador dimaria dimaria-defensor" data-valor="1" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                    <option class="jugador alvarez alvarez-defensor" data-valor="1" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                    <option class="jugador angel-correa angel-correa-defensor" data-valor="1" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                    <option class="jugador joaquin-correa joaquin-correa-defensor" data-valor="1"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+        
+                </select>
+
+            </div>
+
+            <!-- Arquero-->
+
+            <div id="jugador-1" class="jugadores jugador-1 jugador-1-433">
+
+                <img class="imagenes-jugadores imagen-jugador-1" src="images/jugadores/profile-01.png"  alt="">
+                 <select class="numero-de-jugador" id="juga-1" data-valor="0" data-text="soy un select vacio" data-lesion="0" data-roja="0">>
+
+                    <option hidden selected>Seleccioná un jugador</option>
+        
+                    <option disabled>Arqueros</option>
+        
+                    <option class="jugador emiliano-martinez emiliano-martinez-arquero" data-valor="90" data-text="Emiliano Martinez" data-lesion="0" data-roja="0">Emiliano Martinez (POR)</option>
+                    <option class="jugador armani armani-arquero" data-valor="15" data-text="Franco Armani" data-lesion="0" data-roja="0">Franco Armani (POR)</option>
+                    <option class="jugador rulli rulli-arquero" data-valor="50" data-text="Gerónimo Rulli" data-lesion="0" data-roja="0">Gerónimo Rulli (POR)</option>
+        
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- TÁCTICA 4-4-2 se activa por javascript-->
+
+       <!-- TÁCTICA 3-5-2 se activa por javascript-->
+    
+        <!-- TÁCTICA 5-3-1-1 se activa por javascript-->
+        </div>
+
+
+        <!-- APARTADO 3: Estilos de juego-->
+
+        <div class="contenedores contenedor-estilos-de-juego">
+
+            <h2>¿Qué estilo de juego va a tener tu equipo?</h2>
+            
+            <img class="icono-estilo-de-juego" src="images/estilos-de-juego.png" alt="">
+
+            <div class="estilos-de-juego">
+                <!-- Ultradefensivo-->
+                <button class="estilos-de-juego-button ultradefensivo" data-puntuacion="20"  data-efectividadbrasil="-15" data-efectividadargentina="0" data-rojabrasil="0" data-rojaargentina="5" data-lesion="0">Ultra defensivo</button>
+                <!-- Defensivo-->
+                <button class="estilos-de-juego-button defensivo" data-puntuacion="30"  data-efectividadbrasil="-10" data-efectividadargentina="0" data-rojabrasil="0" data-rojaargentina="5" data-lesion="0">Defensivo</button>
+                <!-- Contraataque-->
+                <button class="estilos-de-juego-button contraataque" data-puntuacion="35"  data-efectividadbrasil="-5" data-efectividadargentina="10" data-rojabrasil="0" data-rojaargentina="0" data-lesion="0">Contraataque</button>
+                <!-- Equilibrado-->
+                <button class="estilos-de-juego-button equilibrado" data-puntuacion="50"  data-efectividadbrasil="0" data-efectividadargentina="0" data-rojabrasil="0" data-rojaargentina="0" data-lesion="0">Equilibrado</button>
+                <!-- Contrapresión-->
+                <button class="estilos-de-juego-button contrapresion" data-puntuacion="100"  data-efectividadbrasil="5" data-efectividadargentina="0" data-rojabrasil="0" data-rojaargentina="0" data-lesion="1">Contrapresión</button>
+                <!-- Ofensivo-->
+                <button class="estilos-de-juego-button ofensivo" data-puntuacion="80"  data-efectividadbrasil="10" data-efectividadargentina="0" data-rojabrasil="0" data-rojaargentina="0" data-lesion="0">Ofensivo</button>
+                <!-- Todos al ataque funciona de manera particular, si esta seleccionado tendremos un partido atípico. Por lo tanto, no comparte clase con las demás porque actua de manera individual--> 
+                <button class="todos-al-ataque" data-todosalataque="50"  data-efectividadbrasil="0" data-efectividadargentina="0" data-rojabrasil="0" data-rojaargentina="0" data-lesion="0">Todos al ataque</button>
+            </div>
+
+        </div>
+
+    </div> <!-- TERMINA DIV DE ADAPTACIÓN A COMPUTADOR-->
+
+
+
+
+        <div class="informes-acordeon informe-ojeador">
+            <button class="accordion">¿Qué es un estilo de juego?</button>
+            <div class="panel panel-ojeador">
+
+                <p class="texto-inicial-ojeador">El estilo de juego es la forma con la que tu equipo va a disputar el partido. Dependiendo de tus jugadores, el equipo rival y el contexto, será más efectivo un estilo u otro.</p>
+
+                <img class="icono-estilo-de-juego-acordeon" src="images/estilo-de-juego-acordeon.png" alt="icono cancha">
+                
+                <div class="contenedor-estilos-de-juego-informe">
+
+                    <h2>Ultra defensivo</h2>
+
+                    <p>También conocido como <span class="bold-text">"Sacar el autobús"</span>. Este estilo consiste únicamente en intentar defenderse evitando que el equipo rival marque. <span class="bold-text">Es óptimo cuando vamos ganando un partido y queremos cuidar el resultado, o también si queremos intentar un empate cerrado</span>.</p>
+
+                    <h2>Defensivo</h2>
+
+                    <p>Al jugar un estilo defensivo, <span class="bold-text">el equipo se ocupará, en primer lugar, de que no le marquen goles</span> y si tienen alguna oportunidad de atacar, la aprovecharán utilizando un contraataque.  La mentalidad adoptada será cauta.</p>
+
+                    <h2>Contraataque</h2>
+
+                    <p>El equipo tendrá una mentalidad cauta y paciente, esperando el momento oportuno para atacar utilizando pases largos a espalda de los jugadores contrarios. <span class="bold-text">Suele ser efectivo contra equipos de mentalidad ofensiva que ejercen mucha presión</span>.</p>
+
+                    <h2>Equilibrado</h2>
+
+                    <p>El equipo adquirirá una mentalidad equilibrada entre el estilo defensivo y ofensivo.<span class="bold-text">Es ideal para los partidos en donde el rival tiene un nivel similar al nuestro</span>.</p>
+
+                    <h2>Contrapresión</h2>
+
+                    <p>La contrapresión se basa en una presión alta en el campo rival, intentando que los jugadores contrarios no consigan iniciar el juego desde abajo. Con este estilo, <span class="bold-text">se busca ahogar al rival y recuperar el balón rápidamente</span> generando varias acciones ofensivas por partido. <span class="bold-text">El principal problema es el desgaste físico</span> que la alta presión produce en los jugadores, aumentando el riesgo de lesión y el agotamiento físico.</p>
+
+                    <h2>Ofensivo</h2>
+
+                    <p>El equipo intentará generar la mayor cantidad de ocasiones de ataque pero siendo consciente de los posibles contraataques del equipo rival. <span class="bold-text">El principal objetivo es que el partido se desarrolle en el campo rival.</span> Este estilo es poco efectivo contra equipos que intentan pases largos a espaldas de nuestros defensores</p>
+
+                    <h2>Todos al ataque</h2>
+
+                    <p>Este estilo super ofensivo es un manotazo de ahogado para <span class="bold-text">intentar hacer un gol a toda costa sin que importen las acciones defensivas</span>. El equipo presionará muy arriba y es posible que los defensores centrales lleguen como centrodelanteros y que el arquero vaya a la ofensiva en los corners. <span class="bold-text">Es recomendado utilizarlo como último recurso</span>.</p>
+
+                    <p class="espacio-vacio-que-hace-un-padding-informe-inicial"></p>
+                </div>
+
+                <p class="espacio-vacio-que-hace-un-padding-informe-inicial"></p>
+                
+
+            </div>
+        </div>
+
+        <!-- APARTADO 4: Capitán / APARTADO 5: Balón parado--> 
+
+        <div class="contenedores contenedor-capitan-balon-parado">
+
+            <h2>Capitanía</h2>
+
+            <img class="icono-capitan" src="images/cinta-capitan.png" alt="">
+
+            <p>Elegí al capitán del equipo.</p>
+
+            <select>
+
+                <option hidden selected>Seleccioná un jugador</option>
+    
+                <option disabled>Defensores</option>
+    
+                <option class="capitan molina-capitan" data-puntuacion="-2" data-efectividadargentina="0" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                <option class="capitan montiel-capitan" data-puntuacion="-1" data-efectividadargentina="0" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                <option class="capitan romero-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                <option class="capitan otamendi-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                <option class="capitan lisandro-martinez-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                <option class="capitan medina-capitan" data-puntuacion="-2" data-efectividadargentina="0" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                <option class="capitan tagliafico-capitan" data-puntuacion="1" data-efectividadargentina="0" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                <option class="capitan acuna-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+    
+                <option disabled>Mediocampistas</option>
+    
+                <option class="capitan paredes-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                <option class="capitan rodriguez-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                <option class="capitan depaul-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                <option class="capitan gomez-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                <option class="capitan locelso-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+    
+                <option disabled>Atacantes</option>
+    
+                <option class="capitan messi-capitan" data-puntuacion="5" data-efectividadargentina="0" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                <option class="capitan dybala-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                <option class="capitan lautaro-martinez-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                <option class="capitan dimaria-capitan" data-puntuacion="1" data-efectividadargentina="0" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                <option class="capitan alvarez-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                <option class="capitan angel-correa-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                <option class="capitan joaquin-correa-capitan" data-puntuacion="0" data-efectividadargentina="0"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+    
+            <option disabled>Arqueros</option>
+    
+                <option class="capitan emiliano-martinez-capitan" data-puntuacion="1" data-efectividadargentina="0" data-text="Emiliano Martinez" data-lesion="0" data-roja="0">Emiliano Martinez (POR)</option>
+                <option class="capitan armani-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Franco Armani" data-lesion="0" data-roja="0">Franco Armani (POR)</option>
+                <option class="capitan rulli-capitan" data-puntuacion="0" data-efectividadargentina="0" data-text="Gerónimo Rulli" data-lesion="0" data-roja="0">Gerónimo Rulli (POR)</option>
+            
+            </select>
+            
+
+            <h2>Balón parado</h2>
+            <img class="icono-balon-parado" src="images/balon-parado.png" alt="">
+            <p>Elegí al jugador encargado de ejecutar los tiros libres a corta distancia.</p>
+
+            <select>
+
+                <option hidden selected>Seleccioná un jugador</option>
+    
+                <option disabled>Defensores</option>
+    
+                <option class="balon-parado molina-balon-parado" data-puntuacion="0" data-efectividadargentina="-1" data-text="Nahuel Molina" data-lesion="0" data-roja="0">Nahuel Molina (CAD, MD)</option>
+                <option class="balon-parado montiel-balon-parado" data-puntuacion="0" data-efectividadargentina="-1" data-text="Gonzalo Montiel" data-lesion="0" data-roja="0">Gonzalo Montiel (CAD)</option>
+                <option class="balon-parado romero-balon-parado" data-puntuacion="0" data-efectividadargentina="-1" data-text="Cristian Romero" data-lesion="0" data-roja="0">Cristian Romero (DFC)</option>
+                <option class="balon-parado otamendi-balon-parado" data-puntuacion="0" data-efectividadargentina="-1" data-text="Nicolás Otamendi" data-lesion="0" data-roja="0">Nicolás Otamendi (DFC)</option>
+                <option class="balon-parado lisandro-martinez-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Lisandro Martinez" data-lesion="0" data-roja="0">Lisandro Martinez (DFC, MCD) </option>
+                <option class="balon-parado medina-balon-parado" data-puntuacion="0" data-efectividadargentina="-1" data-text="Facundo Medina" data-lesion="0" data-roja="0">Facundo Medina (DFC)</option>
+                <option class="balon-parado tagliafico-balon-parado" data-puntuacion="0" data-efectividadargentina="-1" data-text="Nicolás Tagliafico" data-lesion="0" data-roja="0">Nicolás Tagliafico (LI)</option>
+                <option class="balon-parado acuna-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Marcos Acuña" data-lesion="0" data-roja="0">Marcos Acuña (LI)</option>
+    
+                <option disabled>Mediocampistas</option>
+    
+                <option class="balon-parado paredes-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Leandro Paredes" data-lesion="0" data-roja="0">Leandro Paredes (MCD, MC)</option>
+                <option class="balon-parado rodriguez-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Guido Rodríguez" data-lesion="0" data-roja="0">Guido Rodríguez (MCD)</option>
+                <option class="balon-parado depaul-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Rodrigo De Paul" data-lesion="0" data-roja="0">Rodrigo De Paul (MC)</option>
+                <option class="balon-parado gomez-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Alejandro Gómez" data-lesion="0" data-roja="0">Alejandro Gómez (MCO)</option>
+                <option class="balon-parado locelso-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Giovani Lo Celso" data-lesion="0" data-roja="0">Giovani Lo Celso (MC)</option>
+    
+                <option disabled>Atacantes</option>
+    
+                <option class="balon-parado messi-balon-parado" data-puntuacion="0" data-efectividadargentina="3" data-text="Lionel Messi" data-lesion="0" data-roja="0">Lionel Messi (ED)</option>
+                <option class="balon-parado dybala-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Paulo Dybala" data-lesion="0" data-roja="0">Paulo Dybala (MCO, SD)</option>
+                <option class="balon-parado lautaro-martinez-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Lautaro Martinez" data-lesion="0" data-roja="0">Lautaro Martinez (DC)</option>
+                <option class="balon-parado dimaria-balon-parado" data-puntuacion="0" data-efectividadargentina="1" data-text="Angel Di María" data-lesion="0" data-roja="0">Ángel Di María (ED)</option>
+                <option class="balon-parado alvarez-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Julián Álvarez" data-lesion="0" data-roja="0">Julián Álvarez (DC, ED, EI)</option>
+                <option class="balon-parado angel-correa-balon-parado" data-puntuacion="0" data-efectividadargentina="0" data-text="Ángel Correa" data-lesion="0" data-roja="0">Ángel Correa (MD, SD, DC)</option>
+                <option class="balon-parado joaquin-correa-balon-parado" data-puntuacion="0" data-efectividadargentina="0"data-text="Joaquín Correa" data-lesion="0" data-roja="0">Joaquín Correa (SD, DC)</option>
+    
+            <option disabled>Arqueros</option>
+    
+                <!-- El valor del Dibu Martinez es un bug--> 
+                <option class="balon-parado emiliano-martinez-balon-parado" data-puntuacion="0" data-efectividadargentina="-1" data-text="Emiliano Martinez" data-lesion="0" data-roja="0">Emiliano Martinez (POR)</option>
+                <option class="balon-parado armani-balon-parado" data-puntuacion="0" data-efectividadargentina="-1" data-text="Franco Armani" data-lesion="0" data-roja="0">Franco Armani (POR)</option>
+                <option class="balon-parado rulli-balon-parado" data-puntuacion="0" data-efectividadargentina="-1" data-text="Gerónimo Rulli" data-lesion="0" data-roja="0">Gerónimo Rulli (POR)</option>
+            
+            </select>
+           
+            </div>
+
+         <!-- APARTADO 6: Instrucciones generales-->
+
+         <div class="contenedores contenedor-instrucciones-generales">
+
+            <h2>Intrucciones generales</h2>
+
+            <img class="icono-instrucciones-generales" src="images/instrucciones-generales.png" alt="">
+
+            <div class="instruccion-general centros">
+                <h3>Centros</h3>
+                <button class="centros centros1" data-efectividadargentina="-3">Altos</button>
+                <button class="centros centros2" data-efectividadargentina="0">Equilibrado</button>
+                <button class="centros centros3" data-efectividadargentina="1">Bajos</button>
+            </div>
+
+            <div class="instruccion-general apertura">
+                <h3>Apertura de equipo</h3>
+                <button class="apertura apertura1" data-efectividadargentina="2">Jugar cerrado</button>
+                <button class="apertura apertura2" data-efectividadargentina="0">Equilibrado</button>
+                <button class="apertura apertura3" data-efectividadargentina="-2">Jugar abierto</button>
+            </div>
+
+            <div class="instruccion-general tipo-ataque">
+                <h3>Ataque</h3>
+                <button class="ataque ataque1" data-efectividadargentina="2">Explotar banda derecha</button>
+                <button class="ataque ataque2" data-efectividadargentina="0">Equilibrado</button>
+                <button class="ataque ataque3" data-efectividadargentina="0">Explotar banda izquierda</button>
+            </div>
+
+            <div class="instruccion-general disparos">
+                <h3>Disparos de media distancia</h3>
+                <button class="disparos1" data-efectividadargentina="2">A menudo</button>
+                <button class="disparos2" data-efectividadargentina="0">A veces</button>
+                <button class="disparos3" data-efectividadargentina="0">Rara vez</button>
+            </div>
+         </div>
+
+         <!-- APARTADO 7: Instrucciones al equipo rival-->
+
+        <div class="informes-acordeon instruccion-equipo-rival">
+            <button class="accordion accordion-equipo-rival">Instrucción sobre el equipo rival</button>
+
+            <div class="panel panel-instruccion-equipo-rival">
+
+                <h3>Richarlison (DC)</h3>
+
+                <div class="instruccion-jugador-rival">
+                       
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="richarlison-marcaje r-cercano" data-efectividadbrasil="2">Cercano</button>
+                        <button class="richarlison-marcaje r-equilibrado" data-efectividadbrasil="0">Equilibrado</button>
+                        <button class="richarlison-marcaje r-distancia" data-efectividadbrasil="-2">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras richarlison-entradas r-duras" data-efectividadbrasil="0">Duras</button>
+                        <button class="richarlison-entradas r-equilibradas" data-efectividadbrasil="0">Equilibradas</button>
+                        <button class="richarlison-entradas r-suaves" data-efectividadbrasil="0">Suaves</button>
+                    </div>
+                </div>
+
+                <h3>Neymar (MP)</h3>
+
+                <div class="instruccion-jugador-rival">
+                
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="neymar-marcaje n-cercano" data-efectividadbrasil="3" data-valor="10">Cercano</button>
+                        <button class="neymar-marcaje n-equilibrado" data-efectividadbrasil="0" data-valor="10">Equilibrado</button>
+                        <button class="neymar-marcaje n-distancia" data-efectividadbrasil="-2" data-valor="10">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras neymar-entradas n-duras" data-efectividadbrasil="-3" data-valor="10">Duras</button>
+                        <button class="neymar-entradas n-equilibradas" data-efectividadbrasil="0" data-valor="10">Equilibradas</button>
+                        <button class="neymar-entradas n-suaves" data-efectividadbrasil="0" data-valor="10">Suaves</button>
+                    </div>
+                 </div>
+
+                 <h3>Raphinha (MD)</h3>
+
+                <div class="instruccion-jugador-rival">
+                    
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="raphinha-marcaje ra-cercano" data-efectividadbrasil="1" data-valor="10">Cercano</button>
+                        <button class="raphinha-marcaje ra-equilibrado" data-efectividadbrasil="0" data-valor="10">Equilibrado</button>
+                        <button class="raphinha-marcaje ra-distancia" data-efectividadbrasil="-1" data-valor="10">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras raphinha-entradas ra-duras" data-efectividadbrasil="0" data-valor="10">Duras</button>
+                        <button class="raphinha-entradas ra-equilibradas" data-efectividadbrasil="0" data-valor="10">Equilibradas</button>
+                        <button class="raphinha-entradas ra-suaves" data-efectividadbrasil="0" data-valor="10">Suaves</button>
+                    </div>
+                </div>
+
+                <h3>Vinicius Jr. (MI)</h3>
+
+                <div class="instruccion-jugador-rival">
+                    
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="vinicius-marcaje v-cercano" data-efectividadbrasil="2" data-valor="10">Cercano</button>
+                        <button class="vinicius-marcaje v-equilibrado" data-efectividadbrasil="0" data-valor="10">Equilibrado</button>
+                        <button class="vinicius-marcaje v-distancia" data-efectividadbrasil="-2" data-valor="10">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras vinicius-entradas v-duras" data-efectividadbrasil="0" data-valor="10">Duras</button>
+                        <button class="vinicius-entradas v-equilibradas" data-efectividadbrasil="0" data-valor="10">Equilibradas</button>
+                        <button class="vinicius-entradas v-suaves" data-efectividadbrasil="0" data-valor="10">Suaves</button>
+                    </div>
+                </div>
+
+                <h3>Casemiro (MCD)</h3>
+
+                <div class="instruccion-jugador-rival">
+                    
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="casemiro-marcaje c-cercano" data-efectividadbrasil="-2" data-valor="10">Cercano</button>
+                        <button class="casemiro-marcaje c-equilibrado" data-efectividadbrasil="0" data-valor="10">Equilibrado</button>
+                        <button class="casemiro-marcaje c-distancia" data-efectividadbrasil="2" data-valor="10">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras casemiro-entradas c-duras" data-efectividadbrasil="0" data-valor="10">Duras</button>
+                        <button class="casemiro-entradas c-equilibradas" data-efectividadbrasil="0" data-valor="10">Equilibradas</button>
+                        <button class="casemiro-entradas c-suaves" data-efectividadbrasil="0" data-valor="10">Suaves</button>
+                    </div>
+                </div>
+
+                <h3>L. Paquetá (MC)</h3>
+
+                <div class="instruccion-jugador-rival">
+                    
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="p-cercano" data-valor="10">Cercano</button>
+                        <button class="p-equilibrado" data-valor="10">Equilibrado</button>
+                        <button class="p-distancia" data-valor="10">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras p-duras" data-valor="10">Duras</button>
+                        <button class="p-equilibradas" data-valor="10">Equilibradas</button>
+                        <button class="p-suaves" data-valor="10">Suaves</button>
+                    </div>
+                </div>
+
+                <h3>É. Militão (LD)</h3>
+
+                <div class="instruccion-jugador-rival">
+                    
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="m-cercano" data-valor="10">Cercano</button>
+                        <button class="m-equilibrado" data-valor="10">Equilibrado</button>
+                        <button class="m-distancia" data-valor="10">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras m-duras" data-valor="10">Duras</button>
+                        <button class="m-equilibradas" data-valor="10">Equilibradas</button>
+                        <button class="m-suaves" data-valor="10">Suaves</button>
+                    </div>
+                </div>
+
+                <h3>Marquinhos (DFC)</h3>
+
+                <div class="instruccion-jugador-rival">
+                    
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="mar-cercano" data-valor="10">Cercano</button>
+                        <button class="mar-equilibrado" data-valor="10">Equilibrado</button>
+                        <button class="mar-distancia" data-valor="10">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras mar-duras" data-valor="10">Duras</button>
+                        <button class="mar-equilibradas" data-valor="10">Equilibradas</button>
+                        <button class="mar-suaves" data-valor="10">Suaves</button>
+                    </div>
+                </div>
+
+                <h3>T. Silva (DFC)</h3>
+
+                <div class="instruccion-jugador-rival">
+                    
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="s-cercano" data-valor="10">Cercano</button>
+                        <button class="s-equilibrado" data-valor="10">Equilibrado</button>
+                        <button class="s-distancia" data-valor="10">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras s-duras" data-valor="10">Duras</button>
+                        <button class="s-equilibradas" data-valor="10">Equilibradas</button>
+                        <button class="s-suaves" data-valor="10">Suaves</button>
+                    </div>
+                </div>
+
+                <h3>A. Telles (LI)</h3>
+
+                <div class="instruccion-jugador-rival">
+                    
+                    <div class="marcaje-entradas">
+                        <p>Marcaje</p>
+                        <button class="t-cercano" data-valor="10">Cercano</button>
+                        <button class="t-equilibrado" data-valor="10">Equilibrado</button>
+                        <button class="t-distancia" data-valor="10">A distancia</button>
+                    </div>
+                    <div class="marcaje-entradas">
+                        <p>Entradas</p>
+                        <button class="entradas-duras t-duras" data-valor="10">Duras</button>
+                        <button class="t-equilibradas" data-valor="10">Equilibradas</button>
+                        <button class="t-suaves" data-valor="10">Suaves</button>
+                    </div>
+                </div>
+
+                    <p class="espacio-vacio-que-hace-un-padding"></p>
+            </div>
+
+        </div>
+        
+    
+        <!-- APARTADO 8: Charla al equipo-->
+
+         <div class="contenedores contenedor-charla">
+
+             <h2>Arengá a tus jugadores</h2>
+
+             <img class="icono-arenga" src="images/arenga.png" alt="">
+    
+                <button class="charlas charla1" data-puntuacion="60">"Este es el año muchachos, como en el 86, salgamos a dejarlo todo, se lo debemos al Diego que nos alienta desde arriba."</button>
+    
+                <button class="charlas charla2" data-puntuacion="30">"Mantengan la calma, hicimos una copa del mundo excepcional y ya somos parte de la historia del fútbol, ahora vamos por todo."</button>
+    
+                <button class="charlas charla3" data-puntuacion="40">"Los quiero concentrados, no importa el afuera, no importa absolutamente nada más, en la cancha son 11 vs 11 y hoy vamos a ganar."</button>
+    
+                <button class="charlas charla4" data-puntuacion="60">"Tenemos millones de sueños en nuestras manos, salgamos y hagamos felices a todos los nuestros. ¡Vamos Argentina, carajo!"</button>
+    
+                <button class="charlas charla5" data-puntuacion="30">"Muchachos, es la última copa de algunos de ustedes, Lio es tu última copa, aprovechemos la oportunidad y llevémosla a casa."</button>
+                    
+                <button class="charlas charla6" data-puntuacion="50">"¿Qué se piensan los brasileros? ¿Se creen el mejor equipo del mundo? ¿De verdad? Vamo a demostrarles quiénes son los mejores, ya los vencimos en la última final y esta vez va a ser lo mismo."</button>
+    
+            </div>
+            
+
+        <!-- Botón ir al partido-->
+    
+        <div class="contenedor-boton-ir-a-partido">
+            <button class="ir-al-partido">Ir al partido</button>
+        </div>
+
+    </div>
+
+     <!-- El bloque 2 tiene la selección de jugadores penal (NO SE VE HASTA QUE NO HAY PARTIDOS)-->
+
+    <div class="bloques bloque-2 bloque-2-no-se-ve">
+    
+        <div class="contenedores contenedor-seleccion-penales">
+
+            <h2>Penales</h2>
+
+            <p>La final del mundo se define por penales. Elegí a los jugadores que van a lanzar los penales.</p>
+
+            <img class="icono-penales" src="images/guantes.png" alt="">
+
+            <div class="seleccion-penales">
+
+                <select class="select-penal" data-text="vacio" id="penal-1">
+
+                    <option hidden selected>Penal 1</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>    
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-2">
+
+                    <option hidden selected>Penal 2</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>      
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-3">
+
+                    <option hidden selected>Penal 3</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>        
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-4">
+
+                    <option hidden selected>Penal 4</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>    
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-5">
+
+                    <option hidden selected>Penal 5</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>     
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-6">
+
+                    <option hidden selected>Penal 6</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>    
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-7">
+
+                    <option hidden selected>Penal 7</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>    
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-8">
+
+                    <option hidden selected>Penal 8</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>     
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-9">
+
+                    <option hidden selected>Penal 9</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>     
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-10">
+
+                    <option hidden selected>Penal 10</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>      
+
+                </select>
+
+                <select class="select-penal" data-text="vacio" id="penal-11">
+
+                    <option hidden selected>Penal 11</option>
+
+                    <option class="penales" value="" id="penales-jugador-11">Jugador 11</option>
+                    <option class="penales" value="" id="penales-jugador-10">Jugador 10</option>
+                    <option class="penales" value="" id="penales-jugador-9">Jugador 9</option>
+                    <option class="penales" value="" id="penales-jugador-8">Jugador 8</option>
+                    <option class="penales" value="" id="penales-jugador-7">Jugador 7</option>
+                    <option class="penales" value="" id="penales-jugador-6">Jugador 6</option>
+                    <option class="penales" value="" id="penales-jugador-5">Jugador 5</option>
+                    <option class="penales" value="" id="penales-jugador-4">Jugador 4</option>
+                    <option class="penales" value="" id="penales-jugador-3">Jugador 3</option>
+                    <option class="penales" value="" id="penales-jugador-2">Jugador 2</option>
+                    <option class="penales" value="" id="penales-jugador-1">Jugador 1</option>    
+
+                </select>
+
+            </div>
+            
+                <!-- Botón ir a penales-->
+            <div class="contenedor-boton-ir-a-penales">
+                <button class="ir-a-penales">Ir a los penales</button>
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
+     <!-- El bloque 3 tiene la información personal-->
+
+     <div class="bloques bloque-3 bloque-3-no-se-ve">
+    
+        <div class="contenedores contenedor-info-personal">
+
+            <h2>Sobre mi</h2>
+
+            <div class="animacion-icono-contenedor">
+                <img class="icono-sobre-mi" src="images/nerd.png" alt="">
+                <img class="sombra" src="images/sombra.png" alt="">
+            </div>
+
+            <p>Si llegaste hasta acá es porque te interesó el juego. </p> 
+                
+            <p>Soy <span class="bold-text">Gonzalo Volpe Gómez</span> y para desarrollar este videojuego utilicé <span class="bold-text">HTML</span>, <span class="bold-text">CSS</span>, <span class="bold-text">Javascript</span>, y <span class="bold-text">técnicas de Diseño UX/UI</span>.</p>
+            
+            <p> Actualmente estoy buscando trabajo como <span class="bold-text">desarrollador frontend (trainee/junior)</span>. Si querés conocer más sobre mi, podés ingresar a mi <a href="">portfolio</a>, a mi <a href="">linkedin</a> o simplemente contactarme por <a href="">whatsapp</a>. </p>
+
+        </div>
+
+        <div class="contenedores contenedor-info-ayuda">
+
+            <h2>Tu ayuda es MUY importante.</h2>
+
+            <div class="animacion-icono-contenedor">
+                <img class="icono-ayuda" src="images/ayuda.png" alt="">
+                <img class="sombra" src="images/sombra.png" alt="">
+            </div>
+
+            <p>Para desarrollar la beta de este juego invertí muchas horas de trabajo no remunerado y con una pequeña ayuda,  <span class="bold-text">completando una encuesta de cómo fue tu experiencia</span> con el juego o aportando, por más mínimo que sea, <span class="bold-text">un monto económico</span>, estás ayudándome muchísimo.</p>
+
+            
+            
+            <div>
+            <ul class="texto-ayuda-lista">
+
+                <li class="info-ayuda-1"><a class="encuesta" href="">Encuesta de usabilidad</a> (es muy útil para mejorar las próximas versiones del juego).</li>
+            
+                <li class="info-ayuda-2">Transferencias al alias: <span class="bold-text">FILO.RADIO.COSMOS (Gonzalo Volpe Gómez)</span>.</li> 
+
+            </ul>
+            </div>
+
+            <p class="frase-final">¡Muchas gracias y hasta el próximo desarrollo!</p>
+
+            <a class="boton-volver-a-jugar" href="inicio.html">Volver a jugar</a>
+
+        </div>
+
+    </div>
+
+    <!-- Modal partido-->
+
+    <div class="contenedor-modal">
+
+        <div class="modal modal-partido">
+
+            <div class="modal-encabezado">
+
+                <!--Reloj-->
+
+                <div class="reloj">
+
+                        <div class="reloj ocultar-horas-y-minutos" id="Horas">00</div> <!--La clase "ocultar-horas-y-centesimas" la oculta-->
+                        <div class="reloj ocultar-horas-y-minutos" id="Minutos">:00</div>
+                        <div class="reloj" id="Segundos">00</div>
+                        <div class="reloj" id="Centesimas">:00</div> <!--La clase "ocultar-horas-y-centesimas" la oculta-->
+                    
+                </div>
+
+                <div class="nombre-estadio"><p>Estadio Lusail</p></div>
+
+                <!--Resultado-->
+
+                <div class="titulo-arg">
+                    <img class="logo-argentina" src="images/logo-argentina.svg" alt="Logo argentina">
+                    <h2 class="arg">ARG</h2>   
+                </div>
+                
+
+                <div class="resultado-partido">
+                    <h2 class="argentina-goles">0</h2><h2 class="brasil-goles">0</h2>
+                </div>
+
+                <div class="titulo-bra">
+                    <img class="logo-brasil" src="images/logo-brasil.svg" alt="Logo argentina">
+                    <h2 class="bra">BRA</h2>
+                </div>
+                
+
+            </div>
+
+            <!--Div de modal de final de partido (INDICA QUIÉN SALIÓ CAMPEÓN)-->
+
+            <div class="contenedor-cartel-campeon ocultar-cartel-campeon">
+
+                <div class="cartel-campeon">
+                    <h2 class="titulo-cartel-campeon">Lorem ipsum dolor sit.</h2>
+                    <img class="imagen-cartel-campeon" src="images/arg-campeon.jpg" alt="argentina campeona">
+                    <p class="texto-cartel-campeon">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit officiis assumenda tempora.</p>
+                </div>
+
+            </div>
+    
+            <!--Div que agrega la info de los eventos (se van a agregar los P de los eventos-arg y eventos-bra)-->
+
+                <div class="contenedor-eventos-partido">
+    
+                    <div class="eventos eventos-arg">
+                        <!--Acá van "p" con los eventos de Brasil-->
+                    </div>
+    
+                    <div class="eventos eventos-bra">
+                        <!--Acá van "p" con los eventos de Brasil-->
+                    </div>
+    
+                </div>
+                
+
+            <!--Contenedor de comentarios-->
+
+            <div class="contenedor-comentarios-general">
+                <div class="comentarios"><p>Ataque de Argentina</p></div>
+            </div>
+
+            <!--Barra de equipos-->
+
+            <div class="barra-equipos">
+                <div class="barra-arg"></div>
+                <div class="barra-bra"></div>
+            </div>
+
+            <!--Avisos-->
+
+            <div class="avisos aviso-ojeador">
+                <p class="titulo-aviso titulo-ojeador">Lorem ipsum dolor sit amet.</p> <!--Es modificado con javascript-->
+                <img class="imagen-aviso" src="images/botin.png" alt="icono de botin">
+                <p class="texto-aviso texto-ojeador">Lorem ipsum dolor sit amet.</p> <!--Es modificado con javascript-->
+            </div>
+
+            <!--Volver a tácticas, Iniciar y botones ocultos-->
+
+            <div class="contenedor-botones-modal-partido">
+
+                <button class="volver-a-tacticas">Ir a tácticas</button>
+
+                <div class="boton-principal"> <!--Distintos botones y sus modificaciones-->
+
+                    <button class="boton-jugar">Jugar</button>
+
+                    <input type="button" class="boton ocultar-botones" id="inicio" value="Start" onclick="inicio();"> <!--Oculto-->
+
+                    <input type="button" class="boton ocultar-botones" id="parar" value="Pausar" onclick="parar();" disabled> <!--Oculto-->
+
+                    <input type="button" class="boton ocultar-botones" id="continuar" value="Reanudar" onclick="inicio();" disabled> <!--Oculto-->
+
+                    <input type="button" class="boton ocultar-botones" id="reinicio" value="Reset &#8635;" onclick="reinicio();" disabled> <!--Oculto-->
+                    
+                    <button class="boton-elegir-pateadores-penales">Penales</button> <!--Oculto hasta penales-->
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal penales-->
+
+    <div class="contenedor-modal contenedor-modal-penales">
+
+        <div class="modal modal-partido modal-penales">
+
+
+            <div class="modal-encabezado">
+
+                <div class="nombre-penales"><p>Penales</p></div>
+
+                <!--Resultado-->
+
+                <div class="titulo-arg">
+                    <img class="logo-argentina" src="images/logo-argentina.svg" alt="Logo argentina">
+                    <h2 class="arg">ARG</h2>   
+                </div>
+
+                <div class="resultado-partido">
+                    <p class="goles-penales-arg">0</p>
+                    <h2 class="argentina-goles-partido">0</h2><h2 class="brasil-goles-partido">0</h2>
+                    <p class="goles-penales-bra">0</p>
+                </div>
+
+                <div class="titulo-bra">
+                    <img class="logo-brasil" src="images/logo-brasil.svg" alt="Logo argentina">
+                    <h2 class="bra">BRA</h2>
+                </div>
+
+            </div>
+
+            <!--Div de modal de final de partido (INDICA QUIÉN SALIÓ CAMPEÓN PENALES)-->
+
+            <div class="contenedor-cartel-campeon contenedor-cartel-campeon-penales ocultar-cartel-campeon">
+
+                <div class="cartel-campeon cartel-campeon-penales">
+                    <h2 class="titulo-cartel-campeon titulo-cartel-campeon-penales">Lorem ipsum dolor sit.</h2>
+                    <img class="imagen-cartel-campeon imagen-cartel-campeon-penales" src="images/arg-campeon.jpg" alt="argentina campeona">
+                    <p class="texto-cartel-campeon texto-cartel-campeon-penales">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit officiis assumenda tempora.</p>
+                </div>
+
+            </div>
+
+            <!--Div que agrega la info de los eventos (se van a agregar los P de los eventos-arg y eventos-bra)-->
+            <div class="contenedor-eventos-partido">
+
+                <div class="eventos eventos-arg-penales">
+                    <!--Acá van "p" con los eventos de Brasil-->
+                </div>
+
+                <div class="eventos eventos-bra-penales">
+                    <!--Acá van "p" con los eventos de Brasil-->
+                </div>
+
+            </div>
+
+
+            <!--Contenedor de comentarios-->
+
+            <div class="contenedor-comentarios-general contenedor-comentarios-general-penales">
+                <div class="comentarios comentarios-penales"><p>Comienza Argentina la tanda de penales.</p></div>
+            </div>
+
+            <!--Barra de equipos-->
+
+            <div class="barra-equipos">
+                <div class="barra-arg"></div>
+                <div class="barra-bra"></div>
+            </div>
+
+             <!--PENALES-->
+
+             <div class="contenedor-botones-modal-partido">
+                <button class="patear-penales">Comenzar penales</button>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Modal aviso errores-->
+
+    <div class="contenedor-modal-errores contenedor-modal-penales">
+
+        <div class="modal-errores modal-partido modal-penales">
+
+            <button class="modal-close-errores">X</button>
+            <h2 class="titulo-modal-errores">Lorem ipsum dolor sit amet.</h2>  
+            <img class="arbitro" src="images/arbitro.png" alt="imagen arbitro">
+            <p class="texto-modal-errores">Lorem ipsum dolor sit amet.</p>
+
+        </div>
+    </div>
+
+    
+
+    
+
+   
+    
+
+    <script src="scripts/acordeon-informe-ojeador.js"></script>
+    <script src="scripts/reloj.js"></script>
+    <script src="scripts/script-principal.js"></script>
+
+<!--     PRUEBAS -->
+
+    <!--<button class="prueba13">PRUEBA efec arg</button>  Efectividad argentina -->
+    <!--<button class="prueba14">PRUEBA efec brasil</button>  Efectividad brasil -->
+    <!--<button class="prueba15">PRUEBA rojas arg</button>  Rojas argentina -->
+
+</body>
+
+</html>

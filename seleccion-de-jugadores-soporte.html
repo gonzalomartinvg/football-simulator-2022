@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!--Los jugadores tienen comportamientos distintos dependiendo si los ponemos en una posición familiar para ellos. Por ejemplo, si usamos a Messi como defensor, este no jugará del todo bien. Para esto, establecimos valores de jugadores por posición.-->
+
+    <!-- Selección de arquero-->
+
+    <div class="jugador-arquero">
+
+        <select>
+
+            <option hidden selected>Seleccioná un jugador</option>
+
+            <option disabled>Arqueros</option>
+
+            <option class="emiliano-martinez-arquero" data-valor="90" data-text="Emiliano Martinez">Emiliano Martinez (POR)</option>
+            <option class="armani-arquero" data-valor="15" data-text="Franco Armani">Franco Armani (POR)</option>
+            <option class="rulli-arquero" data-valor="50" data-text="Gerónimo Rulli">Gerónimo Rulli (POR)</option>
+
+        </select>
+        
+    </div>
+
+    <!-- Selección de defensores-->
+
+    <div class="jugador-defensor">
+        <select>
+
+            <option hidden selected>Seleccioná un jugador</option>
+
+            <option disabled>Defensores</option>
+
+            <option class="molina-defensor" data-valor="50" data-text="Nahuel Molina">Nahuel Molina (CAD, MD)</option>
+            <option class="montiel-defensor" data-valor="50" data-text="Gonzalo Montiel">Gonzalo Montiel (CAD)</option>
+            <option class="romero-defensor" data-valor="95" data-text="Cristian Romero">Cristian Romero (DFC)</option>
+            <option class="otamendi-defensor" data-valor="75" data-text="Nicolás Otamendi">Nicolás Otamendi (DFC)</option>
+            <option class="lisandro-martinez-defensor" data-valor="60" data-text="Lisandro Martinez">Lisandro Martinez (DFC, MCD) </option>
+            <option class="medina-defensor" data-valor="50" data-text="Facundo Medina">Facundo Medina (DFC)</option>
+            <option class="tagliafico-defensor" data-valor="80" data-text="Nicolás Tagliafico">Nicolás Tagliafico (LI)</option>
+            <option class="acuna-defensor" data-valor="30" data-text="Marcos Acuña">Marcos Acuña (LI)</option>
+
+            <option disabled>Mediocampistas</option>
+
+            <option class="paredes-defensor" data-valor="10" data-text="Leandro Paredes">Leandro Paredes (MCD, MC)</option>
+            <option class="rodriguez-defensor" data-valor="20" data-text="Guido Rodríguez">Guido Rodríguez (MCD)</option>
+            <option class="depaul-defensor" data-valor="4" data-text="Rodrigo De Paul">Rodrigo De Paul (MC)</option>
+            <option class="gomez-defensor" data-valor="1" data-text="Alejandro Gómez">Alejandro Gómez (MCO)</option>
+            <option class="locelso-defensor" data-valor="1" data-text="Giovani Lo Celso">Giovani Lo Celso (MC)</option>
+
+            <option disabled>Atacantes</option>
+
+            <option class="messi-defensor" data-valor="1" data-text="Lionel Messi">Lionel Messi (ED)</option>
+            <option class="dybala-defensor" data-valor="1" data-text="Paulo Dybala">Paulo Dybala (MCO, SD)</option>
+            <option class="lautaro-martinez-defensor" data-valor="50" data-text="Lautaro Martinez">Lautaro Martinez (DC)</option>
+            <option class="dimaria-defensor" data-valor="1" data-text="Angel Di María">Ángel Di María (ED)</option>
+            <option class="alvarez-defensor" data-valor="1" data-text="Julián Álvarez">Julián Álvarez (DC, ED, EI)</option>
+            <option class="angel-correa-defensor" data-valor="1" data-text="Ángel Correa">Ángel Correa (MD, SD, DC)</option>
+            <option class="joaquin-correa-defensor" data-valor="1" data-text="Joaquín Correa">Joaquín Correa (SD, DC)</option>
+
+        </select>
+    </div>
+
+    <!-- Selección de mediocampistas-->
+
+    <div class="jugador-mediocampista">
+
+        <select>
+
+            <option hidden selected>Seleccioná un jugador</option>
+
+            <option disabled>Defensores</option>
+
+            <option class="molina-mediocampista" data-valor="45" data-text="Nahuel Molina">Nahuel Molina (CAD, MD)</option>
+            <option class="montiel-mediocampista" data-valor="20" data-text="Gonzalo Montiel">Gonzalo Montiel (CAD)</option>
+            <option class="romero-mediocampista" data-valor="15" data-text="Cristian Romero">Cristian Romero (DFC)</option>
+            <option class="otamendi-mediocampista" data-valor="10" data-text="Nicolás Otamendi">Nicolás Otamendi (DFC)</option>
+            <option class="lisandro-martinez-mediocampista" data-valor="65" data-text="Lisandro Martinez">Lisandro Martinez (DFC, MCD) </option>
+            <option class="medina-mediocampista" data-valor="10" data-text="Facundo Medina">Facundo Medina (DFC)</option>
+            <option class="tagliafico-mediocampista" data-valor="20" data-text="Nicolás Tagliafico">Nicolás Tagliafico (LI)</option>
+            <option class="acuna-mediocampista" data-valor="30" data-text="Marcos Acuña">Marcos Acuña (LI)</option>
+
+            <option disabled>Mediocampistas</option>
+
+            <option class="paredes-mediocampista" data-valor="90" data-text="Leandro Paredes">Leandro Paredes (MCD, MC)</option>
+            <option class="rodriguez-mediocampista" data-valor="70" data-text="Guido Rodríguez">Guido Rodríguez (MCD)</option>
+            <option class="depaul-mediocampista" data-valor="90" data-text="Rodrigo De Paul">Rodrigo De Paul (MC)</option>
+            <option class="gomez-mediocampista" data-valor="75" data-text="Alejandro Gómez">Alejandro Gómez (MCO)</option>
+            <option class="locelso-mediocampista" data-valor="80" data-text="Giovani Lo Celso">Giovani Lo Celso (MC)</option>
+
+            <option disabled>Atacantes</option>
+
+            <option class="messi-mediocampista" data-valor="95" data-text="Lionel Messi">Lionel Messi (ED)</option>
+            <option class="dybala-mediocampista" data-valor="65" data-text="Paulo Dybala">Paulo Dybala (MCO, SD)</option>
+            <option class="lautaro-martinez-mediocampista" data-valor="2" data-text="Lautaro Martinez">Lautaro Martinez (DC)</option>
+            <option class="dimaria-mediocampista" data-valor="60" data-text="Angel Di María">Ángel Di María (ED)</option>
+            <option class="alvarez-mediocampista" data-valor="30" data-text="Julián Álvarez">Julián Álvarez (DC, ED, EI)</option>
+            <option class="angel-correa-mediocampista" data-valor="70" data-text="Ángel Correa">Ángel Correa (MD, SD, DC)</option>
+            <option class="joaquin-correa-mediocampista" data-valor="30" data-text="Joaquín Correa">Joaquín Correa (SD, DC)</option>
+
+        </select>
+        
+    </div>
+
+    <!-- Selección de atacantes-->
+
+    <div class="jugador-atacante">
+
+        <select>
+
+            <option hidden selected>Seleccioná un jugador</option>
+
+            <option disabled>Defensores</option>
+
+            <option class="molina-atacante" data-valor="1" data-text="Nahuel Molina">Nahuel Molina (CAD, MD)</option>
+            <option class="montiel-atacante" data-valor="1" data-text="Gonzalo Montiel">Gonzalo Montiel (CAD)</option>
+            <option class="romero-atacante" data-valor="30" data-text="Cristian Romero">Cristian Romero (DFC)</option>
+            <option class="otamendi-atacante" data-valor="30" data-text="Nicolás Otamendi">Nicolás Otamendi (DFC)</option>
+            <option class="lisandro-martinez-atacante" data-valor="10" data-text="Lisandro Martinez">Lisandro Martinez (DFC, MCD) </option>
+            <option class="medina-atacante" data-valor="1" data-text="Facundo Medina">Facundo Medina (DFC)</option>
+            <option class="tagliafico-atacante" data-valor="10" data-text="Nicolás Tagliafico">Nicolás Tagliafico (LI)</option>
+            <option class="acuna-atacante" data-valor="15" data-text="Marcos Acuña">Marcos Acuña (LI)</option>
+
+            <option disabled>Mediocampistas</option>
+
+            <option class="paredes-atacante" data-valor="40" data-text="Leandro Paredes">Leandro Paredes (MCD, MC)</option>
+            <option class="rodriguez-atacante" data-valor="20" data-text="Guido Rodríguez">Guido Rodríguez (MCD)</option>
+            <option class="depaul-atacante" data-valor="50" data-text="Rodrigo De Paul">Rodrigo De Paul (MC)</option>
+            <option class="gomez-atacante" data-valor="70" data-text="Alejandro Gómez">Alejandro Gómez (MCO)</option>
+            <option class="locelso-atacante" data-valor="70" data-text="Giovani Lo Celso">Giovani Lo Celso (MC)</option>
+
+            <option disabled>Atacantes</option>
+
+            <option class="messi-atacante" data-valor="100" data-text="Lionel Messi">Lionel Messi (ED)</option>
+            <option class="dybala-atacante" data-valor="75" data-text="Paulo Dybala">Paulo Dybala (MCO, SD)</option>
+            <option class="lautaro-martinez-atacante" data-valor="90" data-text="Lautaro Martinez">Lautaro Martinez (DC)</option>
+            <option class="dimaria-atacante" data-valor="95" data-text="Angel Di María">Ángel Di María (ED)</option>
+            <option class="alvarez-atacante" data-valor="65" data-text="Julián Álvarez">Julián Álvarez (DC, ED, EI)</option>
+            <option class="angel-correa-atacante" data-valor="80" data-text="Ángel Correa">Ángel Correa (MD, SD, DC)</option>
+            <option class="joaquin-correa-atacante" data-valor="70" data-text="Joaquín Correa">Joaquín Correa (SD, DC)</option>
+
+        <option disabled>Arqueros</option>
+
+            <!-- El valor del Dibu Martinez es un bug--> 
+            <option class="emiliano-martinez-atacante" data-valor="100" data-text="Emiliano Martinez">Emiliano Martinez (POR)</option>
+            <option class="armani-atacante" data-valor="1" data-text="Franco Armani">Franco Armani (POR)</option>
+            <option class="rulli-atacante" data-valor="1" data-text="Gerónimo Rulli">Gerónimo Rulli (POR)</option>
+        
+        </select>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,137 @@
+.contenedor-inicio{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-gap: 1rem;
+    color: var(--blanco-1);
+    grid-gap: 1rem;
+}
+
+.gonzalo-volpe-gomez{
+    justify-self: center;
+}
+
+.contacto-contenedor{
+    width: 90%;
+    margin: auto;
+    justify-self: center;
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.fa-brands{
+    font-size: 2rem;
+}
+
+.link-contacto{
+    color: var(--blanco-1);
+}
+.link-contacto:hover {
+    color: rgb(223, 223, 223);
+}
+
+.contenedor-titulo-inicio{
+    width: 90%;
+    max-width: 50rem;
+    margin: auto;
+    margin-top: 5rem;
+    display: grid;
+    grid-gap: 1rem;
+    color: var(--blanco-1);
+}
+
+@media (max-width: 514px) {
+    .contenedor-titulo-inicio {
+        margin-top: 2rem;
+    }
+}
+
+.contenedor-inicio h1{
+    font-family: 'Elianto', sans-serif;
+    font-size: 2.5rem;
+    justify-self: center;
+    text-align: center;
+}
+
+.final-del-mundo{
+    justify-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.beta{
+    background-color: var(--primary-color);
+    width: fit-content;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 0.2rem;
+    text-decoration: none;
+    color: var(--blanco-1);
+    justify-self: end;
+
+    position: relative;
+    
+}
+
+@media (max-width: 324px) {
+    .final-del-mundo {
+        font-size: 0.9rem;
+    }
+
+    .beta{
+        font-size: 0.9rem;
+    }
+}
+
+.texto-descripcion{
+    width: 90%;
+    max-width: 50rem;
+    margin-top: 4rem;
+    justify-self: center;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+@media (max-width: 476px) {
+    .texto-descripcion {
+        margin-top: 4rem;
+    }
+}
+
+.bold{
+    font-weight: 700;
+}
+
+.boton-jugar-inicio{
+    background-color: var(--primary-color);
+    width: fit-content;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-top: 3rem;
+    text-decoration: none;
+    border-radius: 10px;
+    color: var(--blanco-1);
+    justify-self: center;
+}
+
+@media (max-width: 476px) {
+    .boton-jugar-inicio {
+        margin-top: 1rem;
+    }
+}
+
+.texto-martin{
+    width: 90%;
+    margin: auto;
+    justify-self: center;
+    margin-top: 6rem;
+    text-align: center;
+    font-style: italic;
+    position: absolute;
+    bottom: 1rem;
+    right: 0;
+    left: 0;
+    
+}
