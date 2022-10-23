@@ -356,6 +356,11 @@ li::before {
     gap: 1rem;
 }
 
+.select-capitan-balon-parado{
+    width: 100%;
+    justify-self: center;
+}
+
 .icono-capitan{
     justify-self: center;
     width: 4rem;
