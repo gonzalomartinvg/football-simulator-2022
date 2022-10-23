@@ -126,7 +126,7 @@
 .modal-encabezado{
     grid-column: 1/4;
     width: 100%;
-    background-image: url(/images/fondo-partido.svg);
+    background-image: url(images/fondo-partido.svg);
     background-size: cover;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -135,7 +135,7 @@
 
 @media (min-width: 600px) {
     .modal-encabezado{
-        background-image: url(/images/fondo-partido-computador.svg); 
+        background-image: url(images/fondo-partido-computador.svg); 
     }
 }
 
