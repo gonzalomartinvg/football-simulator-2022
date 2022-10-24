@@ -10,6 +10,8 @@ let totalVariable7 = 0; //No se usa
 let totalVariable8 = 0;
 
 let sumaTodasLasVariables = 0;
+let totalVariableRojas = 0;
+let totalVariableLesion = 0;
 
 // Total de puntos EFECTIVIDAD BRASIL
 
@@ -1046,9 +1048,9 @@ function sumaPuntosEImagen(element) { //Recibimos el elemento del evento (si ele
 
     if (posicionJugadorElegido.dataset.lesion == 1) {
 
-        sumaTodasLasVariables += 10;
+        totalVariableLesion += 65;
 
-        console.log(sumaTodasLasVariables + " funciono bebe");
+        console.log(totalVariableLesion + " funciono bebe");
         console.log(posicionJugadorElegido);
     }
 
@@ -2762,10 +2764,10 @@ function chequeoJugadoresYEstiloEstenElegidos(){
         tituloModalErrores.textContent = "Completá la selección de jugadores"
         textoModalErrores.textContent = "Para salir a la cancha es necesario que elijas jugadores en todas las posiciones."
     
-        mostrarAvisoError() //AVISO ERROR (deshabilitar para hacer pruebas)
+        // mostrarAvisoError() //AVISO ERROR (deshabilitar para hacer pruebas)
         
-        //sumaVariablesJugadoresElegidosEnVariable2() //Habilitar para hacer pruebas.
-        //contenedorModal.classList.add("contenedor-modal--show"); //Habilitar para hacer pruebas.
+        sumaVariablesJugadoresElegidosEnVariable2() //Habilitar para hacer pruebas.
+        contenedorModal.classList.add("contenedor-modal--show"); //Habilitar para hacer pruebas.
 
     }
 
@@ -2774,10 +2776,10 @@ function chequeoJugadoresYEstiloEstenElegidos(){
         tituloModalErrores.textContent = "Elegí un estilo de juego"
         textoModalErrores.textContent = "Para comenzar el partido es necesario que tus jugadores sepan que estilo de juego vas a usar."
 
-        mostrarAvisoError() //AVISO ERROR (deshabilitar para hacer pruebas)
+        // mostrarAvisoError() //AVISO ERROR (deshabilitar para hacer pruebas)
         
-        //sumaVariablesJugadoresElegidosEnVariable2() //Habilitar para hacer pruebas.
-        //contenedorModal.classList.add("contenedor-modal--show"); //Habilitar para hacer pruebas.
+        sumaVariablesJugadoresElegidosEnVariable2() //Habilitar para hacer pruebas.
+        contenedorModal.classList.add("contenedor-modal--show"); //Habilitar para hacer pruebas.
     }
 
     else {
@@ -3338,6 +3340,252 @@ function cincoCambios() {
 
 }
 
+//Función información expulsado Argentina (genera el párrafo con el expulsado y cambia la sección de tácticas, entre otras cosas)
+
+nombreJugadorRojaArgentina = "no definido";
+
+function informacionExpulsado(){
+
+    //Agregamos la info de la expulsión
+
+                            //A) Hacemos que se genere un P con la info.
+
+                            let creadorDeParrafoExpulsionArgentina = document.createElement("p");
+
+                            let contenidoGeneradoExpulsionArgentina = //Las `` siguientes se utilizan para hacer un html literal
+                                `
+                                        <p class= "texto-eventos-expulsion">${nombreJugadorRojaArgentina}</p>
+
+                                        `;
+
+                            creadorDeParrafoExpulsionArgentina.innerHTML = contenidoGeneradoExpulsionArgentina; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                            eventosArg.append(creadorDeParrafoExpulsionArgentina);
+
+                            //Aviso expulsión
+
+                            setTimeout(avisoExpulsion, 1300);
+
+                            if (jugador11.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador11Imagen = document.querySelector(".imagen-jugador-11");
+                                let jugador11Contenedor = document.querySelector(".jugador-11");
+                                let jugador11Select = document.querySelector("#juga-11");
+
+
+
+                                jugador11Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador11Contenedor.classList.add("jugadores-expulsion");
+                                jugador11Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador11.dataset.roja = "1"; //Al colocar acá uno, podemos preguntar en los otros eventos si esto está habilitado y de esta manera, hacer que ningún jugador expulsado participe de un evento
+
+                                console.log(jugador11Imagen);
+
+                            }
+
+                            if (jugador10.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador10Imagen = document.querySelector(".imagen-jugador-10");
+                                let jugador10Contenedor = document.querySelector(".jugador-10");
+                                let jugador10Select = document.querySelector("#juga-10");
+
+
+                                jugador10Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador10Contenedor.classList.add("jugadores-expulsion");
+                                jugador10Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador10.dataset.roja = "1";
+
+                                console.log(jugador10Imagen);
+
+                            }
+
+                            if (jugador9.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador9Imagen = document.querySelector(".imagen-jugador-9");
+                                let jugador9Contenedor = document.querySelector(".jugador-9");
+                                let jugador9Select = document.querySelector("#juga-9");
+
+
+
+                                jugador9Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador9Contenedor.classList.add("jugadores-expulsion");
+                                jugador9Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador9.dataset.roja = "1";
+
+                                console.log(jugador9Imagen);
+
+                            }
+
+                            if (jugador8.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador8Imagen = document.querySelector(".imagen-jugador-8");
+                                let jugador8Contenedor = document.querySelector(".jugador-8");
+                                let jugador8Select = document.querySelector("#juga-8");
+
+                                jugador8Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador8Contenedor.classList.add("jugadores-expulsion");
+                                jugador8Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador8.dataset.roja = "1";
+
+                                console.log(jugador8Imagen);
+
+                            }
+
+                            if (jugador7.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador7Imagen = document.querySelector(".imagen-jugador-7");
+                                let jugador7Contenedor = document.querySelector(".jugador-7");
+                                let jugador7Select = document.querySelector("#juga-7");
+
+
+                                jugador7Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador7Contenedor.classList.add("jugadores-expulsion");
+                                jugador7Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador7.dataset.roja = "1";
+
+                                console.log(jugador7Imagen);
+
+                            }
+
+                            if (jugador6.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador6Imagen = document.querySelector(".imagen-jugador-6");
+                                let jugador6Contenedor = document.querySelector(".jugador-6");
+                                let jugador6Select = document.querySelector("#juga-6");
+
+
+                                jugador6Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador6Contenedor.classList.add("jugadores-expulsion");
+                                jugador6Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador6.dataset.roja = "1";
+
+                                console.log(jugador6Imagen);
+
+                            }
+
+                            if (jugador5.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador5Imagen = document.querySelector(".imagen-jugador-5");
+                                let jugador5Contenedor = document.querySelector(".jugador-5");
+                                let jugador5Select = document.querySelector("#juga-5");
+
+
+
+                                jugador5Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador5Contenedor.classList.add("jugadores-expulsion");
+                                jugador5Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador5.dataset.roja = "1";
+
+                                console.log(jugador5Imagen);
+
+                            }
+
+                            if (jugador4.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador4Imagen = document.querySelector(".imagen-jugador-4");
+                                let jugador4Contenedor = document.querySelector(".jugador-4");
+                                let jugador4Select = document.querySelector("#juga-4");
+
+
+
+                                jugador4Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador4Contenedor.classList.add("jugadores-expulsion");
+                                jugador4Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador3.dataset.roja = "1";
+
+                                console.log(jugador4Imagen);
+
+                            }
+
+                            if (jugador3.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador3Imagen = document.querySelector(".imagen-jugador-3");
+                                let jugador3Contenedor = document.querySelector(".jugador-3");
+                                let jugador3Select = document.querySelector("#juga-3");
+
+
+
+                                jugador3Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador3Contenedor.classList.add("jugadores-expulsion");
+                                jugador3Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador3.dataset.roja = "1";
+
+                                console.log(jugador3Imagen);
+
+                            }
+
+                            if (jugador2.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador2Imagen = document.querySelector(".imagen-jugador-2");
+                                let jugador2Contenedor = document.querySelector(".jugador-2");
+                                let jugador2Select = document.querySelector("#juga-2");
+
+
+
+                                jugador2Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador2Contenedor.classList.add("jugadores-expulsion");
+                                jugador2Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador2.dataset.roja = "1";
+
+                                console.log(jugador2Imagen);
+
+                            }
+
+                            if (jugador1.dataset.text == nombreJugadorRojaArgentina) {
+
+                                let jugador1Imagen = document.querySelector(".imagen-jugador-1");
+                                let jugador1Contenedor = document.querySelector(".jugador-1");
+                                let jugador1Select = document.querySelector("#juga-1");
+
+
+
+                                jugador1Imagen.classList.add("imagenes-expulsion-lesion");
+                                jugador1Contenedor.classList.add("jugadores-expulsion");
+                                jugador1Select.classList.add("numero-de-jugador-expulsion-y-cambios");
+
+                                jugador1.dataset.roja = "1";
+
+                                console.log(jugador1Imagen);
+
+                            }
+}
+
+//Rojas BRASIL
+
+let neymarRoja = false;
+let richarlisonRoja = false;
+let viniciusRoja = false;
+let raphinhaRoja = false;
+let casemiroRoja = false;
+let paquetaRoja = false;
+let silvaRoja = false;
+let militaoRoja = false;
+let marquinhosRoja = false;
+let tellesRoja = false;
+
+//Amarilla BRASIL
+
+let neymarAmarilla = 0;
+let richarlisonAmarilla = 0;
+let viniciusAmarilla = 0;
+let raphinhaAmarilla = 0;
+let casemiroAmarilla = 0;
+let paquetaAmarilla = 0;
+let silvaAmarilla = 0;
+let militaoAmarilla = 0;
+let marquinhosAmarilla = 0;
+let tellesAmarilla = 0;
+
 
 // INICIAR PARTIDO
 
@@ -3733,7 +3981,10 @@ function eventoPartido() {
 
         totalVariable1 = 70 //70 corresponde a la formación 433 que viene por default. Es decir, si el usuario no clickeo en ninguna táctica y uso la por default, va a tener ese valor.
 
-        sumaTodasLasVariables = totalVariable1 + totalVariable2 + totalVariable3 + totalVariable4 + totalVariable5 + totalVariable6 + totalVariable7 + totalVariable8;
+        sumaTodasLasVariables = totalVariable1 + totalVariable2 + totalVariable3 + totalVariable4 + totalVariable5 + totalVariable6 + totalVariable7 + totalVariable8 + totalVariableRojas + totalVariableLesion;
+
+        console.log("Soy el total variable rojas " + totalVariableRojas);
+        console.log("Soy el total variable lesion " + totalVariableLesion);
 
 
         if (sumaTodasLasVariables > 325.5) {
@@ -3792,7 +4043,7 @@ function eventoPartido() {
 
     else{
 
-        sumaTodasLasVariables = totalVariable1 + totalVariable2 + totalVariable3 + totalVariable4 + totalVariable5 + totalVariable6 + totalVariable7 + totalVariable8;
+        sumaTodasLasVariables = totalVariable1 + totalVariable2 + totalVariable3 + totalVariable4 + totalVariable5 + totalVariable6 + totalVariable7 + totalVariable8 + totalVariableRojas + totalVariableLesion;;
 
         if (sumaTodasLasVariables > 325.5) {
             eventosFavorArgentina = 65;
@@ -3875,6 +4126,8 @@ function eventoPartido() {
 
                 if (resultadoEventosFavorArgentina <= 90) { //Ataque Argentina y posibilidad de GOL
 
+                    //Valor real de este if es = "resultadoEventosFavorArgentina <= 90". Lo podemos cambiar por "= 0" , para probarlo.
+
 
                     function atacaArgentina() {//Acá entran las variables de EFECTIVIDAD DE ARGENTINA.
 
@@ -3883,7 +4136,7 @@ function eventoPartido() {
 
                         let resultadoAtacaArgentina = Math.floor(Math.random() * (100 - 0) + 0);
 
-                        if (resultadoAtacaArgentina <= 70) {
+                        if (resultadoAtacaArgentina <= 60) {
 
                             console.log("Ataque de Argentina");
 
@@ -4032,7 +4285,7 @@ function eventoPartido() {
 
                         }
 
-                        if (resultadoAtacaArgentina > 70) {
+                        if (resultadoAtacaArgentina > 60) {
 
                             sumaTodoTotalEfectividadArgentina = totalEfectividadArgentina1 + totalEfectividadArgentina2 + totalEfectividadArgentina3 + totalEfectividadArgentina4 + totalEfectividadArgentina5 + totalEfectividadArgentina6 + totalEfectividadArgentina7 + totalEfectividadArgentina8;
 
@@ -4285,32 +4538,552 @@ function eventoPartido() {
 
                 if (resultadoEventosFavorArgentina > 90 && resultadoEventosFavorArgentina <= 95) { //Roja para Brasil
 
+                    //Valor real de este if es = "resultadoEventosFavorArgentina > 90 && resultadoEventosFavorArgentina <= 95". Lo podemos cambiar por "< 100" , para probarlo.
+
                     console.log("Roja para Brasil");
 
-                    function rojaParaBrasil() {//No hay algoritmo complejo, porque las variables de microeventos no afectan las rojas de brasil.
+                    function rojaOAmarillaParaBrasil() {
 
                         min = Math.ceil(0);
                         max = Math.floor(100);
 
                         let resultadoRojaParaBrasil = Math.floor(Math.random() * (100 - 0) + 0);
 
-                        if (resultadoRojaParaBrasil < 60) { //Casi expulsión de jugador de brasil
+                        if (resultadoRojaParaBrasil < 70) { //Amarilla para jugador de Brasil
 
-                            contenedorComentarios.removeAttribute('class')
+                            //Vemos qué jugador va a obtener la amarilla
 
-                            contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil");
+                            min = Math.ceil(0);
+                            max = Math.floor(100);
 
-                            textoComentarios.textContent = "Dura entrada del jugador brasileño, se ganó la amarrilla.";
+                            let resultadoAmarillaParaBrasil = Math.floor(Math.random() * (100 - 0) + 0);
+                            let jugadorAmarillaBrasil = "no definido";
+
+                            //Definimos jugadores para agregarles marcadores
+
+
+                            if (resultadoAmarillaParaBrasil <= 5) {
+                                jugadorAmarillaBrasil = "Neymar";
+                                neymarAmarilla ++;
+
+                                if (neymarAmarilla >= 2){
+
+                                    neymarRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(neymarRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("Neymar tiene " + neymarAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Neymar tiene " + neymarAmarilla + " amarilla.")
+                            }
+                            
+                            if (resultadoAmarillaParaBrasil > 5 && resultadoAmarillaParaBrasil <= 10) {
+                                jugadorAmarillaBrasil = "Richarlison";
+
+                                richarlisonAmarilla ++;
+
+                                if (richarlisonAmarilla >= 2){
+
+                                    richarlisonRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(richarlisonRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("Richarlison tiene " + richarlisonAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Richarlison tiene " + richarlisonAmarilla + " amarilla.")
+                            }
+                            
+                            if (resultadoAmarillaParaBrasil > 10 && resultadoAmarillaParaBrasil <= 15) {
+                                jugadorAmarillaBrasil = "Vinicius Jr.";
+
+                                viniciusAmarilla ++;
+
+                                if (viniciusAmarilla >= 2){
+
+                                    viniciusRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(viniciusRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("Vinicius tiene " + viniciusAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Vinicius Jr. tiene " + viniciusAmarilla + " amarilla.")
+                            }
+                            
+                            if (resultadoAmarillaParaBrasil > 15 && resultadoAmarillaParaBrasil <= 20) {
+                                jugadorAmarillaBrasil = "Rafinha";
+
+                                raphinhaAmarilla ++;
+
+                                if (raphinhaAmarilla >= 2){
+
+                                    raphinhaRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(raphinhaRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("Raphinha tiene " + raphinhaAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Raphinha tiene " + raphinhaAmarilla + " amarilla.")
+                            }
+                            
+                            if (resultadoAmarillaParaBrasil > 20 && resultadoAmarillaParaBrasil <= 30) {
+                                jugadorAmarillaBrasil = "Casemiro";
+
+                                casemiroAmarilla ++;
+
+                                if (casemiroAmarilla >= 2){
+
+                                    casemiroRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(casemiroRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("Casemiro tiene " + casemiroAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Casemiro tiene " + casemiroAmarilla + " amarilla.")
+                            }
+                            
+                            if (resultadoAmarillaParaBrasil > 30 && resultadoAmarillaParaBrasil <= 40) {
+                                jugadorAmarillaBrasil = "Paquetá";
+
+                                paquetaAmarilla ++;
+
+                                if (paquetaAmarilla >= 2){
+
+                                    paquetaRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(paquetaRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("Paquetá tiene " + paquetaAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Paqueta tiene " + paquetaAmarilla + " amarilla.")
+                            }
+                            
+                            if (resultadoAmarillaParaBrasil > 40 && resultadoAmarillaParaBrasil <= 55) {
+                                jugadorAmarillaBrasil = "T. Silva";
+
+                                silvaAmarilla ++;
+
+                                if (silvaAmarilla >= 2){
+
+                                    silvaRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(silvaRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("T. Silva tiene " + silvaAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Silva tiene " + silvaAmarilla + " amarilla.")
+                            }
+                            
+                            if (resultadoAmarillaParaBrasil > 55 && resultadoAmarillaParaBrasil <= 70) {
+                                jugadorAmarillaBrasil = "É. Militão";
+
+                                militaoAmarilla ++;
+
+                                if (militaoAmarilla >= 2){
+
+                                    militaoRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(militaoRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("Militao tiene " + militaoAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Militao tiene " + militaoAmarilla + " amarilla.")
+                            }
+                            
+                            if (resultadoAmarillaParaBrasil > 70 && resultadoAmarillaParaBrasil <= 85) {
+                                jugadorAmarillaBrasil = "Marquinhos";
+
+                                marquinhosAmarilla ++;
+
+                                if (marquinhosAmarilla >= 2){
+
+                                    marquinhosRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(marquinhosRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("Marquinhos tiene " + marquinhosAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Marquinhos tiene " + marquinhosAmarilla + " amarilla.")
+                            }
+                            
+                            
+                            if (resultadoAmarillaParaBrasil > 85 && resultadoAmarillaParaBrasil <= 100) {
+                                jugadorAmarillaBrasil = "A. Telles";
+
+                                tellesAmarilla ++;
+
+                                if (tellesAmarilla >= 2){
+
+                                    tellesRoja = true; //Indicamos que fue expulsado
+
+                                    console.log(tellesRoja);
+
+                                    totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " ha sido expulsado por doble amarilla.";
+
+                                    console.log ("Telles tiene " + tellesAmarilla + " amarilla.")
+                                    console.log ("Jugador de Brasil expulsado por doble amarilla");   
+
+                                     //Agregamos la info de la expulsión
+
+                                    //A) Hacemos que se genere un P con la info.
+
+                                    let creadorDeParrafoExpulsionBrasil = document.createElement("p");
+
+                                    let contenidoGeneradoExpulsionBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                                    `
+                                        <p class= "texto-eventos-expulsion">${jugadorAmarillaBrasil}</p>
+
+                                        `;
+
+                                    creadorDeParrafoExpulsionBrasil.innerHTML = contenidoGeneradoExpulsionBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                                    eventosBra.append(creadorDeParrafoExpulsionBrasil);
+                                
+                                }
+
+                                else{
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = jugadorAmarillaBrasil + " se ganó la amarilla.";
+                                }
+
+                                console.log ("Telles tiene " + tellesAmarilla + " amarilla.")
+                            }
+
 
                         }
 
-                        if (resultadoRojaParaBrasil >= 60) { //Expulsión de jugador de Brasil
+                        if (resultadoRojaParaBrasil >= 70) { //Expulsión de jugador de Brasil
 
                             contenedorComentarios.removeAttribute('class')
 
                             contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
 
-                            sumaTodasLasVariables += 10; //Le decimos que sume 10 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+                            totalVariableRojas += 65; //Le decimos que sume 25 al total de variables, haciendo que argentina tenga más posibilidad de evento favorable.
+
+                            console.log("Soy la suma de todas las variables, después de expulsión Brasil " + sumaTodasLasVariables);
 
                             min = Math.ceil(0);
 
@@ -4323,43 +5096,73 @@ function eventoPartido() {
 
                             if (jugadorRojaBrasil <= 5) {
                                 nombreJugadorRojaBrasil = "Neymar";
+
+                                neymarRoja = true; //Indicamos que fue expulsado
+                                console.log(neymarRoja);
                             }
 
                             if (jugadorRojaBrasil > 5 && jugadorRojaBrasil <= 10) {
                                 nombreJugadorRojaBrasil = "Richarlison.";
+
+                                richarlisonRoja = true; //Indicamos que fue expulsado
+                                console.log(richarlisonRoja);
                             }
 
                             if (jugadorRojaBrasil > 10 && jugadorRojaBrasil <= 15) {
                                 nombreJugadorRojaBrasil = "Vinicius Jr.";
+
+                                viniciusRoja = true; //Indicamos que fue expulsado
+                                console.log(viniciusRoja);
                             }
 
                             if (jugadorRojaBrasil > 15 && jugadorRojaBrasil <= 20) {
                                 nombreJugadorRojaBrasil = "Rafinha";
+
+                                raphinhaRoja = true; //Indicamos que fue expulsado
+                                console.log(raphinhaRoja);
                             }
 
                             if (jugadorRojaBrasil > 20 && jugadorRojaBrasil <= 30) {
                                 nombreJugadorRojaBrasil = "Casemiro";
+
+                                casemiroRoja = true; //Indicamos que fue expulsado
+                                console.log(casemiroRoja);
                             }
 
                             if (jugadorRojaBrasil > 30 && jugadorRojaBrasil <= 40) {
                                 nombreJugadorRojaBrasil = "Paquetá";
+
+                                paquetaRoja = true; //Indicamos que fue expulsado
+                                console.log(paquetaRoja);
                             }
 
                             if (jugadorRojaBrasil > 40 && jugadorRojaBrasil <= 55) {
                                 nombreJugadorRojaBrasil = "T. Silva";
+
+                                silvaRoja = true; //Indicamos que fue expulsado
+                                console.log(silvaRoja);
                             }
 
                             if (jugadorRojaBrasil > 55 && jugadorRojaBrasil <= 70) {
                                 nombreJugadorRojaBrasil = "É. Militão";
+
+                                militaoRoja = true; //Indicamos que fue expulsado
+                                console.log(militaoRoja);
                             }
 
                             if (jugadorRojaBrasil > 70 && jugadorRojaBrasil <= 85) {
                                 nombreJugadorRojaBrasil = "Marquinhos";
+
+                                marquinhosRoja = true; //Indicamos que fue expulsado
+                                console.log(marquinhosRoja);
                             }
 
 
                             if (jugadorRojaBrasil > 85 && jugadorRojaBrasil <= 100) {
                                 nombreJugadorRojaBrasil = "A. Telles";
+
+                                tellesRoja = true; //Indicamos que fue expulsado
+                                console.log(tellesRoja);
                             }
 
                             textoComentarios.textContent = nombreJugadorRojaBrasil + " ha sido expulsado.";
@@ -4383,7 +5186,7 @@ function eventoPartido() {
                         }
                     }
 
-                    rojaParaBrasil()
+                    rojaOAmarillaParaBrasil()
                 }
 
                 if (resultadoEventosFavorArgentina > 95 && resultadoEventosFavorArgentina <= 100) {//Lesión para Brasil
@@ -4483,7 +5286,7 @@ function eventoPartido() {
 
                 if (resultadoEventosFavorBrasil < 90) { //Ataque Brasil y posibilidad de GOL
 
-                    //INFO DE EXPULSADOS, LO DEJO ACÁ PARA INTERCAMBIARLO Y CHEQUEARLO CUANDO SEA NECESARIO. resultadoEventosFavorBrasil > 90 && resultadoEventosFavorBrasil <= 95
+                    //El valor normal es = "resultadoEventosFavorBrasil < 90", pero podemos hacer "resultadoEventosFavorBrasil = 0"
 
                     function atacaBrasil() {//Acá entran las variables de EFECTIVIDAD DE BRASIL.
 
@@ -4492,7 +5295,7 @@ function eventoPartido() {
 
                         let resultadoAtacaBrasil = Math.floor(Math.random() * (100 - 0) + 0);
 
-                        if (resultadoAtacaBrasil <= 70) {
+                        if (resultadoAtacaBrasil <= 60) {
 
                             console.log("Ataque de Brasil");
 
@@ -4650,7 +5453,7 @@ function eventoPartido() {
 
                         }
 
-                        if (resultadoAtacaBrasil > 70) {
+                        if (resultadoAtacaBrasil > 60) {
 
                             sumaTodoTotalEfectividadBrasil = totalEfectividadBrasil1 + totalEfectividadBrasil2 + totalEfectividadBrasil3 + totalEfectividadBrasil4 + totalEfectividadBrasil5 + totalEfectividadBrasil6 + totalEfectividadBrasil7 + totalEfectividadBrasil8;
 
@@ -4813,12 +5616,12 @@ function eventoPartido() {
                     atacaBrasil()  //Ejecutamos la función: NUNCA OLVIDAR ESTO, si no, no funciona.
                 }
 
-                if (resultadoEventosFavorBrasil > 90 && resultadoEventosFavorBrasil <= 95) { //Roja para Argentina
+                if (resultadoEventosFavorBrasil > 90 && resultadoEventosFavorBrasil <= 95) { //Posible roja para Argentina
+
+                    
+                    // La info que corresponde acá es "resultadoEventosFavorBrasil > 90 && resultadoEventosFavorBrasil <= 95", pero podemos poner < 100, para testear.
 
                     console.log("Posible roja para Argentina, no siempre es roja.");
-                    
-                    // ESTE ES LA INFO QUE VA EN ATAQUE, LA DEJO ACÁ PARA INTERCAMBIARLA CON LAS EXPULSIONES Y CHEQUEAR RÁPIDO LO QUE HAGA FALTA resultadoEventosFavorBrasil <= 90
-
 
                     function rojaParaArgentina() {
 
@@ -4855,11 +5658,373 @@ function eventoPartido() {
 
                         if (resultadoRojaParaArgentina >= comparadorSumaRojasArgentina) {
 
-                            contenedorComentarios.removeAttribute('class')
+                            min = Math.ceil(0);
 
-                            contenedorComentarios.classList.add("contenedor-comentarios-favor-argentina");
+                            max = Math.floor(100);
 
-                            textoComentarios.textContent = "El jugador de Argentina entró muy duro, podría haber sido roja.";
+                            let jugadorAmarillaArgentina = Math.floor(Math.random() * (100 - 0) + 0);
+
+                            let nombreJugadorAmarillaArgentina = "no definido"
+
+                            if (jugador11.dataset.roja != 1 && jugador11.dataset.lesion != 1 && jugadorAmarillaArgentina <= 5) {
+
+                                nombreJugadorAmarillaArgentina = jugador11.dataset.text;
+                               
+
+                                if (jugador11.dataset.amarilla == 0){
+
+                                    jugador11.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador11.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador11.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+                            
+                            }
+                            
+                            else if (jugador10.dataset.roja != 1 && jugador10.dataset.lesion != 1 && jugadorAmarillaArgentina <= 10) {
+
+                                nombreJugadorAmarillaArgentina = jugador10.dataset.text;
+
+                                if (jugador10.dataset.amarilla == 0){
+
+                                    console.log("saqué amarilla")
+
+                                    jugador10.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador10.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador10.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+                            
+                            }
+                            
+                            else if (jugador9.dataset.roja != 1 && jugador9.dataset.lesion != 1 && jugadorAmarillaArgentina <= 15) {
+
+                                nombreJugadorAmarillaArgentina = jugador9.dataset.text;
+                                
+
+                                if (jugador9.dataset.amarilla == 0){
+
+                                    console.log("saqué amarilla")
+
+                                    jugador9.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador9.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador9.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+                            
+                            }
+                            
+                            else if (jugador8.dataset.roja != 1 && jugador8.dataset.lesion != 1 && jugadorAmarillaArgentina <= 20) {
+
+                                nombreJugadorAmarillaArgentina = jugador8.dataset.text;
+                                
+
+                                if (jugador8.dataset.amarilla == 0){
+
+                                    console.log("saqué amarilla")
+
+                                    jugador8.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador8.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador8.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+                            
+                            }
+                            
+                            else if (jugador7.dataset.roja != 1 && jugador7.dataset.lesion != 1 && jugadorAmarillaArgentina <= 30) {
+                                nombreJugadorAmarillaArgentina = jugador7.dataset.text;
+
+                        
+                                if (jugador7.dataset.amarilla == 0){
+
+                                    console.log("saqué amarilla")
+
+                                    jugador7.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador7.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador7.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+                            
+                            }
+                            
+                            else if (jugador6.dataset.roja != 1 && jugador6.dataset.lesion != 1 && jugadorAmarillaArgentina <= 40) {
+                                nombreJugadorAmarillaArgentina = jugador6.dataset.text;
+
+
+                                if (jugador6.dataset.amarilla == 0){
+
+                                    console.log("saqué amarilla")
+
+                                    jugador6.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador6.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador6.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+                            
+                            }
+                            
+                            else if (jugador5.dataset.roja != 1 && jugador5.dataset.lesion != 1 && jugadorAmarillaArgentina <= 55) {
+                                nombreJugadorAmarillaArgentina = jugador5.dataset.text;
+
+                                
+
+                                if (jugador5.dataset.amarilla == 0){
+
+                                    console.log("saqué amarilla")
+
+                                    jugador5.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador5.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador5.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+                            
+                            }
+                            
+                            else if (jugador4.dataset.roja != 1 && jugador4.dataset.lesion != 1 && jugadorAmarillaArgentina <= 70) {
+                                nombreJugadorAmarillaArgentina = jugador4.dataset.text;
+
+                               
+
+                                if (jugador4.dataset.amarilla == 0){
+
+                                    console.log("saqué amarilla")
+
+                                    jugador4.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador4.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador4.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+                            
+                            }
+                            
+                            else if (jugador3.dataset.roja != 1 && jugador3.dataset.lesion != 1 && jugadorAmarillaArgentina <= 85) {
+                                nombreJugadorAmarillaArgentina = jugador3.dataset.text;
+
+
+                                if (jugador3.dataset.amarilla == 0){
+
+                                    console.log("saqué amarilla")
+
+                                    jugador3.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador3.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador3.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+
+                                
+                            
+                            }
+                            
+                            else if (jugador2.dataset.roja != 1 && jugador2.dataset.lesion != 1 && jugadorAmarillaArgentina <= 100) {
+
+                                nombreJugadorAmarillaArgentina = jugador2.dataset.text;
+
+                                
+
+                                if (jugador2.dataset.amarilla == 0){
+
+                                    console.log("saqué amarilla")
+
+                                    jugador2.dataset.amarilla++;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
+
+                                    textoComentarios.textContent = "Amarilla para " + nombreJugadorAmarillaArgentina;
+                                }
+
+                                else if (jugador2.dataset.amarilla >= 1){
+
+                                    nombreJugadorRojaArgentina = jugador2.dataset.text;
+
+                                    contenedorComentarios.removeAttribute('class')
+
+                                    contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
+
+                                    totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+
+                                    textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado por segunda amarilla.";
+
+                                    informacionExpulsado()
+
+                                }
+
+                            }
+                            
+
+
                         }
 
                         if (resultadoRojaParaArgentina < comparadorSumaRojasArgentina) {
@@ -4868,7 +6033,7 @@ function eventoPartido() {
 
                             contenedorComentarios.classList.add("contenedor-comentarios-expulsion");
 
-                            sumaTodasLasVariables -= 10; //Le decimos que reste 10 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+                            totalVariableRojas -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
 
 
                             min = Math.ceil(0);
@@ -4877,50 +6042,85 @@ function eventoPartido() {
 
                             let jugadorRojaArgentina = Math.floor(Math.random() * (100 - 0) + 0);
 
-                            let nombreJugadorRojaArgentina = "no definido"
 
                             if (jugador11.dataset.roja != 1 && jugador11.dataset.lesion != 1 && jugadorRojaArgentina <= 5) {
                                 nombreJugadorRojaArgentina = jugador11.dataset.text;
+
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
+
+                                informacionExpulsado();
 
                             }
 
                             else if (jugador10.dataset.roja != 1 && jugador10.dataset.lesion != 1 && jugadorRojaArgentina <= 10) {
                                 nombreJugadorRojaArgentina = jugador10.dataset.text;
 
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
+
+                                informacionExpulsado();
+
                             }
 
                             else if (jugador9.dataset.roja != 1 && jugador9.dataset.lesion != 1 && jugadorRojaArgentina <= 15) {
                                 nombreJugadorRojaArgentina = jugador9.dataset.text;
+
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
+
+                                informacionExpulsado();
 
                             }
 
                             else if (jugador8.dataset.roja != 1 && jugador8.dataset.lesion != 1 && jugadorRojaArgentina <= 20) {
                                 nombreJugadorRojaArgentina = jugador8.dataset.text;
 
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
+
+                                informacionExpulsado();
+
                             }
 
                             else if (jugador7.dataset.roja != 1 && jugador7.dataset.lesion != 1 && jugadorRojaArgentina <= 30) {
                                 nombreJugadorRojaArgentina = jugador7.dataset.text;
+
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
+
+                                informacionExpulsado();
 
                             }
 
                             else if (jugador6.dataset.roja != 1 && jugador6.dataset.lesion != 1 && jugadorRojaArgentina <= 40) {
                                 nombreJugadorRojaArgentina = jugador6.dataset.text;
 
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
+
+                                informacionExpulsado();
+
                             }
 
                             else if (jugador5.dataset.roja != 1 && jugador5.dataset.lesion != 1 && jugadorRojaArgentina <= 55) {
                                 nombreJugadorRojaArgentina = jugador5.dataset.text;
+
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
+
+                                informacionExpulsado();
 
                             }
 
                             else if (jugador4.dataset.roja != 1 && jugador4.dataset.lesion != 1 && jugadorRojaArgentina <= 70) {
                                 nombreJugadorRojaArgentina = jugador4.dataset.text;
 
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
+
+                                informacionExpulsado();
+
                             }
 
                             else if (jugador3.dataset.roja != 1 && jugador3.dataset.lesion != 1 && jugadorRojaArgentina <= 85) {
                                 nombreJugadorRojaArgentina = jugador3.dataset.text;
+
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
+
+                                informacionExpulsado();
 
                             }
 
@@ -4928,220 +6128,9 @@ function eventoPartido() {
                             else if (jugador2.dataset.roja != 1 && jugador2.dataset.lesion != 1 && jugadorRojaArgentina <= 100) {
                                 nombreJugadorRojaArgentina = jugador2.dataset.text;
 
-                            }
+                                textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
 
-                            textoComentarios.textContent = nombreJugadorRojaArgentina + " ha sido expulsado.";
-
-                            //Agregamos la info de la expulsión
-
-                            //A) Hacemos que se genere un P con la info.
-
-                            let creadorDeParrafoExpulsionArgentina = document.createElement("p");
-
-                            let contenidoGeneradoExpulsionArgentina = //Las `` siguientes se utilizan para hacer un html literal
-                                `
-                                        <p class= "texto-eventos-expulsion">${nombreJugadorRojaArgentina}</p>
-
-                                        `;
-
-                            creadorDeParrafoExpulsionArgentina.innerHTML = contenidoGeneradoExpulsionArgentina; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
-
-                            eventosArg.append(creadorDeParrafoExpulsionArgentina);
-
-                            //Aviso expulsión
-
-                            setTimeout(avisoExpulsion, 1300);
-
-                            if (jugador11.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador11Imagen = document.querySelector(".imagen-jugador-11");
-                                let jugador11Contenedor = document.querySelector(".jugador-11");
-                                let jugador11Select = document.querySelector("#juga-11");
-
-
-
-                                jugador11Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador11Contenedor.classList.add("jugadores-expulsion");
-                                jugador11Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador11.dataset.roja = "1"; //Al colocar acá uno, podemos preguntar en los otros eventos si esto está habilitado y de esta manera, hacer que ningún jugador expulsado participe de un evento
-
-                                console.log(jugador11Imagen);
-
-                            }
-
-                            if (jugador10.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador10Imagen = document.querySelector(".imagen-jugador-10");
-                                let jugador10Contenedor = document.querySelector(".jugador-10");
-                                let jugador10Select = document.querySelector("#juga-10");
-
-
-                                jugador10Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador10Contenedor.classList.add("jugadores-expulsion");
-                                jugador10Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador10.dataset.roja = "1";
-
-                                console.log(jugador10Imagen);
-
-                            }
-
-                            if (jugador9.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador9Imagen = document.querySelector(".imagen-jugador-9");
-                                let jugador9Contenedor = document.querySelector(".jugador-9");
-                                let jugador9Select = document.querySelector("#juga-9");
-
-
-
-                                jugador9Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador9Contenedor.classList.add("jugadores-expulsion");
-                                jugador9Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador9.dataset.roja = "1";
-
-                                console.log(jugador9Imagen);
-
-                            }
-
-                            if (jugador8.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador8Imagen = document.querySelector(".imagen-jugador-8");
-                                let jugador8Contenedor = document.querySelector(".jugador-8");
-                                let jugador8Select = document.querySelector("#juga-8");
-
-                                jugador8Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador8Contenedor.classList.add("jugadores-expulsion");
-                                jugador8Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador8.dataset.roja = "1";
-
-                                console.log(jugador8Imagen);
-
-                            }
-
-                            if (jugador7.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador7Imagen = document.querySelector(".imagen-jugador-7");
-                                let jugador7Contenedor = document.querySelector(".jugador-7");
-                                let jugador7Select = document.querySelector("#juga-7");
-
-
-                                jugador7Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador7Contenedor.classList.add("jugadores-expulsion");
-                                jugador7Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador7.dataset.roja = "1";
-
-                                console.log(jugador7Imagen);
-
-                            }
-
-                            if (jugador6.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador6Imagen = document.querySelector(".imagen-jugador-6");
-                                let jugador6Contenedor = document.querySelector(".jugador-6");
-                                let jugador6Select = document.querySelector("#juga-6");
-
-
-                                jugador6Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador6Contenedor.classList.add("jugadores-expulsion");
-                                jugador6Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador6.dataset.roja = "1";
-
-                                console.log(jugador6Imagen);
-
-                            }
-
-                            if (jugador5.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador5Imagen = document.querySelector(".imagen-jugador-5");
-                                let jugador5Contenedor = document.querySelector(".jugador-5");
-                                let jugador5Select = document.querySelector("#juga-5");
-
-
-
-                                jugador5Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador5Contenedor.classList.add("jugadores-expulsion");
-                                jugador5Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador5.dataset.roja = "1";
-
-                                console.log(jugador5Imagen);
-
-                            }
-
-                            if (jugador4.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador4Imagen = document.querySelector(".imagen-jugador-4");
-                                let jugador4Contenedor = document.querySelector(".jugador-4");
-                                let jugador4Select = document.querySelector("#juga-4");
-
-
-
-                                jugador4Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador4Contenedor.classList.add("jugadores-expulsion");
-                                jugador4Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador3.dataset.roja = "1";
-
-                                console.log(jugador4Imagen);
-
-                            }
-
-                            if (jugador3.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador3Imagen = document.querySelector(".imagen-jugador-3");
-                                let jugador3Contenedor = document.querySelector(".jugador-3");
-                                let jugador3Select = document.querySelector("#juga-3");
-
-
-
-                                jugador3Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador3Contenedor.classList.add("jugadores-expulsion");
-                                jugador3Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador3.dataset.roja = "1";
-
-                                console.log(jugador3Imagen);
-
-                            }
-
-                            if (jugador2.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador2Imagen = document.querySelector(".imagen-jugador-2");
-                                let jugador2Contenedor = document.querySelector(".jugador-2");
-                                let jugador2Select = document.querySelector("#juga-2");
-
-
-
-                                jugador2Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador2Contenedor.classList.add("jugadores-expulsion");
-                                jugador2Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador2.dataset.roja == "1";
-
-                                console.log(jugador2Imagen);
-
-                            }
-
-                            if (jugador1.dataset.text == nombreJugadorRojaArgentina) {
-
-                                let jugador1Imagen = document.querySelector(".imagen-jugador-1");
-                                let jugador1Contenedor = document.querySelector(".jugador-1");
-                                let jugador1Select = document.querySelector("#juga-1");
-
-
-
-                                jugador1Imagen.classList.add("imagenes-expulsion-lesion");
-                                jugador1Contenedor.classList.add("jugadores-expulsion");
-                                jugador1Select.classList.add("numero-de-jugador-expulsion-y-cambios");
-
-                                jugador1.dataset.roja == "1";
-
-                                console.log(jugador1Imagen);
+                                informacionExpulsado();
 
                             }
 
@@ -5201,7 +6190,7 @@ function eventoPartido() {
 
                             contenedorComentarios.classList.add("contenedor-comentarios-lesion");
 
-                            sumaTodasLasVariables -= 10; //Le decimos que reste 10 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable.
+                            totalVariableLesion -= 65; //Le decimos que reste 25 al total de variables, haciendo que argentina tenga menos posibilidad de evento favorable. (Si se cambia el jugador, sumará estos 25. Esa función está declarada en el apartado 2.)
 
                             console.log(sumaTodasLasVariables + " acá restamos por lesión");
 

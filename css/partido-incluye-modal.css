@@ -355,6 +355,21 @@
     
 }
 
+.contenedor-comentarios-amarilla{ /*Se usa cuando hay una explulsión*/
+    grid-column: 1 / 4;
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    background-color: rgb(251, 255, 21);
+    color: var(--gris-1);
+    display: grid;
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    
+}
+
 .contenedor-comentarios-lesion{ /*Se usa cuando hay una lesión*/
     grid-column: 1 / 4;
     width: 90%;
