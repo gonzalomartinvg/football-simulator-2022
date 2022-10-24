@@ -2764,10 +2764,10 @@ function chequeoJugadoresYEstiloEstenElegidos(){
         tituloModalErrores.textContent = "Completá la selección de jugadores"
         textoModalErrores.textContent = "Para salir a la cancha es necesario que elijas jugadores en todas las posiciones."
     
-        // mostrarAvisoError() //AVISO ERROR (deshabilitar para hacer pruebas)
+        mostrarAvisoError() //AVISO ERROR (deshabilitar para hacer pruebas)
         
-        sumaVariablesJugadoresElegidosEnVariable2() //Habilitar para hacer pruebas.
-        contenedorModal.classList.add("contenedor-modal--show"); //Habilitar para hacer pruebas.
+        // sumaVariablesJugadoresElegidosEnVariable2() //Habilitar para hacer pruebas.
+        // contenedorModal.classList.add("contenedor-modal--show"); //Habilitar para hacer pruebas.
 
     }
 
@@ -2776,10 +2776,10 @@ function chequeoJugadoresYEstiloEstenElegidos(){
         tituloModalErrores.textContent = "Elegí un estilo de juego"
         textoModalErrores.textContent = "Para comenzar el partido es necesario que tus jugadores sepan que estilo de juego vas a usar."
 
-        // mostrarAvisoError() //AVISO ERROR (deshabilitar para hacer pruebas)
+        mostrarAvisoError() //AVISO ERROR (deshabilitar para hacer pruebas)
         
-        sumaVariablesJugadoresElegidosEnVariable2() //Habilitar para hacer pruebas.
-        contenedorModal.classList.add("contenedor-modal--show"); //Habilitar para hacer pruebas.
+        // sumaVariablesJugadoresElegidosEnVariable2() //Habilitar para hacer pruebas.
+        // contenedorModal.classList.add("contenedor-modal--show"); //Habilitar para hacer pruebas.
     }
 
     else {
