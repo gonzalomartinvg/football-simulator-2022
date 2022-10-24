@@ -2848,7 +2848,7 @@ let reiniciarCronometro = document.getElementById("reinicio");
 //Funciones que inician, frenan y reanudan los comentarios
 
 function inicio () {
-	control = setInterval(cronometro,1);
+	control = setInterval(cronometro,15);
 	inicioCronometro.disabled = true;
 	botonPausar.disabled = false;
 	botonReanudar.disabled = true;
