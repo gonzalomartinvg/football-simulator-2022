@@ -162,7 +162,7 @@ let jugador1 = document.querySelector("#juga-1");
 
 //Segundo seleccionamos todos los jugadores
 
-const selectorJugador = document.querySelectorAll(".jugador");
+const selectorJugador = document.querySelectorAll(".numero-de-jugador");
 
 //Declaramos la variable que va a sumar los puntos
 
@@ -1001,20 +1001,30 @@ function cambiaA5311 (){
 
 
 
-//Por cada click en un jugador, se va a activar una función
+//Por cada CHANGE en un jugador, se va a activar una función
+
+//Lamentablemente en Chrome NO FUNCIONA EL EFECTO CLICK EN OPTIONS. Por lo tanto, se va a hacer mediante un cambio, donde el select va a ser elegido y de ahí su evento que cambio.
+
+//El selector jugador es = a todos los selects (no a sus options).
 selectorJugador.forEach(seleccionDeVariableClickeada => {
-    seleccionDeVariableClickeada.addEventListener("click", sumaPuntosEImagen);
-})
+
+    //Por cada select se produce un evento de "change" que dispara una función sin nombre a la que le pasa como parámetro el evento capturado (event). A su vez, esa función le agrega como parametro a la función "sumaPuntosEImagen" la selección que hicimos, es decir si elegimos a Messi, le pasara el elemento Messi.
+
+    seleccionDeVariableClickeada.addEventListener('change',function(event) {
+        sumaPuntosEImagen(event.target.options[ event.target.selectedIndex ]);
+    });
+
+});
 
 //Función SUMA PUNTOS (A), COLOCA IMAGEN DE JUGADOR (B) Y EVITA QUE SE PUEDAN ELEGIR EN VARIAS POSICIONES (C).
 
-function sumaPuntosEImagen(event) {
+function sumaPuntosEImagen(element) { //Recibimos el elemento del evento (si elegimos a Messi, va a ser Messi).
 
     //A) Sumar puntos
 
-    const selectorDeVariable = event.target;
+    const selectorDeVariable = element; //Selector de variable es igual al elemento
 
-    const jugadorElegido = selectorDeVariable.closest(".jugador"); //Seleccionamos el jugador más cercano al click
+    const jugadorElegido = selectorDeVariable.closest(".jugador"); //Seleccionamos el jugador más cercano al click (si elegimos Messi, va a ser Messi).
 
     posicionJugadorElegido = selectorDeVariable.closest(".numero-de-jugador"); //Seleccionamos el select más cercano a la acción que hicimos. 
 
@@ -1757,25 +1767,26 @@ function sumaPuntosRojaArgentina3(event) {
 
 
 
-// APARTADO 4: CAPITÁN
+// APARTADO 4: CAPITÁN (SUMA PUNTOS EN VARIABLE 4, MEDIANTE EL DATASET "PUNTUACIÓN")
 
-//Puntos posesión 4
+const selectCapitan = document.querySelector(".select-capitan");
 
-const variables4 = document.querySelectorAll(".capitan"); //Cambiar nombre de la constante y del selector
+selectCapitan.addEventListener('change', function(event) {
+    console.log("funciona el cambio de capitan")
+    sumaPuntosElegirCapitan(event.target.options[ event.target.selectedIndex ]);
+});
 
-variables4.forEach(seleccionDeVariableClickeada => { //Cambiar nombre de la constante
-    seleccionDeVariableClickeada.addEventListener("click", sumaPuntosVariable4); //Cambiar nombre de la función
-})
+function sumaPuntosElegirCapitan(element) {
 
-function sumaPuntosVariable4(event) { //Cambiar nombre de la función
+    const selectorDeVariable = element;
 
-    const selectorDeVariable = event.target;
+    console.log(selectorDeVariable);
 
-    const variableElegida = selectorDeVariable.closest(".capitan"); //Cambiar nombre del selector
+    const valorASumar = Number(selectorDeVariable.dataset.puntuacion)
 
-    const valorASumar = Number(variableElegida.dataset.puntuacion) //Cambiar nombre del dataset
+    totalVariable4 = valorASumar;
 
-    totalVariable4 = valorASumar; //Cambiar nombre de la variable
+    console.log(totalVariable4);
 };
 
 //Puntos efectividad brasil 4 (NO CORRESPONDE A ESTE APARTADO)
@@ -1792,31 +1803,36 @@ function sumaPuntosVariable4(event) { //Cambiar nombre de la función
 
 
 
+// APARTADO 5: BALÓN PARADO (SUMA PUNTOS EN EFECTIVIDAD ARGENTINA 5, MEDIANTE EL DATASET "EFECTIVIDAD ARGENTINA")
 
-// APARTADO 5: BALÓN PARADO
+const efectividadArgentina5 = document.querySelector(".select-balon-parado");
+
+efectividadArgentina5.addEventListener('change', function(event) {
+    console.log("funciona el cambio balon parado")
+    sumaPuntosEfectividadArgentina5(event.target.options[ event.target.selectedIndex ]);
+});
+
+function sumaPuntosEfectividadArgentina5(element) {
+
+    const selectorDeVariable = element;
+
+    console.log(selectorDeVariable);
+
+    const valorASumar = Number(selectorDeVariable.dataset.efectividadargentina)
+
+    totalEfectividadArgentina5 = valorASumar;
+
+    console.log(totalEfectividadArgentina5);
+};
 
 //Puntos posesión 5 (NO CORRESPONDE A ESTE APARTADO)
 
 //Puntos efectividad brasil 5 (NO CORRESPONDE A ESTE APARTADO)
 
+// console.log(totalEfectividadArgentina5); (PARA HACER PRUEBAS)
+
 //Puntos efectividad argentina 5 
 
-const efectividadArgentina5 = document.querySelectorAll(".balon-parado");
-
-efectividadArgentina5.forEach(seleccionDeVariableClickeada => {
-    seleccionDeVariableClickeada.addEventListener("click", sumaPuntosEfectividadArgentina5);
-})
-
-function sumaPuntosEfectividadArgentina5(event) {
-
-    const selectorDeVariable = event.target;
-
-    const variableElegida = selectorDeVariable.closest(".balon-parado");
-
-    const valorASumar = Number(variableElegida.dataset.efectividadargentina)
-
-    totalEfectividadArgentina5 = valorASumar;
-};
 
 //Puntos tarjeta roja brasil 5 (NO CORRESPONDE A ESTE APARTADO)
 
@@ -5598,13 +5614,15 @@ let todasLasOpcionesSeleccionPenales = document.querySelectorAll(".penales");
 
 let todosLosSelectsPenales = document.querySelectorAll(".select-penal");
 
-todasLasOpcionesSeleccionPenales.forEach(seleccionDeVariableClickeada => { 
-    seleccionDeVariableClickeada.addEventListener("click", otorgarNombreAlSelect); 
-})
+todosLosSelectsPenales.forEach(seleccionDeVariableClickeada => { 
+    seleccionDeVariableClickeada.addEventListener('change',function(event) {
+        otorgarNombreAlSelect(event.target.options[ event.target.selectedIndex ]);
+    });
+});
 
-function otorgarNombreAlSelect(e){ //Otorga nombre al select y hace que no se pueda repetir en otro
+function otorgarNombreAlSelect(element){ //El element es el elemento jugador que elegimos, por ejemplo, Messi
 
-    let variableElegidaPenales = e.target;
+    let variableElegidaPenales = element;
 
     let seleccionDeSelectCercanoAlEvento = variableElegidaPenales.closest(".select-penal");
 
