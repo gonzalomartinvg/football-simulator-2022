@@ -25,7 +25,7 @@
     row-gap: 1rem;
 }
 
-/*Aspecto general de las tarjetas de jugadores y expulsión*/
+/*Expulsión, amarilla y cambios*/
 
 .jugadores{
     width: 4rem;
@@ -34,7 +34,8 @@
     border-radius: 10px;
     display: grid;
     grid-gap: 0.5rem;
-    
+
+    position: relative; /*Colocado para poder poner absolute en las tarjetas amarillas*/
     
 }
 
@@ -68,6 +69,16 @@
     border-radius: 10px 10px 10px 10px;
     opacity: 0.2; 
     
+}
+
+.tarjeta-amarilla{
+    width: 2rem;
+    position: absolute;
+    left: 3rem;
+}
+
+.tarjeta-amarilla-no-se-ve{
+    display: none;
 }
 
 /*Táctica 4-3-3*/ /*Por default va a estar esta táctica, si elegimos otra, se pasará a display "none" la clase ".tactica-433"*/

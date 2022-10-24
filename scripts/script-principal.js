@@ -1038,6 +1038,12 @@ function sumaPuntosEImagen(element) { //Recibimos el elemento del evento (si ele
 
     const selectorDeImagen = selectorDeDivQueContieneImagen.firstElementChild; //Del div contenedor, ingreso a la imagen de ese div.
 
+    const selectorDeDivQueContieneAmarilla = selectorDeVariable.closest(".jugadores"); //Del evento del click, salgo al div contenedor más cercano que tiene la clase .jugadores.
+
+    const selectorDeAmarilla = selectorDeDivQueContieneAmarilla.firstElementChild.nextElementSibling; //Del div contenedor, ingresamos hasta la imagen del jugador y le agregamos "nextElementSibling" para seleccionar el siguiente que es la imagen de la tarjeta amarilla
+
+    console.log(selectorDeAmarilla);
+    
     //Variaciones lesiones y rojas
 
     if (posicionJugadorElegido.dataset.roja != 1) {
@@ -1050,7 +1056,19 @@ function sumaPuntosEImagen(element) { //Recibimos el elemento del evento (si ele
 
         totalVariableLesion += 65;
 
+        posicionJugadorElegido.dataset.lesion = 0;
+
         console.log(totalVariableLesion + " funciono bebe");
+        console.log(posicionJugadorElegido);
+    }
+
+    if (posicionJugadorElegido.dataset.amarilla >= 1) {
+
+        selectorDeAmarilla.classList.add("tarjeta-amarilla-no-se-ve");
+
+        posicionJugadorElegido.dataset.amarilla = 0;
+
+        console.log(" funciono remover amarilla");
         console.log(posicionJugadorElegido);
     }
 
@@ -1162,7 +1180,6 @@ function sumaPuntosEImagen(element) { //Recibimos el elemento del evento (si ele
     if (posicionJugadorElegido.value == "Seleccioná un jugador") { //General
         selectorDeImagen.src = "images/jugadores/profile-01.png"
     }
-
 
     //C) Evitar que se pueda elegir el mismo jugador en diversas posiciones al mismo tiempo
 
@@ -3380,6 +3397,14 @@ function informacionExpulsado(){
 
                                 jugador11.dataset.roja = "1"; //Al colocar acá uno, podemos preguntar en los otros eventos si esto está habilitado y de esta manera, hacer que ningún jugador expulsado participe de un evento
 
+                                //Agregamos manito con tarjeta roja en tácticas
+
+                                let rojaJugador11 = document.querySelector(".tarjeta-amarilla-11"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador11.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+                                if (rojaJugador11.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador11.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
+
                                 console.log(jugador11Imagen);
 
                             }
@@ -3396,6 +3421,12 @@ function informacionExpulsado(){
                                 jugador10Select.classList.add("numero-de-jugador-expulsion-y-cambios");
 
                                 jugador10.dataset.roja = "1";
+
+                                let rojaJugador10 = document.querySelector(".tarjeta-amarilla-10"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador10.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+                                if (rojaJugador10.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador10.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
 
                                 console.log(jugador10Imagen);
 
@@ -3415,6 +3446,12 @@ function informacionExpulsado(){
 
                                 jugador9.dataset.roja = "1";
 
+                                let rojaJugador9 = document.querySelector(".tarjeta-amarilla-9"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador9.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+                                if (rojaJugador9.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador9.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
+
                                 console.log(jugador9Imagen);
 
                             }
@@ -3430,6 +3467,12 @@ function informacionExpulsado(){
                                 jugador8Select.classList.add("numero-de-jugador-expulsion-y-cambios");
 
                                 jugador8.dataset.roja = "1";
+
+                                let rojaJugador8 = document.querySelector(".tarjeta-amarilla-8"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador8.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+                                if (rojaJugador8.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador8.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
 
                                 console.log(jugador8Imagen);
 
@@ -3448,6 +3491,12 @@ function informacionExpulsado(){
 
                                 jugador7.dataset.roja = "1";
 
+                                let rojaJugador7 = document.querySelector(".tarjeta-amarilla-7"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador7.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+                                if (rojaJugador7.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador7.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
+
                                 console.log(jugador7Imagen);
 
                             }
@@ -3464,6 +3513,12 @@ function informacionExpulsado(){
                                 jugador6Select.classList.add("numero-de-jugador-expulsion-y-cambios");
 
                                 jugador6.dataset.roja = "1";
+
+                                let rojaJugador6 = document.querySelector(".tarjeta-amarilla-6"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador6.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+                                if (rojaJugador6.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador6.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
 
                                 console.log(jugador6Imagen);
 
@@ -3483,6 +3538,12 @@ function informacionExpulsado(){
 
                                 jugador5.dataset.roja = "1";
 
+                                let rojaJugador5 = document.querySelector(".tarjeta-amarilla-5"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador5.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+                                if (rojaJugador5.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador5.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
+
                                 console.log(jugador5Imagen);
 
                             }
@@ -3499,8 +3560,15 @@ function informacionExpulsado(){
                                 jugador4Contenedor.classList.add("jugadores-expulsion");
                                 jugador4Select.classList.add("numero-de-jugador-expulsion-y-cambios");
 
-                                jugador3.dataset.roja = "1";
+                                jugador4.dataset.roja = "1";
 
+                                let rojaJugador4 = document.querySelector(".tarjeta-amarilla-4"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador4.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+
+                                if (rojaJugador4.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador4.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
+                        
                                 console.log(jugador4Imagen);
 
                             }
@@ -3518,6 +3586,14 @@ function informacionExpulsado(){
                                 jugador3Select.classList.add("numero-de-jugador-expulsion-y-cambios");
 
                                 jugador3.dataset.roja = "1";
+
+                                let rojaJugador3 = document.querySelector(".tarjeta-amarilla-3"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador3.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+
+                                if (rojaJugador3.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador3.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
+                            
 
                                 console.log(jugador3Imagen);
 
@@ -3537,6 +3613,14 @@ function informacionExpulsado(){
 
                                 jugador2.dataset.roja = "1";
 
+                                let rojaJugador2 = document.querySelector(".tarjeta-amarilla-2"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador2.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+
+                                if (rojaJugador2.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador2.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
+                            
+
                                 console.log(jugador2Imagen);
 
                             }
@@ -3555,6 +3639,13 @@ function informacionExpulsado(){
 
                                 jugador1.dataset.roja = "1";
 
+                                let rojaJugador1 = document.querySelector(".tarjeta-amarilla-1"); //La clase es tarjeta amarilla, porque lo que hacemos es seleccionar simplemente esa imagen y abajo la modificamos por la roja.
+                                rojaJugador1.src = "images/jugadores/tarjeta-roja-01.png"; //Agregamos la imagen de la tarjeta roja
+
+                                if (rojaJugador1.classList.contains("tarjeta-amarilla-no-se-ve")){
+                                    rojaJugador1.classList.remove("tarjeta-amarilla-no-se-ve"); //Si tiene la clase que lo oculta se la borramos.
+                                }
+                            
                                 console.log(jugador1Imagen);
 
                             }
@@ -5673,7 +5764,13 @@ function eventoPartido() {
 
                                 if (jugador11.dataset.amarilla == 0){
 
+                                    console.log("saqué amarilla")
+
                                     jugador11.dataset.amarilla++;
+
+                                    let amarillaJugador11 = document.querySelector(".tarjeta-amarilla-11");
+
+                                    amarillaJugador11.classList.remove("tarjeta-amarilla-no-se-ve");
 
                                     contenedorComentarios.removeAttribute('class')
 
@@ -5683,6 +5780,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador11.dataset.amarilla >= 1){
+
+                                    jugador11.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador11.dataset.text;
 
@@ -5710,6 +5809,10 @@ function eventoPartido() {
 
                                     jugador10.dataset.amarilla++;
 
+                                    let amarillaJugador10 = document.querySelector(".tarjeta-amarilla-10");
+                                    
+                                    amarillaJugador10.classList.remove("tarjeta-amarilla-no-se-ve");
+
                                     contenedorComentarios.removeAttribute('class')
 
                                     contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
@@ -5718,6 +5821,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador10.dataset.amarilla >= 1){
+
+                                    jugador10.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador10.dataset.text;
 
@@ -5746,6 +5851,10 @@ function eventoPartido() {
 
                                     jugador9.dataset.amarilla++;
 
+                                    let amarillaJugador9 = document.querySelector(".tarjeta-amarilla-9");
+                                    
+                                    amarillaJugador9.classList.remove("tarjeta-amarilla-no-se-ve");
+
                                     contenedorComentarios.removeAttribute('class')
 
                                     contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
@@ -5754,6 +5863,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador9.dataset.amarilla >= 1){
+
+                                    jugador9.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador9.dataset.text;
 
@@ -5782,6 +5893,10 @@ function eventoPartido() {
 
                                     jugador8.dataset.amarilla++;
 
+                                    let amarillaJugador8 = document.querySelector(".tarjeta-amarilla-8");
+                                    
+                                    amarillaJugador8.classList.remove("tarjeta-amarilla-no-se-ve");
+
                                     contenedorComentarios.removeAttribute('class')
 
                                     contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
@@ -5790,6 +5905,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador8.dataset.amarilla >= 1){
+
+                                    jugador8.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador8.dataset.text;
 
@@ -5817,6 +5934,10 @@ function eventoPartido() {
 
                                     jugador7.dataset.amarilla++;
 
+                                    let amarillaJugador7 = document.querySelector(".tarjeta-amarilla-7");
+                                    
+                                    amarillaJugador7.classList.remove("tarjeta-amarilla-no-se-ve");
+
                                     contenedorComentarios.removeAttribute('class')
 
                                     contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
@@ -5825,6 +5946,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador7.dataset.amarilla >= 1){
+
+                                    jugador7.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador7.dataset.text;
 
@@ -5852,6 +5975,10 @@ function eventoPartido() {
 
                                     jugador6.dataset.amarilla++;
 
+                                    let amarillaJugador6 = document.querySelector(".tarjeta-amarilla-6");
+                                    
+                                    amarillaJugador6.classList.remove("tarjeta-amarilla-no-se-ve");
+
                                     contenedorComentarios.removeAttribute('class')
 
                                     contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
@@ -5860,6 +5987,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador6.dataset.amarilla >= 1){
+
+                                    jugador6.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador6.dataset.text;
 
@@ -5888,6 +6017,10 @@ function eventoPartido() {
 
                                     jugador5.dataset.amarilla++;
 
+                                    let amarillaJugador5 = document.querySelector(".tarjeta-amarilla-5");
+                                    
+                                    amarillaJugador5.classList.remove("tarjeta-amarilla-no-se-ve");
+
                                     contenedorComentarios.removeAttribute('class')
 
                                     contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
@@ -5896,6 +6029,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador5.dataset.amarilla >= 1){
+
+                                    jugador5.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador5.dataset.text;
 
@@ -5924,6 +6059,10 @@ function eventoPartido() {
 
                                     jugador4.dataset.amarilla++;
 
+                                    let amarillaJugador4 = document.querySelector(".tarjeta-amarilla-4");
+                                    
+                                    amarillaJugador4.classList.remove("tarjeta-amarilla-no-se-ve");
+
                                     contenedorComentarios.removeAttribute('class')
 
                                     contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
@@ -5932,6 +6071,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador4.dataset.amarilla >= 1){
+
+                                    jugador4.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador4.dataset.text;
 
@@ -5959,6 +6100,10 @@ function eventoPartido() {
 
                                     jugador3.dataset.amarilla++;
 
+                                    let amarillaJugador3 = document.querySelector(".tarjeta-amarilla-3");
+                                    
+                                    amarillaJugador3.classList.remove("tarjeta-amarilla-no-se-ve");
+
                                     contenedorComentarios.removeAttribute('class')
 
                                     contenedorComentarios.classList.add("contenedor-comentarios-amarilla");
@@ -5967,6 +6112,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador3.dataset.amarilla >= 1){
+
+                                    jugador3.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador3.dataset.text;
 
@@ -5990,13 +6137,15 @@ function eventoPartido() {
 
                                 nombreJugadorAmarillaArgentina = jugador2.dataset.text;
 
-                                
-
                                 if (jugador2.dataset.amarilla == 0){
 
                                     console.log("saqué amarilla")
 
                                     jugador2.dataset.amarilla++;
+
+                                    let amarillaJugador2 = document.querySelector(".tarjeta-amarilla-2");
+                                    
+                                    amarillaJugador2.classList.remove("tarjeta-amarilla-no-se-ve");
 
                                     contenedorComentarios.removeAttribute('class')
 
@@ -6006,6 +6155,8 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador2.dataset.amarilla >= 1){
+
+                                    jugador2.dataset.amarilla++;
 
                                     nombreJugadorRojaArgentina = jugador2.dataset.text;
 
