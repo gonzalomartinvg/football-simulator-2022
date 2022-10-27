@@ -2843,7 +2843,7 @@ let temporizadorDeComentarios = 0;
 //Declaramos las funciones internas que se usan en varios momentos. Si las declaramos dentro de una función, no sirve para otra.
 
 function inicioComentarios() {
-    temporizadorDeComentarios = setInterval(consultaSiTodosAlAtaqueEstaActivado, 1550)
+    temporizadorDeComentarios = setInterval(consultaSiTodosAlAtaqueEstaActivado, 2200)
     
   }
 
@@ -3096,7 +3096,7 @@ function cartelBrasilCampeon(){
 
     cartelCampeon.classList.remove("ocultar-cartel-campeon");
 
-    tituloCartelCampeon.textContent = "¡Brasil es campeona del Mundo!";
+    tituloCartelCampeon.textContent = "¡Brasil es campeón del Mundo!";
 
     imagenCartelCampeon.src = "images/brasil-campeon.jpg";
 
@@ -3678,6 +3678,541 @@ let marquinhosAmarilla = 0;
 let tellesAmarilla = 0;
 
 
+//Función GOLES (generamos un comentario previo y un gol). También generamos una función que no termine en gol pero que tenga los mismos comentarios y la sumamos a los comentarios ya creados para aportarle mayor cantidad de comentarios distintos y también para aportarle dramatismo
+
+function comentarioGolesArgentina(a){ //Acá se pasa el argumento del jugador que hizo el gol
+
+    console.log("Paso1: entre a la función comentario goles con " + a)
+
+    function creacionDeComentario(){
+
+        console.log("Paso 2: estoy creando un comentario con " + a)
+
+        //Elegir un comentario
+
+        min = Math.ceil(0);
+        max = Math.floor(100);
+
+        let selectorDeComentario = Math.floor(Math.random() * (100 - 0) + 0);
+        let comentarioPrevio = "no está definido";
+
+        //Primero preguntamos si el gol fue del arquero y si el contexto era en todos al ataque o no
+
+        if (a == jugador1.dataset.text && resultadoTodosAlAtaque == 50){
+            comentarioPrevio = a + " se encuentra en el área soñando con el gol, centro alto.... épico...";
+        }
+
+        else if (a == jugador1.dataset.text && resultadoTodosAlAtaque != 50){
+            comentarioPrevio = a + " patea desde mitad de cancha... esto es lo más épico que sucedió en un mundial..."
+        }
+
+        //Si no fue del arquero, se desencadena normalmente
+
+        else{
+
+            if (selectorDeComentario < 5){
+                comentarioPrevio = "Disparo de media distancia ¡Pegó en el palo! Queda el rebote... ";
+            }
+    
+            else if (selectorDeComentario < 10){
+                comentarioPrevio = "Centro atrás, le queda a " + a;
+            }
+    
+            else if (selectorDeComentario < 15){
+                comentarioPrevio = a + " se va mano a mano";
+            }
+    
+            else if (selectorDeComentario < 20){
+                comentarioPrevio = a + " controla la pelota y parece que va a probar al arquero";
+            }
+    
+            else if (selectorDeComentario < 25){
+                comentarioPrevio = a + " recibe el balón y patea.";
+            }
+    
+            else if (selectorDeComentario < 30){
+                comentarioPrevio = a + " encara al arquero... está loco, acaba de picarla";
+            }
+    
+            else if (selectorDeComentario < 35){
+                comentarioPrevio = a + "entró al área y patea cruzado.";
+            }
+    
+            else if (selectorDeComentario < 40){
+                comentarioPrevio = "Córner centrado... cabecea " + a;
+            }
+    
+            else if (selectorDeComentario < 45){
+                comentarioPrevio = "Gran pase en profundidad, " + a +" se va mano a mano.";
+            }
+    
+            else if (selectorDeComentario < 50){
+                comentarioPrevio = a + " recibió un balón alto e intenta una volea.";
+            }
+    
+            else if (selectorDeComentario < 55){
+                comentarioPrevio = "Disparo de media distancia de " + a;
+            }
+    
+            else if (selectorDeComentario < 60){
+                comentarioPrevio = a + " intenta un tiro colocado";
+            }
+    
+            else if (selectorDeComentario < 65){
+                comentarioPrevio = a + " gambeteó a un jugador y patea";
+            }
+    
+            else if (selectorDeComentario < 70){
+                comentarioPrevio = "Centro colgado... " + a + " va a cabecear";
+            }
+    
+            else if (selectorDeComentario < 80){
+                comentarioPrevio = "Disparo de " + a;
+            }
+    
+            else{
+                comentarioPrevio = a + " remata";
+            }
+
+        }
+
+        contenedorComentarios.removeAttribute('class')
+
+        contenedorComentarios.classList.add("contenedor-comentarios-favor-argentina");
+
+        textoComentarios.textContent = comentarioPrevio;
+
+        function comentarioGol(){
+
+            //Modificamos el comentario, su color de fondo y agregamos el nombre del goleador
+
+            contenedorComentarios.removeAttribute('class')
+
+            contenedorComentarios.classList.add("contenedor-comentarios-favor-argentina-gol");
+
+            textoComentarios.textContent = "GOOOOOOL de " + a;
+
+            //Agregamos la info del gol
+
+            //A) Hacemos que se genere un P con la info.
+
+            let creadorDeParrafoGolArgentina = document.createElement("p");
+
+            let contenidoGeneradoGolArgentina = //Las `` siguientes se utilizan para hacer un html literal
+                `
+                    <p class= "texto-eventos">Gol de ${a}</p>
+
+                    `;
+
+            creadorDeParrafoGolArgentina.innerHTML = contenidoGeneradoGolArgentina; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+            eventosArg.append(creadorDeParrafoGolArgentina);
+
+            //B) Subimos el contador.
+
+            argentinaGoles.textContent++;
+
+        }
+
+        setTimeout(comentarioGol, 1500);
+    }
+
+    creacionDeComentario()
+}
+
+function comentarioNoTerminaEnGolArgentina(a){ //Acá se pasa el argumento del jugador que participa
+
+    console.log("Paso1: entre a la función comentario QUE NO TERMINA EN GOL con " + a)
+
+    function creacionDeComentario(){
+
+        console.log("Paso 2: estoy creando un comentario QUE NO TERMINA EN GOL con " + a)
+
+        //Elegir un comentario
+
+        min = Math.ceil(0);
+        max = Math.floor(100);
+
+        let selectorDeComentario = Math.floor(Math.random() * (100 - 0) + 0);
+        let comentarioPrevio = "no está definido";
+
+        if (selectorDeComentario < 5){
+                comentarioPrevio = "Disparo de media distancia ¡Pegó en el palo! Queda el rebote... ";
+            }
+    
+        else if (selectorDeComentario < 10){
+                comentarioPrevio = "Centro atrás, le queda a " + a;
+            }
+    
+        else if (selectorDeComentario < 15){
+                comentarioPrevio = a + " se va mano a mano";
+            }
+    
+        else if (selectorDeComentario < 20){
+                comentarioPrevio = a + " controla la pelota y parece que va a probar al arquero";
+            }
+    
+        else if (selectorDeComentario < 25){
+                comentarioPrevio = a + " recibe el balón y patea.";
+            }
+    
+        else if (selectorDeComentario < 30){
+                comentarioPrevio = a + " encara al arquero... está loco, acaba de picarla";
+            }
+    
+        else if (selectorDeComentario < 35){
+                comentarioPrevio = a + "entró al área y patea cruzado.";
+            }
+    
+        else if (selectorDeComentario < 40){
+                comentarioPrevio = "Córner centrado... cabecea " + a;
+            }
+    
+        else if (selectorDeComentario < 45){
+                comentarioPrevio = "Gran pase en profundidad, " + a +" se va mano a mano.";
+            }
+    
+        else if (selectorDeComentario < 50){
+                comentarioPrevio = a + " recibió un balón alto e intenta una volea.";
+            }
+    
+        else if (selectorDeComentario < 55){
+                comentarioPrevio = "Disparo de media distancia de " + a;
+            }
+    
+        else if (selectorDeComentario < 60){
+                comentarioPrevio = a + " intenta un tiro colocado";
+            }
+    
+        else if (selectorDeComentario < 65){
+                comentarioPrevio = a + " gambeteó a un jugador y patea";
+            }
+    
+        else if (selectorDeComentario < 70){
+                comentarioPrevio = "Centro colgado... " + a + " va a cabecear";
+            }
+    
+        else if (selectorDeComentario < 80){
+                comentarioPrevio = "Disparo de " + a;
+            }
+    
+        else{
+                comentarioPrevio = a + " remata";
+            }
+
+        contenedorComentarios.removeAttribute('class')
+
+        contenedorComentarios.classList.add("contenedor-comentarios-favor-argentina");
+
+        textoComentarios.textContent = comentarioPrevio;
+
+        function comentarioNoFueGol(){
+
+            //Modificamos el comentario, su color de fondo y agregamos el nombre del goleador
+
+            contenedorComentarios.removeAttribute('class')
+
+            contenedorComentarios.classList.add("contenedor-comentarios-favor-argentina");
+
+            min = Math.ceil(0);
+            max = Math.floor(100);
+
+            let selectorDeFrase = Math.floor(Math.random() * (100 - 0) + 0);
+
+            if (selectorDeFrase < 15){
+                frase = " despercició un gol increíble."
+            }
+
+            else if (selectorDeFrase < 30){
+                frase = " no pudo convertir."
+            }
+
+            else if (selectorDeFrase < 45){
+                frase = " casi anota."
+            }
+
+            else if (selectorDeFrase < 60){
+                frase = " tiene que afinar la puntería."
+            }
+
+            else if (selectorDeFrase < 75){
+                frase = " se comió un gol que parecía hecho."
+            }
+
+            else{
+                frase = " estuvo muy cerca de marcar."
+            }
+
+            textoComentarios.textContent = a + frase;
+
+        }
+
+        setTimeout(comentarioNoFueGol, 1500);
+
+    }
+
+        creacionDeComentario()
+    }
+
+function comentarioGolesBrasil(a){ //Acá se pasa el argumento del jugador que hizo el gol
+
+    console.log("Paso1: entre a la función comentario goles con " + a)
+
+    function creacionDeComentario(){
+
+        console.log("Paso 2: estoy creando un comentario con " + a)
+
+        //Elegir un comentario
+
+        min = Math.ceil(0);
+        max = Math.floor(100);
+
+        let selectorDeComentario = Math.floor(Math.random() * (100 - 0) + 0);
+        let comentarioPrevio = "no está definido";
+
+
+        if (selectorDeComentario < 5){
+            comentarioPrevio = "Disparo de media distancia ¡Pegó en el palo! Queda el rebote... ";
+        }
+
+        else if (selectorDeComentario < 10){
+            comentarioPrevio = "Centro atrás, le queda a " + a;
+        }
+
+        else if (selectorDeComentario < 15){
+            comentarioPrevio = a + " se va mano a mano";
+        }
+
+        else if (selectorDeComentario < 20){
+            comentarioPrevio = a + " controla la pelota y parece que va a probar al arquero";
+        }
+
+        else if (selectorDeComentario < 25){
+            comentarioPrevio = a + " recibe el balón y patea.";
+        }
+
+        else if (selectorDeComentario < 30){
+            comentarioPrevio = a + " encara al arquero... está loco, acaba de picarla";
+        }
+
+        else if (selectorDeComentario < 35){
+            comentarioPrevio = a + "entró al área y patea cruzado.";
+        }
+
+        else if (selectorDeComentario < 40){
+            comentarioPrevio = "Córner centrado... cabecea " + a;
+        }
+
+        else if (selectorDeComentario < 45){
+            comentarioPrevio = "Gran pase en profundidad, " + a +" se va mano a mano.";
+        }
+
+        else if (selectorDeComentario < 50){
+            comentarioPrevio = a + " recibió un balón alto e intenta una volea.";
+        }
+
+        else if (selectorDeComentario < 55){
+            comentarioPrevio = "Disparo de media distancia de " + a;
+        }
+
+        else if (selectorDeComentario < 60){
+            comentarioPrevio = a + " intenta un tiro colocado";
+        }
+
+        else if (selectorDeComentario < 65){
+            comentarioPrevio = a + " gambeteó a un jugador y patea";
+        }
+
+        else if (selectorDeComentario < 70){
+            comentarioPrevio = "Centro colgado... " + a + " va a cabecear";
+        }
+
+        else if (selectorDeComentario < 80){
+            comentarioPrevio = "Disparo de " + a;
+        }
+
+        else{
+            comentarioPrevio = a + " remata";
+        }
+
+        contenedorComentarios.removeAttribute('class')
+
+        contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil");
+
+        textoComentarios.textContent = comentarioPrevio;
+
+        function comentarioGol(){
+
+            //Modificamos el comentario, su color de fondo y agregamos el nombre del goleador
+
+            contenedorComentarios.removeAttribute('class')
+
+            contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil-gol");
+
+            textoComentarios.textContent = "GOOOOOOL de " + a;
+
+            //Agregamos la info del gol
+
+            //A) Hacemos que se genere un P con la info.
+
+            let creadorDeParrafoGolBrasil = document.createElement("p");
+
+            let contenidoGeneradoGolBrasil = //Las `` siguientes se utilizan para hacer un html literal
+                `
+                    <p class= "texto-eventos">Gol de ${a}</p>
+
+                    `;
+
+            creadorDeParrafoGolBrasil.innerHTML = contenidoGeneradoGolBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+            eventosBra.append(creadorDeParrafoGolBrasil);
+
+            //B) Subimos el contador.
+
+            brasilGoles.textContent++;
+
+        }
+
+        setTimeout(comentarioGol, 1500);
+    }
+
+    creacionDeComentario()
+}
+
+function comentarioNoTerminaEnGolBrasil(a){ //Acá se pasa el argumento del jugador que participa
+
+    console.log("Paso1: entre a la función comentario QUE NO TERMINA EN GOL con " + a)
+
+    function creacionDeComentario(){
+
+        console.log("Paso 2: estoy creando un comentario QUE NO TERMINA EN GOL con " + a)
+
+        //Elegir un comentario
+
+        min = Math.ceil(0);
+        max = Math.floor(100);
+
+        let selectorDeComentario = Math.floor(Math.random() * (100 - 0) + 0);
+        let comentarioPrevio = "no está definido";
+
+        if (selectorDeComentario < 5){
+                comentarioPrevio = "Disparo de media distancia ¡Pegó en el palo! Queda el rebote... ";
+            }
+    
+        else if (selectorDeComentario < 10){
+                comentarioPrevio = "Centro atrás, le queda a " + a;
+            }
+    
+        else if (selectorDeComentario < 15){
+                comentarioPrevio = a + " se va mano a mano";
+            }
+    
+        else if (selectorDeComentario < 20){
+                comentarioPrevio = a + " controla la pelota y parece que va a probar al arquero";
+            }
+    
+        else if (selectorDeComentario < 25){
+                comentarioPrevio = a + " recibe el balón y patea.";
+            }
+    
+        else if (selectorDeComentario < 30){
+                comentarioPrevio = a + " encara al arquero... está loco, acaba de picarla";
+            }
+    
+        else if (selectorDeComentario < 35){
+                comentarioPrevio = a + "entró al área y patea cruzado.";
+            }
+    
+        else if (selectorDeComentario < 40){
+                comentarioPrevio = "Córner centrado... cabecea " + a;
+            }
+    
+        else if (selectorDeComentario < 45){
+                comentarioPrevio = "Gran pase en profundidad, " + a +" se va mano a mano.";
+            }
+    
+        else if (selectorDeComentario < 50){
+                comentarioPrevio = a + " recibió un balón alto e intenta una volea.";
+            }
+    
+        else if (selectorDeComentario < 55){
+                comentarioPrevio = "Disparo de media distancia de " + a;
+            }
+    
+        else if (selectorDeComentario < 60){
+                comentarioPrevio = a + " intenta un tiro colocado";
+            }
+    
+        else if (selectorDeComentario < 65){
+                comentarioPrevio = a + " gambeteó a un jugador y patea";
+            }
+    
+        else if (selectorDeComentario < 70){
+                comentarioPrevio = "Centro colgado... " + a + " va a cabecear";
+            }
+    
+        else if (selectorDeComentario < 80){
+                comentarioPrevio = "Disparo de " + a;
+            }
+    
+        else{
+                comentarioPrevio = a + " remata";
+            }
+
+        contenedorComentarios.removeAttribute('class')
+
+        contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil");
+
+        textoComentarios.textContent = comentarioPrevio;
+
+        function comentarioNoFueGol(){
+
+            //Modificamos el comentario, su color de fondo y agregamos el nombre del goleador
+
+            contenedorComentarios.removeAttribute('class')
+
+            contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil");
+
+            min = Math.ceil(0);
+            max = Math.floor(100);
+
+            let selectorDeFrase = Math.floor(Math.random() * (100 - 0) + 0);
+
+            if (selectorDeFrase < 15){
+                frase = " despercició un gol increíble."
+            }
+
+            else if (selectorDeFrase < 30){
+                frase = " no pudo convertir."
+            }
+
+            else if (selectorDeFrase < 45){
+                frase = " casi anota."
+            }
+
+            else if (selectorDeFrase < 60){
+                frase = " tiene que afinar la puntería."
+            }
+
+            else if (selectorDeFrase < 75){
+                frase = " se comió un gol que parecía hecho."
+            }
+
+            else{
+                frase = " estuvo muy cerca de marcar."
+            }
+
+            textoComentarios.textContent = a + frase;
+
+        }
+
+        setTimeout(comentarioNoFueGol, 1500);
+
+    }
+
+        creacionDeComentario()
+    }
+
 // INICIAR PARTIDO
 
 //EL PARTIDO SE INICIA AL CLICKEAR EN EL BOTÓN JUGAR, ESTO ESTÁ DECLARADO EN EL MISMO LUGAR QUE EL TEMPORIZADOR PARA QUE SEA MÁS PRÁCTICO
@@ -3712,9 +4247,69 @@ function consultaSiTodosAlAtaqueEstaActivado() { //APARTADO QUE SOLO LO MODIFICA
                 let golBrasilContextoAtipico = Math.floor(Math.random() * (100 - 0) + 0);
                 ;
 
-                if (golBrasilContextoAtipico <= 30) { //Gol de Brasil
+                if (golBrasilContextoAtipico <= 15) { //Gol de Brasil
 
                     //Definimos quién hizo el gol
+
+                    min = Math.ceil(0);
+                    max = Math.floor(100);
+
+                    let jugadorQueHizoGolBrasil = Math.floor(Math.random() * (100 - 0) + 0);
+                    let nombreJugadorGolBrasil = "no definido";
+
+
+                    if (jugadorQueHizoGolBrasil <= 25) {
+                        nombreJugadorGolBrasil = "Neymar";
+                    }
+
+                    if (jugadorQueHizoGolBrasil > 25 && jugadorQueHizoGolBrasil <= 40) {
+                        nombreJugadorGolBrasil = "Richarlison";
+                    }
+
+                    if (jugadorQueHizoGolBrasil > 40 && jugadorQueHizoGolBrasil <= 55) {
+                        nombreJugadorGolBrasil = "Vinicius Jr.";
+                    }
+
+                    if (jugadorQueHizoGolBrasil > 55 && jugadorQueHizoGolBrasil <= 70) {
+                        nombreJugadorGolBrasil = "Rafinha";
+                    }
+
+                    if (jugadorQueHizoGolBrasil > 70 && jugadorQueHizoGolBrasil <= 80) {
+                        nombreJugadorGolBrasil = "Casemiro";
+                    }
+
+                    if (jugadorQueHizoGolBrasil > 80 && jugadorQueHizoGolBrasil <= 90) {
+                        nombreJugadorGolBrasil = "Paquetá";
+                    }
+
+                    if (jugadorQueHizoGolBrasil > 90 && jugadorQueHizoGolBrasil <= 95) {
+                        nombreJugadorGolBrasil = "T. Silva";
+                    }
+
+                    if (jugadorQueHizoGolBrasil > 95 && jugadorQueHizoGolBrasil <= 97) {
+                        nombreJugadorGolBrasil = "É. Militão";
+                    }
+
+                    if (jugadorQueHizoGolBrasil > 97 && jugadorQueHizoGolBrasil <= 99) {
+                        nombreJugadorGolBrasil = "Marquinhos";
+                    }
+
+
+                    if (jugadorQueHizoGolBrasil > 99 && jugadorQueHizoGolBrasil <= 100) {
+                        nombreJugadorGolBrasil = "A. Telles";
+                    }
+
+                    comentarioGolesBrasil(nombreJugadorGolBrasil);
+
+                }
+
+                else { //Ataque fallido Brasil
+ 
+                    contenedorComentarios.removeAttribute('class')
+
+                    contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil");
+
+                    //Elegimos un jugador
 
                     min = Math.ceil(0);
                     max = Math.floor(100);
@@ -3764,64 +4359,31 @@ function consultaSiTodosAlAtaqueEstaActivado() { //APARTADO QUE SOLO LO MODIFICA
                         nombreJugadorGolBrasil = "A. Telles";
                     }
 
-
-                    //Modificamos el comentario, su color de fondo y agregamos el nombre del goleador
-
-                    contenedorComentarios.removeAttribute('class')
-
-                    contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil-gol");
-
-                    textoComentarios.textContent = "GOOOOOOL de " + nombreJugadorGolBrasil;
-
-
-                    //Agregamos la info del gol
-
-                    //A) Hacemos que se genere un P con la info.
-
-                    let creadorDeParrafoGolBrasil = document.createElement("p");
-
-                    let contenidoGeneradoGolBrasil = //Las `` siguientes se utilizan para hacer un html literal
-                        `
-                    <p class= "texto-eventos">Gol de ${nombreJugadorGolBrasil}</p>
-
-                    `;
-
-                    creadorDeParrafoGolBrasil.innerHTML = contenidoGeneradoGolBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
-
-                    eventosBra.append(creadorDeParrafoGolBrasil);
-
-                    //B) Subimos el contador.
-
-                    brasilGoles.textContent++;
-
-
-                }
-
-                else { //Ataque fallido Brasil
-
-                    contenedorComentarios.removeAttribute('class')
-
-                    contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil");
+                    //Elegimos el comentario
 
                     min = Math.ceil(0);
                     max = Math.floor(100);
 
                     let generadorComentarioAtaqueFallidoBrasil = Math.floor(Math.random() * (100 - 0) + 0);
 
-                    if (generadorComentarioAtaqueFallidoBrasil <= 25) {
+                    if (generadorComentarioAtaqueFallidoBrasil <= 10) {
                         textoComentarios.textContent = "Increíble el gol que se acaba de perder Brasil.";
                     }
 
-                    if (generadorComentarioAtaqueFallidoBrasil > 25 && generadorComentarioAtaqueFallidoBrasil <= 50) {
+                    if (generadorComentarioAtaqueFallidoBrasil > 10 && generadorComentarioAtaqueFallidoBrasil <= 20) {
                         textoComentarios.textContent = "El disparo pego en el palo. Se salva Argentina";
                     }
 
-                    if (generadorComentarioAtaqueFallidoBrasil > 50 && generadorComentarioAtaqueFallidoBrasil <= 75) {
+                    if (generadorComentarioAtaqueFallidoBrasil > 20 && generadorComentarioAtaqueFallidoBrasil <= 30) {
                         textoComentarios.textContent = "Estuvo cerca, desde la tribuna brasileña gritaron gol.";
                     }
 
-                    if (generadorComentarioAtaqueFallidoBrasil > 75 && generadorComentarioAtaqueFallidoBrasil <= 100) {
+                    if (generadorComentarioAtaqueFallidoBrasil > 30 && generadorComentarioAtaqueFallidoBrasil <= 40) {
                         textoComentarios.textContent = "Brasil estuvo muy cerca de convertir.";
+                    }
+
+                    if (generadorComentarioAtaqueFallidoBrasil > 40 && generadorComentarioAtaqueFallidoBrasil <= 100) {
+                        comentarioNoTerminaEnGolBrasil(nombreJugadorGolBrasil);
                     }
                 }
 
@@ -3834,7 +4396,7 @@ function consultaSiTodosAlAtaqueEstaActivado() { //APARTADO QUE SOLO LO MODIFICA
 
                 let golArgentinaContextoAtipico = Math.floor(Math.random() * (100 - 0) + 0);
 
-                if (golArgentinaContextoAtipico <= 30) { //Gol de Argentina
+                if (golArgentinaContextoAtipico <= 15) { //Gol de Argentina
 
                     //Definimos quién hizo el gol
 
@@ -3886,38 +4448,10 @@ function consultaSiTodosAlAtaqueEstaActivado() { //APARTADO QUE SOLO LO MODIFICA
                     }
 
                     else if (jugador1.dataset.roja != 1 && jugador1.dataset.lesion != 1 && jugadorQueHizoGolArgentina <= 100) {
-                        nombreJugadorGolArgentina = jugador1.dataset.text + ". Cabezazo histórico barriletes cósmicos, el aquero leyenda que convirtió en una final ¡Viva el fútbol!";
+                        nombreJugadorGolArgentina = jugador1.dataset.text;
                     }
 
-
-                    //Modificamos el comentario, su color de fondo y agregamos el nombre del goleador
-
-                    contenedorComentarios.removeAttribute('class')
-
-                    contenedorComentarios.classList.add("contenedor-comentarios-favor-argentina-gol");
-
-                    textoComentarios.textContent = "GOOOOOOL de " + nombreJugadorGolArgentina;
-
-                    //Agregamos la info del gol
-
-                    //A) Hacemos que se genere un P con la info.
-
-                    let creadorDeParrafoGolArgentina = document.createElement("p");
-
-                    let contenidoGeneradoGolArgentina = //Las `` siguientes se utilizan para hacer un html literal
-                        `
-                    <p class= "texto-eventos">Gol de ${nombreJugadorGolArgentina}</p>
-
-                    `;
-
-                    creadorDeParrafoGolArgentina.innerHTML = contenidoGeneradoGolArgentina; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
-
-                    eventosArg.append(creadorDeParrafoGolArgentina);
-
-                    //B) Subimos el contador.
-
-                    argentinaGoles.textContent++;
-
+                    comentarioGolesArgentina(nombreJugadorGolArgentina);
 
                 }
 
@@ -3981,56 +4515,62 @@ function consultaSiTodosAlAtaqueEstaActivado() { //APARTADO QUE SOLO LO MODIFICA
                     max = Math.floor(100);
 
                     let generadorComentarioAtaqueFallidoArgentina = Math.floor(Math.random() * (100 - 0) + 0);
+            
 
                     if (generadorComentarioAtaqueFallidoArgentina <= 2) {
                         textoComentarios.textContent = resultadoJugadorAtacaFallaArgentina + " acaba de comerse el mismo gol que Higuaín contra Alemania.";
                     }
-
+                    
                     if (generadorComentarioAtaqueFallidoArgentina > 2 && generadorComentarioAtaqueFallidoArgentina <= 10) {
                         textoComentarios.textContent = resultadoJugadorAtacaFallaArgentina + " se perdió un gol hecho.";
                     }
-
-                    if (generadorComentarioAtaqueFallidoArgentina > 10 && generadorComentarioAtaqueFallidoArgentina <= 20) {
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 10 && generadorComentarioAtaqueFallidoArgentina <= 15) {
                         textoComentarios.textContent = "Jugada excelente de Argentina que termino rozando el palo.";
                     }
-
-                    if (generadorComentarioAtaqueFallidoArgentina > 20 && generadorComentarioAtaqueFallidoArgentina <= 30) {
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 15 && generadorComentarioAtaqueFallidoArgentina <= 20) {
                         textoComentarios.textContent = "Increíble gol se comió " + resultadoJugadorAtacaFallaArgentina;
                     }
-
-                    if (generadorComentarioAtaqueFallidoArgentina > 30 && generadorComentarioAtaqueFallidoArgentina <= 40) {
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 20 && generadorComentarioAtaqueFallidoArgentina <= 25) {
                         textoComentarios.textContent = "El disparo reventó el travesaño. Casi gol de Argentina";
                     }
-
-
-                    if (generadorComentarioAtaqueFallidoArgentina > 40 && generadorComentarioAtaqueFallidoArgentina <= 50) {
+                    
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 25 && generadorComentarioAtaqueFallidoArgentina <= 30) {
                         textoComentarios.textContent = resultadoJugadorAtacaFallaArgentina + " eligió la individual y Argentina estuvo cerca del gol";
                     }
-
-
-                    if (generadorComentarioAtaqueFallidoArgentina > 50 && generadorComentarioAtaqueFallidoArgentina <= 60) {
+                    
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 30 && generadorComentarioAtaqueFallidoArgentina <= 35) {
                         textoComentarios.textContent = "Increíble mano a mano acaba de desperdiciar Argentina";
                     }
-
-
-                    if (generadorComentarioAtaqueFallidoArgentina > 60 && generadorComentarioAtaqueFallidoArgentina <= 70) {
-                        textoComentarios.textContent = resultadoJugadorAtacaFallaArgentina + " decidió la individual y no fue gol.";
+                    
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 35 && generadorComentarioAtaqueFallidoArgentina <= 40) {
+                        textoComentarios.textContent = resultadoJugadorAtacaFallaArgentina + " tenía solo a un compañero pero decidió la individual y no fue gol.";
                     }
-
-
-                    if (generadorComentarioAtaqueFallidoArgentina > 70 && generadorComentarioAtaqueFallidoArgentina <= 80) {
+                    
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 40 && generadorComentarioAtaqueFallidoArgentina <= 45) {
                         textoComentarios.textContent = "Qué cerca estuvo eso, lo gritamos todos.";
                     }
-
-
-                    if (generadorComentarioAtaqueFallidoArgentina > 80 && generadorComentarioAtaqueFallidoArgentina <= 0) {
+                    
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 45 && generadorComentarioAtaqueFallidoArgentina <= 50) {
                         textoComentarios.textContent = "Casi gol de Argentina";
                     }
-
-
-                    if (generadorComentarioAtaqueFallidoArgentina > 90 && generadorComentarioAtaqueFallidoArgentina <= 100) {
+                    
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 50 && generadorComentarioAtaqueFallidoArgentina <= 55) {
                         textoComentarios.textContent = "Espectacular atajada de Alisson";
                     }
+                    
+                    if (generadorComentarioAtaqueFallidoArgentina > 55 && generadorComentarioAtaqueFallidoArgentina <= 100) {
+                        comentarioNoTerminaEnGolArgentina(resultadoJugadorAtacaFallaArgentina)
+                    }
+
                 }
             }
 
@@ -4227,7 +4767,7 @@ function eventoPartido() {
 
                         let resultadoAtacaArgentina = Math.floor(Math.random() * (100 - 0) + 0);
 
-                        if (resultadoAtacaArgentina <= 60) {
+                        if (resultadoAtacaArgentina <= 70) {
 
                             console.log("Ataque de Argentina");
 
@@ -4376,34 +4916,34 @@ function eventoPartido() {
 
                         }
 
-                        if (resultadoAtacaArgentina > 60) {
+                        if (resultadoAtacaArgentina > 70) {
 
                             sumaTodoTotalEfectividadArgentina = totalEfectividadArgentina1 + totalEfectividadArgentina2 + totalEfectividadArgentina3 + totalEfectividadArgentina4 + totalEfectividadArgentina5 + totalEfectividadArgentina6 + totalEfectividadArgentina7 + totalEfectividadArgentina8;
 
                             console.log("soy la suma de efectividad de argentina= " + sumaTodoTotalEfectividadArgentina);
 
                             if (sumaTodoTotalEfectividadArgentina >= 17) {
-                                probabilidadDeGolArgentina = 100;
-                            }
-
-                            if (sumaTodoTotalEfectividadArgentina < 17 && sumaTodoTotalEfectividadArgentina >= 14) {
                                 probabilidadDeGolArgentina = 95;
                             }
 
-                            if (sumaTodoTotalEfectividadArgentina < 14 && sumaTodoTotalEfectividadArgentina >= 11) {
+                            if (sumaTodoTotalEfectividadArgentina < 17 && sumaTodoTotalEfectividadArgentina >= 14) {
                                 probabilidadDeGolArgentina = 90;
                             }
 
-                            if (sumaTodoTotalEfectividadArgentina < 11 && sumaTodoTotalEfectividadArgentina >= 8) {
+                            if (sumaTodoTotalEfectividadArgentina < 14 && sumaTodoTotalEfectividadArgentina >= 11) {
                                 probabilidadDeGolArgentina = 85;
                             }
 
-                            if (sumaTodoTotalEfectividadArgentina < 8 && sumaTodoTotalEfectividadArgentina >= 5) {
+                            if (sumaTodoTotalEfectividadArgentina < 11 && sumaTodoTotalEfectividadArgentina >= 8) {
                                 probabilidadDeGolArgentina = 80;
                             }
 
-                            if (sumaTodoTotalEfectividadArgentina < 5 && sumaTodoTotalEfectividadArgentina >= 2) {
+                            if (sumaTodoTotalEfectividadArgentina < 8 && sumaTodoTotalEfectividadArgentina >= 5) {
                                 probabilidadDeGolArgentina = 75;
+                            }
+
+                            if (sumaTodoTotalEfectividadArgentina < 5 && sumaTodoTotalEfectividadArgentina >= 2) {
+                                probabilidadDeGolArgentina = 70;
                             }
 
                             if (sumaTodoTotalEfectividadArgentina < -1 && sumaTodoTotalEfectividadArgentina >= -4) {
@@ -4474,37 +5014,13 @@ function eventoPartido() {
                                 }
 
                                 else if (jugador1.dataset.roja != 1 && jugador1.dataset.lesion != 1 && jugadorQueHizoGolArgentina <= 100) {
-                                    nombreJugadorGolArgentina = jugador1.dataset.text + ". Disparo desde atrás de mitad de cancha, el gol más épico de la historia de un mundial.";
+                                    nombreJugadorGolArgentina = jugador1.dataset.text;
                                 }
 
+                                //Función de gol declarada anteriormente
 
-                                //Modificamos el comentario, su color de fondo y agregamos el nombre del goleador
-
-                                contenedorComentarios.removeAttribute('class')
-
-                                contenedorComentarios.classList.add("contenedor-comentarios-favor-argentina-gol");
-
-                                textoComentarios.textContent = "GOOOOOOL de " + nombreJugadorGolArgentina;
-
-                                //Agregamos la info del gol
-
-                                //A) Hacemos que se genere un P con la info.
-
-                                let creadorDeParrafoGolArgentina = document.createElement("p");
-
-                                let contenidoGeneradoGolArgentina = //Las `` siguientes se utilizan para hacer un html literal
-                                    `
-                                        <p class= "texto-eventos">Gol de ${nombreJugadorGolArgentina}</p>
-
-                                        `;
-
-                                creadorDeParrafoGolArgentina.innerHTML = contenidoGeneradoGolArgentina; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
-
-                                eventosArg.append(creadorDeParrafoGolArgentina);
-
-                                //B) Subimos el contador.
-
-                                argentinaGoles.textContent++;
+                                comentarioGolesArgentina(nombreJugadorGolArgentina);
+                                
                             }
 
                             if (probabilidadDeGolArgentina <= resultadoHayGolArgentina) { //Ataque que paso cerca
@@ -4578,46 +5094,50 @@ function eventoPartido() {
                                     textoComentarios.textContent = resultadoJugadorAtacaFallaArgentinaPartidoNormal + " se perdió un gol hecho.";
                                 }
 
-                                if (generadorComentarioAtaqueFallidoArgentina > 10 && generadorComentarioAtaqueFallidoArgentina <= 20) {
+                                if (generadorComentarioAtaqueFallidoArgentina > 10 && generadorComentarioAtaqueFallidoArgentina <= 15) {
                                     textoComentarios.textContent = "Jugada excelente de Argentina que termino rozando el palo.";
                                 }
 
-                                if (generadorComentarioAtaqueFallidoArgentina > 20 && generadorComentarioAtaqueFallidoArgentina <= 30) {
+                                if (generadorComentarioAtaqueFallidoArgentina > 15 && generadorComentarioAtaqueFallidoArgentina <= 20) {
                                     textoComentarios.textContent = "Increíble gol se comió " + resultadoJugadorAtacaFallaArgentinaPartidoNormal;
                                 }
 
-                                if (generadorComentarioAtaqueFallidoArgentina > 30 && generadorComentarioAtaqueFallidoArgentina <= 40) {
+                                if (generadorComentarioAtaqueFallidoArgentina > 20 && generadorComentarioAtaqueFallidoArgentina <= 25) {
                                     textoComentarios.textContent = "El disparo reventó el travesaño. Casi gol de Argentina";
                                 }
 
 
-                                if (generadorComentarioAtaqueFallidoArgentina > 40 && generadorComentarioAtaqueFallidoArgentina <= 50) {
+                                if (generadorComentarioAtaqueFallidoArgentina > 25 && generadorComentarioAtaqueFallidoArgentina <= 30) {
                                     textoComentarios.textContent = resultadoJugadorAtacaFallaArgentinaPartidoNormal + " eligió la individual y Argentina estuvo cerca del gol";
                                 }
 
 
-                                if (generadorComentarioAtaqueFallidoArgentina > 50 && generadorComentarioAtaqueFallidoArgentina <= 60) {
+                                if (generadorComentarioAtaqueFallidoArgentina > 30 && generadorComentarioAtaqueFallidoArgentina <= 35) {
                                     textoComentarios.textContent = "Increíble mano a mano acaba de desperdiciar Argentina";
                                 }
 
 
-                                if (generadorComentarioAtaqueFallidoArgentina > 60 && generadorComentarioAtaqueFallidoArgentina <= 70) {
+                                if (generadorComentarioAtaqueFallidoArgentina > 35 && generadorComentarioAtaqueFallidoArgentina <= 40) {
                                     textoComentarios.textContent = resultadoJugadorAtacaFallaArgentinaPartidoNormal + " tenía solo a un compañero pero decidió la individual y no fue gol.";
                                 }
 
 
-                                if (generadorComentarioAtaqueFallidoArgentina > 70 && generadorComentarioAtaqueFallidoArgentina <= 80) {
+                                if (generadorComentarioAtaqueFallidoArgentina > 40 && generadorComentarioAtaqueFallidoArgentina <= 45) {
                                     textoComentarios.textContent = "Qué cerca estuvo eso, lo gritamos todos.";
                                 }
 
 
-                                if (generadorComentarioAtaqueFallidoArgentina > 80 && generadorComentarioAtaqueFallidoArgentina <= 0) {
+                                if (generadorComentarioAtaqueFallidoArgentina > 45 && generadorComentarioAtaqueFallidoArgentina <= 50) {
                                     textoComentarios.textContent = "Casi gol de Argentina";
                                 }
 
 
-                                if (generadorComentarioAtaqueFallidoArgentina > 90 && generadorComentarioAtaqueFallidoArgentina <= 100) {
+                                if (generadorComentarioAtaqueFallidoArgentina > 50 && generadorComentarioAtaqueFallidoArgentina <= 55) {
                                     textoComentarios.textContent = "Espectacular atajada de Alisson";
+                                }
+
+                                if (generadorComentarioAtaqueFallidoArgentina > 55 && generadorComentarioAtaqueFallidoArgentina <= 100) {
+                                    comentarioNoTerminaEnGolArgentina(resultadoJugadorAtacaFallaArgentinaPartidoNormal)
                                 }
 
                             }
@@ -5193,7 +5713,7 @@ function eventoPartido() {
                             }
 
                             if (jugadorRojaBrasil > 5 && jugadorRojaBrasil <= 10) {
-                                nombreJugadorRojaBrasil = "Richarlison.";
+                                nombreJugadorRojaBrasil = "Richarlison";
 
                                 richarlisonRoja = true; //Indicamos que fue expulsado
                                 console.log(richarlisonRoja);
@@ -5375,7 +5895,7 @@ function eventoPartido() {
 
                 let resultadoEventosFavorBrasil = Math.floor(Math.random() * (100 - 0) + 0);
 
-                if (resultadoEventosFavorBrasil < 90) { //Ataque Brasil y posibilidad de GOL
+                if (resultadoEventosFavorBrasil = 0) { //Ataque Brasil y posibilidad de GOL
 
                     //El valor normal es = "resultadoEventosFavorBrasil < 90", pero podemos hacer "resultadoEventosFavorBrasil = 0"
 
@@ -5386,7 +5906,7 @@ function eventoPartido() {
 
                         let resultadoAtacaBrasil = Math.floor(Math.random() * (100 - 0) + 0);
 
-                        if (resultadoAtacaBrasil <= 60) {
+                        if (resultadoAtacaBrasil <= 70) {
 
                             console.log("Ataque de Brasil");
 
@@ -5544,34 +6064,34 @@ function eventoPartido() {
 
                         }
 
-                        if (resultadoAtacaBrasil > 60) {
+                        if (resultadoAtacaBrasil > 70) {
 
                             sumaTodoTotalEfectividadBrasil = totalEfectividadBrasil1 + totalEfectividadBrasil2 + totalEfectividadBrasil3 + totalEfectividadBrasil4 + totalEfectividadBrasil5 + totalEfectividadBrasil6 + totalEfectividadBrasil7 + totalEfectividadBrasil8;
 
                             console.log("soy la suma de efectividad de brasil= " + sumaTodoTotalEfectividadBrasil);
 
                             if (sumaTodoTotalEfectividadBrasil >= 17) {
-                                probabilidadDeGolBrasil = 100;
-                            }
-
-                            if (sumaTodoTotalEfectividadBrasil < 17 && sumaTodoTotalEfectividadBrasil >= 14) {
                                 probabilidadDeGolBrasil = 95;
                             }
 
-                            if (sumaTodoTotalEfectividadBrasil < 14 && sumaTodoTotalEfectividadBrasil >= 11) {
+                            if (sumaTodoTotalEfectividadBrasil < 17 && sumaTodoTotalEfectividadBrasil >= 14) {
                                 probabilidadDeGolBrasil = 90;
                             }
 
-                            if (sumaTodoTotalEfectividadBrasil < 11 && sumaTodoTotalEfectividadBrasil >= 8) {
+                            if (sumaTodoTotalEfectividadBrasil < 14 && sumaTodoTotalEfectividadBrasil >= 11) {
                                 probabilidadDeGolBrasil = 85;
                             }
 
-                            if (sumaTodoTotalEfectividadBrasil < 8 && sumaTodoTotalEfectividadBrasil >= 5) {
+                            if (sumaTodoTotalEfectividadBrasil < 11 && sumaTodoTotalEfectividadBrasil >= 8) {
                                 probabilidadDeGolBrasil = 80;
                             }
 
-                            if (sumaTodoTotalEfectividadBrasil < 5 && sumaTodoTotalEfectividadBrasil >= 2) {
+                            if (sumaTodoTotalEfectividadBrasil < 8 && sumaTodoTotalEfectividadBrasil >= 5) {
                                 probabilidadDeGolBrasil = 75;
+                            }
+
+                            if (sumaTodoTotalEfectividadBrasil < 5 && sumaTodoTotalEfectividadBrasil >= 2) {
+                                probabilidadDeGolBrasil = 70;
                             }
 
                             if (sumaTodoTotalEfectividadBrasil < -1 && sumaTodoTotalEfectividadBrasil >= -4) {
@@ -5604,7 +6124,7 @@ function eventoPartido() {
                                 }
 
                                 if (jugadorQueHizoGolBrasil > 25 && jugadorQueHizoGolBrasil <= 40) {
-                                    nombreJugadorGolBrasil = "Richarlison.";
+                                    nombreJugadorGolBrasil = "Richarlison";
                                 }
 
                                 if (jugadorQueHizoGolBrasil > 40 && jugadorQueHizoGolBrasil <= 55) {
@@ -5640,34 +6160,7 @@ function eventoPartido() {
                                     nombreJugadorGolBrasil = "A. Telles";
                                 }
 
-
-                                //Modificamos el comentario, su color de fondo y agregamos el nombre del goleador
-
-                                contenedorComentarios.removeAttribute('class')
-
-                                contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil-gol");
-
-                                textoComentarios.textContent = "GOOOOOOL de " + nombreJugadorGolBrasil;
-
-                                //Agregamos la info del gol
-
-                                //A) Hacemos que se genere un P con la info.
-
-                                let creadorDeParrafoGolBrasil = document.createElement("p");
-
-                                let contenidoGeneradoGolBrasil = //Las `` siguientes se utilizan para hacer un html literal
-                                    `
-                                        <p class= "texto-eventos">Gol de ${nombreJugadorGolBrasil}</p>
-
-                                        `;
-
-                                creadorDeParrafoGolBrasil.innerHTML = contenidoGeneradoGolBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
-
-                                eventosBra.append(creadorDeParrafoGolBrasil);
-
-                                //B) Subimos el contador.
-
-                                brasilGoles.textContent++;
+                                comentarioGolesBrasil(nombreJugadorGolBrasil);
 
                             }
 
@@ -5679,26 +6172,83 @@ function eventoPartido() {
 
                                 contenedorComentarios.classList.add("contenedor-comentarios-favor-brasil");
 
+                                //Elegimos un jugador
+
+                                min = Math.ceil(0);
+                                max = Math.floor(100);
+
+                                let jugadorQueFalloBrasil = Math.floor(Math.random() * (100 - 0) + 0);
+                                let nombreJugadorFalloBrasil = "no definido"
+
+
+                                if (jugadorQueFalloBrasil <= 25) {
+                                    nombreJugadorFalloBrasil = "Neymar";
+                                }
+
+                                if (jugadorQueFalloBrasil > 25 && jugadorQueFalloBrasil <= 40) {
+                                    nombreJugadorFalloBrasil = "Richarlison";
+                                }
+
+                                if (jugadorQueFalloBrasil > 40 && jugadorQueFalloBrasil <= 55) {
+                                    nombreJugadorFalloBrasil = "Vinicius Jr.";
+                                }
+
+                                if (jugadorQueFalloBrasil > 55 && jugadorQueFalloBrasil <= 70) {
+                                    nombreJugadorFalloBrasil = "Rafinha";
+                                }
+
+                                if (jugadorQueFalloBrasil > 70 && jugadorQueFalloBrasil <= 80) {
+                                    nombreJugadorFalloBrasil = "Casemiro";
+                                }
+
+                                if (jugadorQueFalloBrasil > 80 && jugadorQueFalloBrasil <= 90) {
+                                    nombreJugadorFalloBrasil = "Paquetá";
+                                }
+
+                                if (jugadorQueFalloBrasil > 90 && jugadorQueFalloBrasil <= 95) {
+                                    nombreJugadorFalloBrasil = "T. Silva";
+                                }
+
+                                if (jugadorQueFalloBrasil > 95 && jugadorQueFalloBrasil <= 97) {
+                                    nombreJugadorFalloBrasil = "É. Militão";
+                                }
+
+                                if (jugadorQueFalloBrasil > 97 && jugadorQueFalloBrasil <= 99) {
+                                    nombreJugadorFalloBrasil = "Marquinhos";
+                                }
+
+
+                                if (jugadorQueFalloBrasil > 99 && jugadorQueFalloBrasil <= 100) {
+                                    nombreJugadorFalloBrasil = "A. Telles";
+                                }
+
+                                //Elegimos el comentario
+
                                 min = Math.ceil(0);
                                 max = Math.floor(100);
 
                                 let generadorComentarioAtaqueFallidoBrasil = Math.floor(Math.random() * (100 - 0) + 0);
 
-                                if (generadorComentarioAtaqueFallidoBrasil <= 25) {
+                                if (generadorComentarioAtaqueFallidoBrasil <= 10) {
                                     textoComentarios.textContent = "Increíble el gol que se acaba de perder Brasil.";
                                 }
 
-                                if (generadorComentarioAtaqueFallidoBrasil > 25 && generadorComentarioAtaqueFallidoBrasil <= 50) {
+                                if (generadorComentarioAtaqueFallidoBrasil > 10 && generadorComentarioAtaqueFallidoBrasil <= 20) {
                                     textoComentarios.textContent = "El disparo pego en el palo. Se salva Argentina";
                                 }
 
-                                if (generadorComentarioAtaqueFallidoBrasil > 50 && generadorComentarioAtaqueFallidoBrasil <= 75) {
+                                if (generadorComentarioAtaqueFallidoBrasil > 20 && generadorComentarioAtaqueFallidoBrasil <= 30) {
                                     textoComentarios.textContent = "Estuvo cerca, desde la tribuna brasileña gritaron gol.";
                                 }
 
-                                if (generadorComentarioAtaqueFallidoBrasil > 75 && generadorComentarioAtaqueFallidoBrasil <= 100) {
+                                if (generadorComentarioAtaqueFallidoBrasil > 30 && generadorComentarioAtaqueFallidoBrasil <= 40) {
                                     textoComentarios.textContent = "Brasil estuvo muy cerca de convertir.";
                                 }
+
+                                if (generadorComentarioAtaqueFallidoBrasil > 40 && generadorComentarioAtaqueFallidoBrasil <= 100) {
+                                    comentarioNoTerminaEnGolBrasil(nombreJugadorFalloBrasil);
+                                }
+                                
                             }
 
                         }
@@ -5707,7 +6257,7 @@ function eventoPartido() {
                     atacaBrasil()  //Ejecutamos la función: NUNCA OLVIDAR ESTO, si no, no funciona.
                 }
 
-                if (resultadoEventosFavorBrasil > 90 && resultadoEventosFavorBrasil <= 95) { //Posible roja para Argentina
+                if (resultadoEventosFavorBrasil < 100) { //Posible roja para Argentina
 
                     
                     // La info que corresponde acá es "resultadoEventosFavorBrasil > 90 && resultadoEventosFavorBrasil <= 95", pero podemos poner < 100, para testear.
@@ -6414,7 +6964,7 @@ function eventoPartido() {
 
                             let contenidoGeneradoLesionArgentina = //Las `` siguientes se utilizan para hacer un html literal
                                 `
-                                        <p>${nombreJugadorLesionArgentina} lesionado</p>
+                                        <p class="texto-eventos-lesion">${nombreJugadorLesionArgentina} lesionado</p>
 
                                         `;
 
@@ -6723,10 +7273,14 @@ function irAjugadoresDisponiblesParaPatearPenales(){
             });
         
                 c.classList.add("display-none");
-    
+
+                c.dataset.text = "no-disponible"; //Son los echados o lesionados
+
                 console.log("hola funciono")
     
                 console.log(Number(a.dataset.lesion));
+
+                console.log("el siguiente texto tiene que ser NO DISPONIBLE: " + c.dataset.text)
     
         }      
     }
@@ -6870,13 +7424,29 @@ const irAPenales = document.querySelector(".ir-a-penales");
 
 irAPenales.addEventListener('click', (e) => { //"e" es igual a "event", cualquier nombre que coloquemos primero como parametro es el evento de lo que sucedió. Lo podría llamar "pepito" en vez de "e", pero tendría que colocar abajo lo siguiente: "pepito.preventDefault()"
 
+    //Ponemos un cartel que avisa si no se eligió alguna posición
+
+    if(selectPenales1.dataset.text == "vacio" ||  selectPenales2.dataset.text == "vacio" ||  selectPenales3.dataset.text == "vacio" ||  selectPenales4.dataset.text == "vacio" ||  selectPenales5.dataset.text == "vacio" ||  selectPenales6.dataset.text == "vacio" ||  selectPenales7.dataset.text == "vacio" ||  selectPenales8.dataset.text == "vacio" ||  selectPenales9.dataset.text == "vacio" ||  selectPenales10.dataset.text == "vacio" ||  selectPenales11.dataset.text == "vacio"){
+
+        tituloModalErrores.textContent = "Completá la selección de pateadores."
+        textoModalErrores.textContent = "Para empezar los penales es necesario que completés el listado de pateadores."
+    
+        mostrarAvisoError() //AVISO ERROR (deshabilitar para hacer pruebas)
+        
+        // sumaVariablesJugadoresElegidosEnVariable2() //Habilitar para hacer pruebas.
+        // contenedorModal.classList.add("contenedor-modal--show"); //Habilitar para hacer pruebas.
+
+    }
+
+    else{
     e.preventDefault(); //Lo que hace es frenar el evento
     contenedorModalPenales.classList.add("contenedor-modal--show");
 
     argentinaGolesPartido.textContent = argentinaGoles.textContent; //Le decimos que cuando se ejecute esto, se traslade el resultado del partido al nuevo modal de penales.
     brasilGolesPartido.textContent = brasilGoles.textContent; //Le decimos que cuando se ejecute esto, se traslade el resultado del partido al nuevo modal de penales.
 
-    console.log(argentinaGolesPartido);
+    console.log(argentinaGolesPartido);}
+
 });
 
 
@@ -7177,7 +7747,7 @@ function cartelBrasilCampeonPenales(){
 
     cartelCampeonPenales.classList.remove("ocultar-cartel-campeon");
 
-    tituloCartelCampeonPenales.textContent = "¡Brasil es campeona del Mundo!";
+    tituloCartelCampeonPenales.textContent = "¡Brasil es campeón del Mundo!";
 
     imagenCartelCampeonPenales.src = "images/brasil-campeon.jpg";
 
@@ -7290,12 +7860,84 @@ function chequearFinDePartido(){ //Obtenemos la diferencia entre los penales y s
     }
     }
 
+
+
+
 //Comienzan los penales
 function definicionDePenal(){
 
     //Ocultamos el botóm de penales
 
     patearPenales.classList.add("ocultar-botones");
+
+    //Hacer que los jugadores expulsados y lesionados NO DISPONIBLES no pateen.
+
+    if (selectPenales1.dataset.text == "no-disponible"){
+        selectPenales1.dataset.text = selectPenales2.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales2.dataset.text == "no-disponible"){
+        selectPenales2.dataset.text = selectPenales3.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales3.dataset.text == "no-disponible"){
+        selectPenales3.dataset.text = selectPenales4.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales4.dataset.text == "no-disponible"){
+        selectPenales4.dataset.text = selectPenales5.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales5.dataset.text == "no-disponible"){
+        selectPenales5.dataset.text = selectPenales6.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales6.dataset.text == "no-disponible"){
+        selectPenales6.dataset.text = selectPenales7.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales7.dataset.text == "no-disponible"){
+        selectPenales7.dataset.text = selectPenales8.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales8.dataset.text == "no-disponible"){
+        selectPenales8.dataset.text = selectPenales9.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales9.dataset.text == "no-disponible"){
+        selectPenales9.dataset.text = selectPenales10.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales10.dataset.text == "no-disponible"){
+        selectPenales10.dataset.text = selectPenales11.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
+    if (selectPenales11.dataset.text == "no-disponible"){
+        selectPenales11.dataset.text = selectPenales1.dataset.text;
+
+        console.log("hubo un cambio de jugador porque no estaba disponible para patear")
+    }
+
 
     //Primer penal BRA
 

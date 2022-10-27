@@ -395,6 +395,10 @@
     color: red;
 }
 
+.texto-eventos-lesion{ /*Modifica la información del partido y coloca la expulsión en rojo.*/
+    color: rgb(241, 77, 77);
+}
+
 
 /*Barras*/
 
