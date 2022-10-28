@@ -415,7 +415,67 @@
     background-color: rgb(13, 138, 255);
 }
 
+.barra-arg--animacion{
+    width: 50%;
+    height: 1.5rem;
+    background-color: rgb(13, 138, 255);
+
+    position: relative;
+    animation-name: barra-arg;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
 .barra-bra{
+    width: 50%;
+    height: 1.5rem;
+    background-color: rgb(253, 228, 2);
+}
+
+.barra-bra--animacion{
+    width: 50%;
+    height: 1.5rem;
+    background-color: rgb(253, 228, 2);
+
+    position: relative;
+    animation-name: barra-brasil;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+/*Animación barras*/
+
+@keyframes barra-arg {
+    0% {width: 50%;}
+    20%{width: 100%;}
+    50%{width: 30%;}
+    75%{width: 90%;}
+    90%{width: 30%;}
+    100%{width: 50%;}
+}
+
+
+@keyframes barra-brasil {
+    0% {width: 50%;}
+    20%{width: 30%;}
+    50%{width: 100%;}
+    75%{width: 50%;}
+    90%{width: 70%;}
+    100%{width: 50%;}
+    
+}
+
+/*Las barras de los penales*/
+
+.barra-arg-penales{
+    width: 50%;
+    height: 1.5rem;
+    background-color: rgb(13, 138, 255);
+}
+
+.barra-bra-penales{
     width: 50%;
     height: 1.5rem;
     background-color: rgb(253, 228, 2);

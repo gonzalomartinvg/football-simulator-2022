@@ -2851,6 +2851,23 @@ function frenarComentarios() {
     clearInterval(temporizadorDeComentarios);
   }
 
+let barraBrasil = document.querySelector(".barra-bra");
+let barraArg = document.querySelector(".barra-arg");
+
+function inicioBarras() {
+
+    barraBrasil.classList.add("barra-bra--animacion");
+    barraArg.classList.add("barra-arg--animacion");
+
+}
+
+function frenarBarras() {
+
+    barraBrasil.classList.remove("barra-bra--animacion");
+    barraArg.classList.remove("barra-arg--animacion");
+    
+}
+
 //Crónometro elementos
 
 var centesimas = 0; //La usamos como segundos (le cambiamos la duración de 99 a 59 en la función crónometro)
@@ -2875,6 +2892,7 @@ function inicio () {
     
 
     inicioComentarios() //Ejecutamos la función de inicioComentarios
+    inicioBarras() //Ejecutamos la función que da inicio a las barras
 }
 function parar () {
 	clearInterval(control);
@@ -2883,6 +2901,7 @@ function parar () {
     
 
     frenarComentarios() //Ejecutamos la función de frenarComentarios
+    frenarBarras() //Ejetucamos la función que frena las barras
 }
 function reinicio () {
 	clearInterval(control);
@@ -2901,6 +2920,8 @@ function reinicio () {
     
 
     frenarComentarios() //Ejecutamos la función de frenarComentarios
+    frenarBarras() //Ejetucamos la función que frena las barras
+
 }
 
 function cronometro () {
@@ -3066,6 +3087,8 @@ function cartelArgentinaCampeon(){
 
     textoCartelCampeon.textContent = "En una noche épica Argentina venció " + argentinaGoles.textContent + "-" + brasilGoles.textContent + " a Brasil y se consagró campeona del Mundo por tercera vez."
 
+    contenedorComentarios.remove; //Ocultamos los comentarios para que no se sigan ejecutando
+
     //Ocultamos los contenedores del juego para que solo se vea la info personal
 
     let header = document.querySelector(".header"); //Seleccionas el header
@@ -3085,6 +3108,7 @@ function cartelArgentinaCampeon(){
 
     function cerrarModalPartidoAutomaticamente(){
         contenedorModal.classList.remove("contenedor-modal--show");
+        location.href = "#top"; //Hacemos que la página vaya a la parte superior donde esta el elemento con el ID "TOP".
     }
 
     setTimeout(cerrarModalPartidoAutomaticamente, 4000)
@@ -3102,6 +3126,8 @@ function cartelBrasilCampeon(){
 
     textoCartelCampeon.textContent = "En una noche tristísima para el pueblo argentino, Brasil ganó " + brasilGoles.textContent + "-" + argentinaGoles.textContent + " y se consagró campeón del Mundo por sexta vez."
 
+    contenedorComentarios.remove; //Ocultamos los comentarios para que no se sigan ejecutando
+
     //Ocultamos los contenedores del juego para que solo se vea la info personal
 
     let header = document.querySelector(".header"); //Seleccionas el header
@@ -3121,6 +3147,7 @@ function cartelBrasilCampeon(){
 
     function cerrarModalPartidoAutomaticamente(){
         contenedorModal.classList.remove("contenedor-modal--show");
+        location.href = "#top"; //Hacemos que la página vaya a la parte superior donde esta el elemento con el ID "TOP".
     }
 
     setTimeout(cerrarModalPartidoAutomaticamente, 6000)
@@ -5895,7 +5922,7 @@ function eventoPartido() {
 
                 let resultadoEventosFavorBrasil = Math.floor(Math.random() * (100 - 0) + 0);
 
-                if (resultadoEventosFavorBrasil = 0) { //Ataque Brasil y posibilidad de GOL
+                if (resultadoEventosFavorBrasil < 90) { //Ataque Brasil y posibilidad de GOL
 
                     //El valor normal es = "resultadoEventosFavorBrasil < 90", pero podemos hacer "resultadoEventosFavorBrasil = 0"
 
@@ -6257,7 +6284,7 @@ function eventoPartido() {
                     atacaBrasil()  //Ejecutamos la función: NUNCA OLVIDAR ESTO, si no, no funciona.
                 }
 
-                if (resultadoEventosFavorBrasil < 100) { //Posible roja para Argentina
+                if (resultadoEventosFavorBrasil > 90 && resultadoEventosFavorBrasil <= 95) { //Posible roja para Argentina
 
                     
                     // La info que corresponde acá es "resultadoEventosFavorBrasil > 90 && resultadoEventosFavorBrasil <= 95", pero podemos poner < 100, para testear.
@@ -7458,233 +7485,269 @@ let patearPenales = document.querySelector(".patear-penales");
 
 patearPenales.addEventListener("click", definicionDePenal);
 
+let marcadorFinDePenales = false; //Es un marcador para que no se sigan pateando penales después de que haya un campeón
+
 function penalBrasil(a, b, c){ //"a" es el jugador de Brasil, "b" el arquero de Argentina y "c" el comentario de patear. La función llamada "disparoPenal" que se encuentra dentro, respeta los parámetros establecidas en esta función mayor.
 
-    contenedorComentariosPenales.removeAttribute('class')
-
-    contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-brasil");
-
-    textoComentariosPenales.textContent = a + c;
-
-    contadorPenalesBrasil++ //Indicamos que Brasil pateo un penal y sumamos uno al contador
-
-    function disparoPenal(){
-
-        min = Math.ceil(0);
-    max = Math.floor(100);
-
-    let penal = Math.floor(Math.random() * (100 - 0) + 0);
-
-    if (penal <= 59){ //Gol Brasil
+    if (marcadorFinDePenales == false){
 
         contenedorComentariosPenales.removeAttribute('class')
 
-        contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-brasil-gol");
+        contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-brasil");
 
-        textoComentariosPenales.textContent = "GOOOOOOL de " + a;
+        textoComentariosPenales.textContent = a + c;
 
-        //A) Hacemos que se genere un P con la info.
+        function disparoPenal(){
 
-        let creadorDeParrafoBrasil = document.createElement("p");
-
-        let contenidoGeneradoBrasil = //Las `` siguientes se utilizan para hacer un html literal
-        `
-            <p class= "texto-eventos">Gol de ${a}</p>
-
-            `;
-
-         creadorDeParrafoBrasil.innerHTML = contenidoGeneradoBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
-
-        eventosBraPenales.append(creadorDeParrafoBrasil);
-
-        brasilGolesPenales.textContent++
-
-        console.log(brasilGolesPenales.textContent);
-    }
-
-    if (penal >= 60){ //Ataja Argentina
-
-        contenedorComentariosPenales.removeAttribute('class')
-
-        contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-argentina");
-
-        textoComentariosPenales.textContent = "Increíble parada de " + b;
-
-        min = Math.ceil(0);
-        max = Math.floor(100);
-
-        let comentarioAleatorioPenalAtajaArgentina = Math.floor(Math.random() * (100 - 0) + 0);
-
-        comentarioPenalAtajaArgentina = "no estoy definido";
-
-            if (comentarioAleatorioPenalAtajaArgentina <= 5){
-                comentarioPenalAtajaArgentina = "Increíble para de " + b + ".";
-
-                textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
-            }
-
-            else if (comentarioAleatorioPenalAtajaArgentina <= 10){
-                comentarioPenalAtajaArgentina = b + " se está convirtiendo en héroe.";
-
-                textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
-            }
-
-            else if (comentarioAleatorioPenalAtajaArgentina <= 80){
-                comentarioPenalAtajaArgentina = "Atajada de " + b + ".";
-
-                textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
-            }
-
-            else if (comentarioAleatorioPenalAtajaArgentina >= 90){
-                comentarioPenalAtajaArgentina = b + " se queda con la pelota."
-
-                textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
-            }
-
-            else{
-                comentarioPenalAtajaArgentina = b + " la sacó del ángulo.";
-
-                textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
-            }
-
-        
-
-
-        //A) Hacemos que se genere un P con la info.
-
-        let creadorDeParrafoBrasil = document.createElement("p");
-
-        let contenidoGeneradoBrasil = //Las `` siguientes se utilizan para hacer un html literal
-        `
-            <p class= "texto-eventos texto-fallo-penal">Fallo de ${a}</p>
-
-            `;
-
-        creadorDeParrafoBrasil.innerHTML = contenidoGeneradoBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
-
-        eventosBraPenales.append(creadorDeParrafoBrasil);
-    }
-
-    }
-
-    setTimeout(disparoPenal, 3000)
-
-}
-
-function penalArgentina(a, b, c){ //"a" es el jugador de Argentina, "b" el arquero de Brasil y "c" el comentario de patear
-
-    contenedorComentariosPenales.removeAttribute('class')
-
-    contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-argentina");
-
-    textoComentariosPenales.textContent = a + c;
-
-    contadorPenalesArgentina++ //Indicamos que Brasil pateo un penal y sumamos uno al contador
-
-    function disparoPenal(){
-
-        min = Math.ceil(0);
+            min = Math.ceil(0);
         max = Math.floor(100);
 
         let penal = Math.floor(Math.random() * (100 - 0) + 0);
 
-        if (penal <= 59){ //Gol Argentina
+        if (penal <= 59){ //Gol Brasil
 
             contenedorComentariosPenales.removeAttribute('class')
 
-            contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-argentina-gol");
+            contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-brasil-gol");
 
             textoComentariosPenales.textContent = "GOOOOOOL de " + a;
 
+            brasilGolesPenales.textContent++;
+
             //A) Hacemos que se genere un P con la info.
 
-            let creadorDeParrafoArgentina = document.createElement("p");
+            let creadorDeParrafoBrasil = document.createElement("p");
 
-            let contenidoGeneradoArgentina = //Las `` siguientes se utilizan para hacer un html literal
+            let contenidoGeneradoBrasil = //Las `` siguientes se utilizan para hacer un html literal
             `
                 <p class= "texto-eventos">Gol de ${a}</p>
 
                 `;
 
-            creadorDeParrafoArgentina.innerHTML = contenidoGeneradoArgentina; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+            creadorDeParrafoBrasil.innerHTML = contenidoGeneradoBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
 
-            eventosArgPenales.append(creadorDeParrafoArgentina);
+            eventosBraPenales.append(creadorDeParrafoBrasil);
 
-            argentinaGolesPenales.textContent++
+            function contadorPenalBrasil(){
+                contadorPenalesBrasil++ //Indicamos que Brasil pateo un penal y sumamos uno al contador
+            }
 
-            console.log(argentinaGolesPenales.textContent);
+            setTimeout(contadorPenalBrasil, 2000) //La ejecutamos un poquito dsp el contador para que no nos tiré el cartel de campeón antes de tiempo
+
+            console.log(brasilGolesPenales.textContent);
         }
 
-        if (penal >= 60){ //Ataja Brasil
+        if (penal >= 60){ //Ataja Argentina
 
             contenedorComentariosPenales.removeAttribute('class')
 
-            contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-brasil");
+            contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-argentina");
+
+            textoComentariosPenales.textContent = "Increíble parada de " + b;
 
             min = Math.ceil(0);
             max = Math.floor(100);
 
-            let comentarioAleatorioPenalAtajaBrasil = Math.floor(Math.random() * (100 - 0) + 0);
+            let comentarioAleatorioPenalAtajaArgentina = Math.floor(Math.random() * (100 - 0) + 0);
 
-            comentarioPenalAtajaBrasil = "no estoy definido";
+            comentarioPenalAtajaArgentina = "no estoy definido";
 
-            if (comentarioAleatorioPenalAtajaBrasil <= 5){
-                comentarioPenalAtajaBrasil = "Increíble para de " + b + ".";
+                if (comentarioAleatorioPenalAtajaArgentina <= 5){
+                    comentarioPenalAtajaArgentina = "Increíble para de " + b + ".";
 
-                textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
+                    textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
+                }
 
-            }
+                else if (comentarioAleatorioPenalAtajaArgentina <= 10){
+                    comentarioPenalAtajaArgentina = b + " se está convirtiendo en héroe.";
 
-            else if (comentarioAleatorioPenalAtajaBrasil <= 10){
-                comentarioPenalAtajaBrasil = b + " se lució con esa atajada.";
+                    textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
+                }
 
-                textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
+                else if (comentarioAleatorioPenalAtajaArgentina <= 80){
+                    comentarioPenalAtajaArgentina = "Atajada de " + b + ".";
 
-            }
+                    textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
+                }
 
-            else if (comentarioAleatorioPenalAtajaBrasil <= 80){
-                comentarioPenalAtajaBrasil = "Atajada de " + b + ".";
+                else if (comentarioAleatorioPenalAtajaArgentina >= 90){
+                    comentarioPenalAtajaArgentina = b + " se queda con la pelota."
 
-                textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
+                    textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
+                }
 
-            }
+                else{
+                    comentarioPenalAtajaArgentina = b + " la sacó del ángulo.";
 
-            else if (comentarioAleatorioPenalAtajaBrasil >= 90){
-                comentarioPenalAtajaBrasil = b + " impide el gol."
+                    textoComentariosPenales.textContent = comentarioPenalAtajaArgentina;
+                }
 
-                textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
-
-            }
-
-            else{
-                comentarioPenalAtajaBrasil = "Espectacular volada de " + b + ".";
-
-                textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
-
-            }
-
+            
 
 
             //A) Hacemos que se genere un P con la info.
 
-            let creadorDeParrafoArgentina = document.createElement("p");
+            let creadorDeParrafoBrasil = document.createElement("p");
 
-            let contenidoGeneradoArgentina = //Las `` siguientes se utilizan para hacer un html literal
+            let contenidoGeneradoBrasil = //Las `` siguientes se utilizan para hacer un html literal
             `
                 <p class= "texto-eventos texto-fallo-penal">Fallo de ${a}</p>
 
                 `;
 
-            creadorDeParrafoArgentina.innerHTML = contenidoGeneradoArgentina; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+            creadorDeParrafoBrasil.innerHTML = contenidoGeneradoBrasil; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
 
-            eventosArgPenales.append(creadorDeParrafoArgentina);
+            eventosBraPenales.append(creadorDeParrafoBrasil);
+
+            function contadorPenalBrasil(){
+                contadorPenalesBrasil++ //Indicamos que Brasil pateo un penal y sumamos uno al contador
+            }
+
+            contadorPenalBrasil()
+
+            
+        }
 
         }
-        
-    
-    }
 
-    setTimeout(disparoPenal, 3000)
+        setTimeout(disparoPenal, 3650)
+    }
+}
+
+function penalArgentina(a, b, c){ //"a" es el jugador de Argentina, "b" el arquero de Brasil y "c" el comentario de patear
+
+    if (marcadorFinDePenales == false){
+
+        contenedorComentariosPenales.removeAttribute('class')
+
+        contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-argentina");
+
+        textoComentariosPenales.textContent = a + c;
+
+        function disparoPenal(){
+
+            min = Math.ceil(0);
+            max = Math.floor(100);
+
+            let penal = Math.floor(Math.random() * (100 - 0) + 0);
+
+            if (penal <= 59){ //Gol Argentina
+
+                contenedorComentariosPenales.removeAttribute('class')
+
+                contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-argentina-gol");
+
+                textoComentariosPenales.textContent = "GOOOOOOL de " + a;
+
+                argentinaGolesPenales.textContent++;
+
+                //A) Hacemos que se genere un P con la info.
+
+                let creadorDeParrafoArgentina = document.createElement("p");
+
+                let contenidoGeneradoArgentina = //Las `` siguientes se utilizan para hacer un html literal
+                `
+                    <p class= "texto-eventos">Gol de ${a}</p>
+
+                    `;
+
+                creadorDeParrafoArgentina.innerHTML = contenidoGeneradoArgentina; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                eventosArgPenales.append(creadorDeParrafoArgentina);
+
+                function contadorPenalArgentina(){
+                    contadorPenalesArgentina++ //Indicamos que Argentina pateo un penal y sumamos uno al contador
+                    console.log(argentinaGolesPenales.textContent);
+                }
+
+                setTimeout(contadorPenalArgentina, 2000) //La ejecutamos un poquito dsp el contador para que no nos tiré el cartel de campeón antes de tiempo
+
+                
+            }
+
+            if (penal >= 60){ //Ataja Brasil
+
+                contenedorComentariosPenales.removeAttribute('class')
+
+                contenedorComentariosPenales.classList.add("contenedor-comentarios-favor-brasil");
+
+                min = Math.ceil(0);
+                max = Math.floor(100);
+
+                let comentarioAleatorioPenalAtajaBrasil = Math.floor(Math.random() * (100 - 0) + 0);
+
+                comentarioPenalAtajaBrasil = "no estoy definido";
+
+                if (comentarioAleatorioPenalAtajaBrasil <= 5){
+                    comentarioPenalAtajaBrasil = "Increíble para de " + b + ".";
+
+                    textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
+
+                }
+
+                else if (comentarioAleatorioPenalAtajaBrasil <= 10){
+                    comentarioPenalAtajaBrasil = b + " se lució con esa atajada.";
+
+                    textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
+
+                }
+
+                else if (comentarioAleatorioPenalAtajaBrasil <= 80){
+                    comentarioPenalAtajaBrasil = "Atajada de " + b + ".";
+
+                    textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
+
+                }
+
+                else if (comentarioAleatorioPenalAtajaBrasil >= 90){
+                    comentarioPenalAtajaBrasil = b + " impide el gol."
+
+                    textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
+
+                }
+
+                else{
+                    comentarioPenalAtajaBrasil = "Espectacular volada de " + b + ".";
+
+                    textoComentariosPenales.textContent = comentarioPenalAtajaBrasil;
+
+                }
+
+
+
+                //A) Hacemos que se genere un P con la info.
+
+                let creadorDeParrafoArgentina = document.createElement("p");
+
+                let contenidoGeneradoArgentina = //Las `` siguientes se utilizan para hacer un html literal
+                `
+                    <p class= "texto-eventos texto-fallo-penal">Fallo de ${a}</p>
+
+                    `;
+
+                creadorDeParrafoArgentina.innerHTML = contenidoGeneradoArgentina; //Le decimos que el html de la variable filaDeCarrito (la que crea el nuevo div con la info) sea igual al contenido que generamos con la variable contenidoAutoGeneradoCarrito.
+
+                eventosArgPenales.append(creadorDeParrafoArgentina);
+
+                function contadorPenalArgentina(){
+                    contadorPenalesArgentina++ //Indicamos que Argentina pateo un penal y sumamos uno al contador
+                    console.log(argentinaGolesPenales.textContent);
+                }
+
+                contadorPenalArgentina()
+
+                
+
+            
+
+            }
+            
+        
+        }
+
+        setTimeout(disparoPenal, 3650)
+
+    }
 
 }
 
@@ -7698,7 +7761,9 @@ let textoCartelCampeonPenales = document.querySelector(".texto-cartel-campeon-pe
 
 function cartelArgentinaCampeonPenales(){
 
-    contenedorComentariosPenales.classList.add("ocultar-contenedor-comentarios"); //Ocultamos los comentarios para que no se sigan ejecutando
+    document.getElementById("comentarios-pen").remove(); // Borrar barra de comentarios
+
+    console.log(contenedorComentariosPenales + " existo o no?");
 
     argentinaGolesPenales = ""; //Vaciamos los goles para que el usuario no vea que siguen aconteciendo los penales
     
@@ -7731,6 +7796,7 @@ function cartelArgentinaCampeonPenales(){
 
     function cerrarModalPartidoAutomaticamente(){
         contenedorModalPenales.classList.remove("contenedor-modal--show");
+        location.href = "#top"; //Hacemos que la página vaya a la parte superior donde esta el elemento con el ID "TOP".
     }
 
     setTimeout(cerrarModalPartidoAutomaticamente, 6000)
@@ -7738,7 +7804,9 @@ function cartelArgentinaCampeonPenales(){
 
 function cartelBrasilCampeonPenales(){
 
-    contenedorComentariosPenales.classList.add("ocultar-contenedor-comentarios"); //Ocultamos los comentarios para que no se sigan ejecutando
+    document.getElementById("comentarios-pen").remove(); // Borrar barra de comentarios
+
+    console.log(contenedorComentariosPenales + " existo o no?");
 
     argentinaGolesPenales = ""; //Vaciamos los goles para que el usuario no vea que siguen aconteciendo los penales
 
@@ -7772,11 +7840,13 @@ function cartelBrasilCampeonPenales(){
 
     function cerrarModalPartidoAutomaticamente(){
         contenedorModalPenales.classList.remove("contenedor-modal--show");
+        location.href = "#top"; //Hacemos que la página vaya a la parte superior donde esta el elemento con el ID "TOP".
     }
 
     setTimeout(cerrarModalPartidoAutomaticamente, 6000)
     
 }
+
 
 function contenedorArgentinaCampeonPenales(){
 
@@ -7813,22 +7883,52 @@ function chequearFinDePartido(){ //Obtenemos la diferencia entre los penales y s
         diferenciaPenales = Number(brasilGolesPenales.textContent) - Number(argentinaGolesPenales.textContent);
 
         if (contadorPenalesBrasil == 3 && contadorPenalesArgentina == 3 && diferenciaPenales >= 3){
+            marcadorFinDePenales = true;
             contenedorBrasilCampeonPenales()
         }
 
         if (contadorPenalesBrasil == 4 && contadorPenalesArgentina == 3 && diferenciaPenales >= 3){
+            marcadorFinDePenales = true;
             contenedorBrasilCampeonPenales()
         }
 
         if (contadorPenalesBrasil == 4 && contadorPenalesArgentina == 4 && diferenciaPenales >= 2){
+            marcadorFinDePenales = true;
             contenedorBrasilCampeonPenales()
         }
 
-        if (contadorPenalesBrasil == 5 && contadorPenalesArgentina == 4 && diferenciaPenales >= 1){
+        if (contadorPenalesBrasil == 5 && contadorPenalesArgentina == 4 && diferenciaPenales >= 2){
+            marcadorFinDePenales = true;
             contenedorBrasilCampeonPenales()
         }
 
-        if (contadorPenalesBrasil == contadorPenalesArgentina && contadorPenalesBrasil >= 5 && contadorPenalesArgentina >= 5 && diferenciaPenales >= 1){
+        if (contadorPenalesBrasil == 6 && contadorPenalesArgentina == 6 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+            contenedorBrasilCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 7 && contadorPenalesArgentina == 7 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+            contenedorBrasilCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 8 && contadorPenalesArgentina == 8 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+            contenedorBrasilCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 9 && contadorPenalesArgentina == 9 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+            contenedorBrasilCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 10 && contadorPenalesArgentina == 10 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+            contenedorBrasilCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 11 && contadorPenalesArgentina == 11 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
             contenedorBrasilCampeonPenales()
         }
     }
@@ -7838,25 +7938,65 @@ function chequearFinDePartido(){ //Obtenemos la diferencia entre los penales y s
         diferenciaPenales = Number(argentinaGolesPenales.textContent) - Number(brasilGolesPenales.textContent);
 
         if (contadorPenalesBrasil == 3 && contadorPenalesArgentina == 3 && diferenciaPenales >= 3){
+            marcadorFinDePenales = true;
             contenedorArgentinaCampeonPenales()
         }
 
-        if (contadorPenalesBrasil == 4 && contadorPenalesArgentina == 3 && diferenciaPenales >= 3){
+        if (contadorPenalesBrasil == 4 && contadorPenalesArgentina == 3 && diferenciaPenales >= 2){
+            marcadorFinDePenales = true;
             contenedorArgentinaCampeonPenales()
         }
 
         if (contadorPenalesBrasil == 4 && contadorPenalesArgentina == 4 && diferenciaPenales >= 2){
+            marcadorFinDePenales = true;
+            contenedorArgentinaCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 5 && contadorPenalesArgentina == 4 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
             contenedorArgentinaCampeonPenales()
         }
 
         if (contadorPenalesBrasil == 5 && contadorPenalesArgentina == 5 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
             contenedorArgentinaCampeonPenales()
         }
 
-        if (contadorPenalesBrasil == contadorPenalesArgentina && contadorPenalesBrasil >= 5 && contadorPenalesArgentina >= 5 && diferenciaPenales >= 1){
+        if (contadorPenalesBrasil == 6 && contadorPenalesArgentina == 6 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+            contenedorArgentinaCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 7 && contadorPenalesArgentina == 7 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
 
             contenedorArgentinaCampeonPenales()
         }
+
+        if (contadorPenalesBrasil == 8 && contadorPenalesArgentina == 8 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+
+            contenedorArgentinaCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 9 && contadorPenalesArgentina == 9 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+
+            contenedorArgentinaCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 10 && contadorPenalesArgentina == 10 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+
+            contenedorArgentinaCampeonPenales()
+        }
+
+        if (contadorPenalesBrasil == 11 && contadorPenalesArgentina == 11 && diferenciaPenales >= 1){
+            marcadorFinDePenales = true;
+
+            contenedorArgentinaCampeonPenales()
+        }
+
     }
     }
 
@@ -7878,61 +8018,61 @@ function definicionDePenal(){
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales2.dataset.text == "no-disponible"){
+    if (selectPenales2.dataset.text == "no-disponible" || selectPenales1.dataset.text == selectPenales2.dataset.text){
         selectPenales2.dataset.text = selectPenales3.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales3.dataset.text == "no-disponible"){
+    if (selectPenales3.dataset.text == "no-disponible" || selectPenales2.dataset.text == selectPenales3.dataset.text){
         selectPenales3.dataset.text = selectPenales4.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales4.dataset.text == "no-disponible"){
+    if (selectPenales4.dataset.text == "no-disponible" || selectPenales3.dataset.text == selectPenales4.dataset.text){
         selectPenales4.dataset.text = selectPenales5.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales5.dataset.text == "no-disponible"){
+    if (selectPenales5.dataset.text == "no-disponible" || selectPenales4.dataset.text == selectPenales5.dataset.text){
         selectPenales5.dataset.text = selectPenales6.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales6.dataset.text == "no-disponible"){
+    if (selectPenales6.dataset.text == "no-disponible" || selectPenales5.dataset.text == selectPenales6.dataset.text){
         selectPenales6.dataset.text = selectPenales7.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales7.dataset.text == "no-disponible"){
+    if (selectPenales7.dataset.text == "no-disponible" || selectPenales6.dataset.text == selectPenales7.dataset.text){
         selectPenales7.dataset.text = selectPenales8.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales8.dataset.text == "no-disponible"){
+    if (selectPenales8.dataset.text == "no-disponible" || selectPenales7.dataset.text == selectPenales8.dataset.text){
         selectPenales8.dataset.text = selectPenales9.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales9.dataset.text == "no-disponible"){
+    if (selectPenales9.dataset.text == "no-disponible" || selectPenales8.dataset.text == selectPenales9.dataset.text){
         selectPenales9.dataset.text = selectPenales10.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales10.dataset.text == "no-disponible"){
+    if (selectPenales10.dataset.text == "no-disponible" || selectPenales9.dataset.text == selectPenales10.dataset.text){
         selectPenales10.dataset.text = selectPenales11.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")
     }
 
-    if (selectPenales11.dataset.text == "no-disponible"){
+    if (selectPenales11.dataset.text == "no-disponible" || selectPenales10.dataset.text == selectPenales11.dataset.text){
         selectPenales11.dataset.text = selectPenales1.dataset.text;
 
         console.log("hubo un cambio de jugador porque no estaba disponible para patear")

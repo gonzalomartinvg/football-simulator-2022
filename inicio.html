@@ -1265,7 +1265,7 @@
     
         <div class="contenedores contenedor-info-personal">
 
-            <h2>Sobre mi</h2>
+            <h2 id="top">Sobre mi</h2> <!-- Tiene el ID top para que vaya para arriba y muestre esto cuando se cierre el modal de campeón-->
 
             <div class="animacion-icono-contenedor">
                 <img class="icono-sobre-mi" src="images/nerd.png" alt="">
@@ -1418,7 +1418,7 @@
 
                     <input type="button" class="boton ocultar-botones" id="reinicio" value="Reset &#8635;" onclick="reinicio();" disabled> <!--Oculto-->
                     
-                    <button class="boton-elegir-pateadores-penales">Penales</button> <!--Oculto hasta penales-->
+                    <button class="boton-elegir-pateadores-penales ocultar-botones">Penales</button> <!--Oculto hasta penales-->
                 </div>
 
             </div>
@@ -1486,14 +1486,14 @@
             <!--Contenedor de comentarios-->
 
             <div class="contenedor-comentarios-general contenedor-comentarios-general-penales">
-                <div class="comentarios comentarios-penales"><p>Comienza Argentina la tanda de penales.</p></div>
+                <div id= "comentarios-pen" class="comentarios comentarios-penales"><p>Comienza Argentina la tanda de penales.</p></div>
             </div>
 
             <!--Barra de equipos-->
 
             <div class="barra-equipos">
-                <div class="barra-arg"></div>
-                <div class="barra-bra"></div>
+                <div class="barra-arg-penales"></div>
+                <div class="barra-bra-penales"></div>
             </div>
 
              <!--PENALES-->

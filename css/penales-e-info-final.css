@@ -4,6 +4,10 @@
     display: none;
 }
 
+.bloque-2{
+    margin-top: 10rem;
+}
+
 .boton-elegir-pateadores-penales{ /*Clase que adquiere el botón que nos lleva a elegir a los jugadores para los penales.*/
     justify-self: end;
     width: fit-content;
