@@ -4274,7 +4274,7 @@ function consultaSiTodosAlAtaqueEstaActivado() { //APARTADO QUE SOLO LO MODIFICA
                 let golBrasilContextoAtipico = Math.floor(Math.random() * (100 - 0) + 0);
                 ;
 
-                if (golBrasilContextoAtipico <= 15) { //Gol de Brasil
+                if (golBrasilContextoAtipico <= 20) { //Gol de Brasil
 
                     //Definimos quién hizo el gol
 
@@ -4423,7 +4423,7 @@ function consultaSiTodosAlAtaqueEstaActivado() { //APARTADO QUE SOLO LO MODIFICA
 
                 let golArgentinaContextoAtipico = Math.floor(Math.random() * (100 - 0) + 0);
 
-                if (golArgentinaContextoAtipico <= 15) { //Gol de Argentina
+                if (golArgentinaContextoAtipico <= 20) { //Gol de Argentina
 
                     //Definimos quién hizo el gol
 
